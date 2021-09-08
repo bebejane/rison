@@ -1479,7 +1479,7 @@
     "extract-files" "^9.0.0"
     "form-data" "^3.0.0"
 
-"graphql@14.x || 15.x":
+"graphql@^15.5.3", "graphql@14.x || 15.x":
   "integrity" "sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA=="
   "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.5.3.tgz"
   "version" "15.5.3"
