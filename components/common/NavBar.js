@@ -1,17 +1,25 @@
 import styles from './NavBar.module.scss'
+import Link from 'next/link'
 
-export default function NavBar({menu}) {  
-  console.log(menu)
+export default function NavBar({menu}) {
   return (
     <div className={styles.nav}>
       <div>
-        <img className={styles.logo} src={'/images/Logo.svg'}/>
+        <Link href={`/`}>
+          <a>
+            <img className={styles.logo} src={'/images/Logo.svg'}/>
+          </a>
+        </Link>
       </div>
-      <div className={styles['nav-items']}>
+      <ul className={styles['nav-items']}>
         {menu.map((m)=>
-          <div className={styles['nav-item']}>{m.title}</div>
+          <li className={styles['nav-item']}>
+            <Link href={`/${m.page.slug}`}>
+              <a>{m.title}</a>
+            </Link>
+          </li>
         )}    
-      </div>
+      </ul>
     </div>
   )
 }
