@@ -6,7 +6,7 @@ import Footer from "../components/common/footer";
 const IndexPage = () => (
   <>
     <Head>
-      <title>Rison</title>
+      <title>Rison | Title</title>
       <meta name="description" content=""/>
     </Head>
     <Footer />
