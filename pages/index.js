@@ -9,7 +9,7 @@ export default function Home({menu}) {
   return (
     <>
       <Head>
-        <title>Rison | Title</title>
+        <title>Rison</title>
         <meta name="description" content=""/>
       </Head>
       <NavBar menu={menu}/>

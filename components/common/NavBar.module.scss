@@ -1,0 +1,22 @@
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 3%;
+  width: 100%;
+  .nav-items{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .nav-item{
+      margin:10px;
+      a{
+
+      }
+    }
+  }
+  .logo{
+    flex: 0 0;
+  }
+}
