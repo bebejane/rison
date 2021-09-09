@@ -1,19 +1,36 @@
 import Head from "next/head";
-import React from "react";
-import Content from "../components/common/Content";
-import menuController from "../controllers/menu";
-import pageController from "../controllers/page";
 import fs from 'fs'
+import Content from "../components/common/Content";
+import menuController from "../controller/menu";
+import pageController from "../controller/page";
 
-export default function OurOffer({slug, title}) {
+import styles from './index.module.scss'
+
+export default function Page({slug, page}) {
+  console.log(page)
   return (
     <>
       <Head>
-        <title>Rison | {title}</title>
-        <meta name="description" content=""/>
+        <title>Rison | {page.title}</title>
+        <meta name="description" content={page.intro}/>
       </Head>
       <Content>
-        Dynamic {slug}
+        <h1 className={styles['intro-header']}>
+          {page.title}
+        </h1>
+        <div className={styles.intro}>
+          {page.intro}
+        </div>
+        <div className={styles.sections}>
+          {page.blocks.map((block)=>
+            <div className={styles.section}>
+              {block.headline}
+              {block.image && 
+                <Image data={block.image.responsiveImage} />
+              }
+            </div>
+          )}
+        </div>
       </Content>
     </>
   )
@@ -31,10 +48,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const {slug} = params
-  const {page} = pageController.get(slug[0]);
+  const page = await pageController.get(slug[0]);
   return {
     props: {
-      slug   
+      slug,
+      page: page || {}
     }
   }
 }

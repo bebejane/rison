@@ -1,6 +1,6 @@
-import { getQuery } from "../lib/utils/api";
+import { apiQuery } from "../lib/utils/api";
 
-const listQuery = `{
+const allQuery = `{
   allMenus{
     title,
     slug,
@@ -15,7 +15,7 @@ const listQuery = `{
 
 export default {
   all: async () =>{
-    const {allMenus} = await getQuery(listQuery);
+    const {allMenus} = await apiQuery(allQuery);
     return allMenus
   }
 };

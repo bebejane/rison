@@ -15,7 +15,9 @@
     "graphql-request": "^3.5.0",
     "next": "11.1.2",
     "react": "17.0.2",
+    "react-datocms": "^1.6.3",
     "react-dom": "17.0.2",
+    "react-markdown": "^7.0.1",
     "sass": "^1.39.0",
     "swr": "^1.0.0"
   },

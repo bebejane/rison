@@ -1,7 +1,7 @@
 import styles from './NavBar.module.scss'
 import Link from 'next/link'
 import classes from 'classnames'
-import menuController from "../../controllers/menu";
+import menuController from "../../controller/menu";
 import {useEffect, useState} from 'react'
 
 export default function NavBar() {
