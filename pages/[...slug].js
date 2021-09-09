@@ -30,7 +30,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const {slug} = params
   const {page} = pageController.get(slug[0]);
-  console.log(page)
   return {
     props: {
       slug   
