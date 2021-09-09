@@ -20,6 +20,7 @@ export default function OurOffer({slug, title}) {
 export async function getStaticPaths() {
   const menu = await menuController.all()
   const paths = menu.map((m)=>{ return {params:{slug:[m.slug]}}})
+  
   return {
     paths,
     fallback: false
