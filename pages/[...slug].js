@@ -3,7 +3,7 @@ import fs from 'fs'
 import Content from "../components/common/Content";
 import menuController from "../controller/menu";
 import pageController from "../controller/page";
-
+import { Image } from 'react-datocms';
 import styles from './index.module.scss'
 
 export default function Page({slug, page}) {
