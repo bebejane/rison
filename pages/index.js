@@ -1,19 +1,18 @@
 import Head from "next/head";
 import React from "react";
-import Footer from "../components/common/Footer";
-import NavBar from "../components/common/NavBar";
+import Content from "../components/common/Content";
 import menuController from "../lib/controller/menu";
 
 export default function Home({menu}) {
-  
   return (
     <>
       <Head>
         <title>Rison</title>
         <meta name="description" content=""/>
       </Head>
-      <NavBar menu={menu}/>
-      <Footer />
+      <Content menu={menu}>
+        Content
+      </Content>
     </>
   )
 }
