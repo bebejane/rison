@@ -20,12 +20,12 @@ export default function OurOffer({slug, title}) {
 }
 export async function getStaticPaths() {
   const menu = await menuController.all()
-  const dirs = fs.readdirSync(process.cwd() + '/pages', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name)
+  const dirs = fs.readdirSync(`${process.cwd()}/pages`, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name)
   const paths = menu.filter(m => !dirs.includes(m.slug)).map((m)=>{ return {params:{slug:[m.slug]}}})
   
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   };
 }
 
