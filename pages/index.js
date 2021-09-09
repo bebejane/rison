@@ -5,13 +5,14 @@ import styles from './index.module.scss'
 import { Image } from 'react-datocms';
 
 export default function Home({page, contact, menu}) {
+  
   return (
     <Content page={page} contact={contact} menu={menu}>
       <div className={styles.container}>        
         <div className={styles.intro}>
           <div className={styles.introWrap}>
             <h1 className={styles['intro-header']}>
-              Hello, we are Rison
+              Hello, we are Rison.
             </h1>
             {page.intro}
           </div>

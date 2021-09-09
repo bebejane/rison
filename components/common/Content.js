@@ -11,7 +11,7 @@ export default function Content({page, contact, menu, children}) {
   return (
     <>
       <Head>
-        <title>Rison | {page.titel}</title>
+        <title>Rison | {page.title}</title>
         <meta name="description" content={page.description}/>
       </Head>
       <div className={contentStyle}>
