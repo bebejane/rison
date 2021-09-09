@@ -2,7 +2,7 @@ footer {
   width: 100%;
   display: flex;
   flex-grow: 1;
-  justify-content: end;
+  justify-content: flex-end;
   flex-direction: column-reverse;
 
   @include mq($from: desktop) {

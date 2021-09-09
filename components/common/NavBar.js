@@ -12,8 +12,8 @@ export default function NavBar({menu}) {
         </Link>
       </div>
       <ul className={styles['nav-items']}>
-        {menu.map((m)=>
-          <li className={styles['nav-item']}>
+        {menu.map((m, idx)=>
+          <li key={idx} className={styles['nav-item']}>
             <Link href={`/${m.page.slug}`}>
               <a>{m.title}</a>
             </Link>

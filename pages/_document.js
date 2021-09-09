@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
 class MyDocument extends Document {
@@ -12,7 +12,7 @@ class MyDocument extends Document {
     const { ids } = this.props;
 
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -26,14 +26,14 @@ class MyDocument extends Document {
           <meta property="og:site_name" content="" />
           <meta property="og:title" content="" />
           <meta property="og:description" content=""/>
-          <meta property="og:url" content="https://next-realworld.now.sh/" />
-          <meta property="og:image" content="https://next-realworld.now.sh/images/share-link.png"/>
+          <meta property="og:url" content="" />
+          <meta property="og:image" content=""/>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
