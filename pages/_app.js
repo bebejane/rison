@@ -4,8 +4,7 @@ import Layout from "../components/common/Layout";
 import ContextProvider from "../lib/context";
 import "../styles/index.scss";
 
-const MyApp = ({ Component, pageProps, menu }) => (
-  
+const MyApp = ({ Component, pageProps, menu }) => (  
   <>
     <Head>
       <meta

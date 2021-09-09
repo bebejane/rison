@@ -1,28 +1,25 @@
 import Head from "next/head";
 import Content from "../components/common/Content";
-import menuController from "../controller/menu";
-import pageController from "../controller/page";
+import {menuController, pageController, contactController} from "../controller";
 import styles from './index.module.scss'
 import { Image } from 'react-datocms';
 
-export default function Home({menu, page}) {
-  console.log(page)
+export default function Home({page, contact, menu}) {
   return (
-    <>
-      <Head>
-        <title>Rison | {page.titel}</title>
-        <meta name="description" content=""/>
-      </Head>
-      <Content menu={menu}>
-        <h1 className={styles['intro-header']}>
-          Hello, we are Rison
-        </h1>
+    <Content page={page} contact={contact} menu={menu}>
+      <div className={styles.container}>        
         <div className={styles.intro}>
-          {page.intro}
+          <div className={styles.introWrap}>
+            <h1 className={styles['intro-header']}>
+              Hello, we are Rison
+            </h1>
+            {page.intro}
+          </div>
         </div>
+
         <div className={styles.sections}>
-          {page.blocks.map((block)=>
-            <div className={styles.section}>
+          {page.blocks.map((block, idx)=>
+            <div key={idx} className={styles.section}>
               {block.headline}
               {block.image && 
                 <Image data={block.image.responsiveImage} />
@@ -30,18 +27,21 @@ export default function Home({menu, page}) {
             </div>
           )}
         </div>
-      </Content>
-    </>
+      </div>
+    </Content>
   )
 }
 
 export async function getStaticProps(context) {
-  const menu = await menuController.all();
   const page = await pageController.get('start');
+  const contact = await contactController.get();
+  const menu = await menuController.all();
+
   return { 
     props: {
-      menu,
-      page
+      page,
+      contact,
+      menu
     },
     revalidate:10
   }

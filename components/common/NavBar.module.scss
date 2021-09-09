@@ -1,9 +1,17 @@
+@import '../../styles/partials/mediaqueries.scss';
+
 .nav{
+  position: sticky;
+  top:0;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
   padding: 3%;
   width: 100%;
+  max-height: 70px;
+  min-height: 70px;
   
   .nav-items{
     list-style: none;
@@ -17,8 +25,26 @@
 
       }
     }
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  .nav-mobile{
+    flex: 0 0 auto;
+    @include mq($from: desktop) {
+      display: none;
+    }
+    img{
+      height:40px;
+    }
   }
   .logo{
-    flex: 0 0;
+    flex: 1 1 auto;
+    img{
+      width: auto;
+    }
+    &:hover{
+      text-decoration: none !important;
+    }
   }
 }

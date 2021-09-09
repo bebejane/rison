@@ -1,4 +1,27 @@
 .footer{
   color:#fff;
   background-color:#00be73;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:20px;
+  box-sizing: border-box;
+  .title{
+    color:#000;
+    flex: 0 0 130px;
+  }
+  .address{
+    flex: 1 1 auto;
+  }
+  .social{
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 auto;
+    img{
+      height:20px;
+      width:auto;
+      margin-left:10px;
+    }
+  }
 }

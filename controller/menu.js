@@ -11,11 +11,11 @@ const allQuery = `{
       }
     }
   }
-}`
+}`;
 
 export default {
-  all: async () =>{
-    const {allMenus} = await apiQuery(allQuery);
-    return allMenus
-  }
+	all: async () => {
+		const { allMenus } = await apiQuery(allQuery);
+		return allMenus;
+	},
 };

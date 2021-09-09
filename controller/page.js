@@ -6,7 +6,7 @@ const allQuery = `{
     slug
     intro
   }
-}`
+}`;
 
 const getQuery = `
   query getPage($slug: String!){
@@ -43,15 +43,15 @@ const getQuery = `
       }
     } 
   }
-`
+`;
 
 export default {
-  all: async () =>{
-    const {allPages} = await apiQuery(allQuery);
-    return allPages
-  },
-  get: async (slug) =>{
-    const {page} = await apiQuery(getQuery, {slug});
-    return page
-  }
+	all: async () => {
+		const { allPages } = await apiQuery(allQuery);
+		return allPages;
+	},
+	get: async (slug) => {
+		const { page } = await apiQuery(getQuery, { slug });
+		return page;
+	},
 };

@@ -12,11 +12,11 @@ const getQuery = `{
     title
     twitter
   }
-}`
+}`;
 
 export default {
-  get: async () =>{
-    const {contact} = await apiQuery(getQuery);
-    return contact
-  }
+	get: async () => {
+		const { contact } = await apiQuery(getQuery);
+		return contact;
+	},
 };

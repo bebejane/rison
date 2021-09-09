@@ -4,26 +4,24 @@ import classes from 'classnames'
 import menuController from "../../controller/menu";
 import {useEffect, useState} from 'react'
 
-export default function NavBar() {
-
+export default function NavBar({menu}) {
+  /*
   const [menu, setMenu] = useState([]);
   useEffect(async ()=>{
     const menus = await menuController.all();
     setMenu(menus)
   }, [])
-
+  */
   const navStyle = classes(styles['nav-items']);
   const navItemStyle = classes(styles['nav-item']);
 
   return (
     <div className={styles.nav}>
-      <div>
-        <Link href={`/`}>
-          <a>
-            <img className={styles.logo} src={'/images/Logo.svg'}/>
-          </a>
-        </Link>
-      </div>
+      <Link href={`/`}>
+        <a className={styles.logo}>
+          <img src={'/images/Logo.svg'}/>
+        </a>
+      </Link>
       <ul className={navStyle}>
         {menu.map((m, idx)=>
           <li key={idx} className={navItemStyle}>
@@ -33,6 +31,9 @@ export default function NavBar() {
           </li>
         )}    
       </ul>
+      <div className={styles['nav-mobile']}>
+        <img className={styles.logo} src={'/images/icons/icon-menu.svg'}/>
+      </div>
     </div>
   )
 }

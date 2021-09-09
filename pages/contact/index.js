@@ -1,34 +1,38 @@
 import Head from "next/head";
 import React from "react";
 import Content from "../../components/common/Content";
-import contactController from "../../controller/contact";
-import ReactMarkdown from 'react-markdown'
+import { contactController, pageController, menuController } from "../../controller";
+import ReactMarkdown from "react-markdown";
 
-export default function Contact({contact}) {
-  console.log(contact)
-  return (
-    <>
-      <Head>
-        <title>Rison | Contact</title>
-        <meta name="description" content=""/>
-      </Head>
-      <Content>
-        {contact.headline}<br/>
-        <ReactMarkdown>{contact.text}</ReactMarkdown>
-        {contact.address}<br/>
-        
-        {contact.facebook}<br/>
+export default function Contact({page, contact, menu}) {
+	
+	return (
+		<>
+			<Content page={page} contact={contact} menu={menu}>
+				{contact.headline}
+				<br />
+				<ReactMarkdown>{contact.text}</ReactMarkdown>
+				{contact.address}
+				<br />
 
-      </Content>
-    </>
-  )
+				{contact.facebook}
+				<br />
+			</Content>
+		</>
+	);
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
+  const page = await pageController.get('contact');
   const contact = await contactController.get();
-  return {
+  const menu = await menuController.all();
+
+  return { 
     props: {
-      contact
-    }
+      page:contact,
+      contact,
+      menu
+    },
+    revalidate:10
   }
 }
