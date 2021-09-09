@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Content from "../components/common/Content";
-import menuController from "../lib/controller/menu";
+import menuController from "../controllers/menu";
 
 export default function Home({menu}) {
   return (
@@ -18,8 +18,7 @@ export default function Home({menu}) {
 }
 
 export async function getStaticProps(context) {
-  console.log('run staticProps')
-  const menu = await menuController.get();
+  const menu = await menuController.all();
   return { 
     props: {
       menu

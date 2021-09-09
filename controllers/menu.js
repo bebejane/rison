@@ -1,8 +1,9 @@
-import { client } from "../utils/api";
+import { getQuery } from "../lib/utils/api";
 
 const listQuery = `{
   allMenus{
     title,
+    slug,
     page {
       ... on PageRecord {
         slug
@@ -13,8 +14,8 @@ const listQuery = `{
 }`
 
 export default {
-  get: async () =>{
-    const {allMenus} = await client.request(listQuery);
+  all: async () =>{
+    const {allMenus} = await getQuery(listQuery);
     return allMenus
   }
 };

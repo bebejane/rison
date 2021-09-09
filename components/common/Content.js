@@ -9,7 +9,7 @@ export default function Content({menu, children}) {
 
   return (
     <div className={contentStyle}>
-      <NavBar menu={menu}/>
+      <NavBar/>
       {children}
       <Footer />
     </div>

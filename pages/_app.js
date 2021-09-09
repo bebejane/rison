@@ -2,9 +2,10 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/common/Layout";
 import ContextProvider from "../lib/context";
-import "../styles/style.scss";
+import "../styles/index.scss";
 
-const MyApp = ({ Component, pageProps }) => (
+const MyApp = ({ Component, pageProps, menu }) => (
+  
   <>
     <Head>
       <meta
@@ -19,5 +20,4 @@ const MyApp = ({ Component, pageProps }) => (
     </ContextProvider>
   </>
 );
-
 export default MyApp;

@@ -10,7 +10,6 @@ class MyDocument extends Document {
 
   render() {
     const { ids } = this.props;
-
     return (
       <Html lang="en">
         <Head>
