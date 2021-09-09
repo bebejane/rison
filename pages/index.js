@@ -13,7 +13,6 @@ export default function Home({menu}) {
         <meta name="description" content=""/>
       </Head>
       <NavBar menu={menu}/>
-      
       <Footer />
     </>
   )

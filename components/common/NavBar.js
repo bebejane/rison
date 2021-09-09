@@ -1,7 +1,12 @@
 import styles from './NavBar.module.scss'
 import Link from 'next/link'
+import classes from 'classnames'
 
 export default function NavBar({menu}) {
+  
+  const navStyle = classes(styles['nav-items']);
+  const navItemStyle = classes(styles['nav-item']);
+
   return (
     <div className={styles.nav}>
       <div>
@@ -11,9 +16,9 @@ export default function NavBar({menu}) {
           </a>
         </Link>
       </div>
-      <ul className={styles['nav-items']}>
+      <ul className={navStyle}>
         {menu.map((m, idx)=>
-          <li key={idx} className={styles['nav-item']}>
+          <li key={idx} className={navItemStyle}>
             <Link href={`/${m.page.slug}`}>
               <a>{m.title}</a>
             </Link>
