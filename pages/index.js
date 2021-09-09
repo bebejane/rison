@@ -19,12 +19,13 @@ export default function Home({menu}) {
   )
 }
 
-
 export async function getStaticProps(context) {
+  console.log('run staticProps')
   const menu = await menuController.get();
   return { 
     props: {
       menu
-    }
+    },
+    revalidate:10
   }
 }
