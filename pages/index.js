@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Content from "../components/common/Content";
-import {menuController, pageController, contactController} from "../controller";
+import {menuController, pageController, contactController} from "../controllers";
 import styles from './index.module.scss'
 import { Image } from 'react-datocms';
 

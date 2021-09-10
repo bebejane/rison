@@ -1,7 +1,7 @@
 import Head from "next/head";
 import fs from 'fs'
 import Content from "../components/common/Content";
-import {menuController, pageController, contactController} from "../controller";
+import {menuController, pageController, contactController} from "../controllers";
 import { Image } from 'react-datocms';
 import styles from './index.module.scss'
 

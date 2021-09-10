@@ -1,7 +1,6 @@
 import styles from './NavBar.module.scss'
 import Link from 'next/link'
 import classes from 'classnames'
-import menuController from "../../controller/menu";
 import {useEffect, useState} from 'react'
 
 export default function NavBar({menu}) {
@@ -17,11 +16,13 @@ export default function NavBar({menu}) {
 
   return (
     <div className={styles.nav}>
-      <Link href={`/`}>
-        <a className={styles.logo}>
-          <img src={'/images/Logo.svg'}/>
-        </a>
-      </Link>
+      <div className={styles.logo}>
+        <Link href={`/`}>
+          <a>
+            <img src={'/images/Logo.svg'}/>
+          </a>
+        </Link>
+      </div>
       <ul className={navStyle}>
         {menu.map((m, idx)=>
           <li key={idx} className={navItemStyle}>

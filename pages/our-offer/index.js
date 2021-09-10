@@ -1,6 +1,5 @@
-import Head from "next/head";
 import Content from "../../components/common/Content";
-import { contactController, pageController, menuController } from "../../controller";
+import { contactController, pageController, menuController } from "../../controllers";
 
 export default function OurOffer({page, contact, menu}) {
   return (

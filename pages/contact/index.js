@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Content from "../../components/common/Content";
-import { contactController, pageController, menuController } from "../../controller";
+import { contactController, pageController, menuController } from "../../controllers";
 import ReactMarkdown from "react-markdown";
 
 export default function Contact({page, contact, menu}) {
