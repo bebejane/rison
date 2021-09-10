@@ -1,4 +1,7 @@
 import { apiQuery, apiQueries } from "../lib/api";
+import { menuController, contactController } from "./";
+import { getContactQuery } from "./contact";
+import { allMenusQuery } from "./menu";
 
 const getAllPages = `
   query getAllPages {
@@ -43,7 +46,9 @@ const getPage = `
           bigHeadline
         }
       }
-    } 
+    }
+    ${getContactQuery}
+    ${allMenusQuery}
   }
 `;
 
@@ -53,13 +58,10 @@ export default {
 		return allPages;
 	},
 	get: async (slug, preview) => {
-		const { page } = await apiQuery(getPage, { slug }, preview);
-		return page;
-	},
-  both: async (slug = 'start') =>{
-    const data = await apiQueries({q:getPage, p:{slug}}, getAllPages);
-    return data;
-  }
+    console.log(slug)
+		const data = await apiQuery(getPage, { slug }, preview);
+		return data;
+	}
 };
 
 export {

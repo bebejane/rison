@@ -1,10 +1,10 @@
 import Content from "../../components/common/Content";
-import {menuController, homeController, contactController} from "../../controllers";
+import {homeController} from "../../controllers";
 import styles from '../index.module.scss'
 import { Image } from 'react-datocms';
 
 export default function Home({page, contact, menu}) {
-  
+  console.log(page);
   return (
     <Content page={page} contact={contact} menu={menu}>
       <div className={styles.container}>        
@@ -33,15 +33,10 @@ export default function Home({page, contact, menu}) {
 }
 
 export async function getStaticProps({preview}) {
-  const page = await homeController.get('home', preview);
-  const contact = await contactController.get();
-  const menu = await menuController.all();
-  
+  const data = await homeController.get(preview)
   return { 
     props: {
-      page,
-      contact,
-      menu
+      ...data
     },
     revalidate:10
   }

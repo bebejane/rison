@@ -3,40 +3,46 @@ import pageController from "./page";
 import contactController from "./contact";
 import homeController from "./home";
 
+const controllers = {
+	'page': pageController,
+	'menu': menuController,
+	'contact' : contactController,
+	'home': homeController,
+}
+
 const getControllerByType = (type) => {
-	switch (type) {
-		case "page":
-			return pageController;
-		case "contact":
-			return contactController;
-		case "home":
-			return homeController;
-		case "menu":
-			return menuController;
-		default:
-			throw "Controller not found!";
-	}
+	if(!controllers[type])
+		throw `Controller ${type} doesn't exist!`
+	return controllers[type] 
 };
 
 const getObjectBySlug = async (type, slug, preview) => {
 	const controller = getControllerByType(type);
-	const data = {... await controller.get(slug, preview),  _type:type, _slug:slug};
-  return data;
+	const data = controller.get.length > 1 ? await controller.get(slug, preview) : await controller.get(preview)
+  return {...data,  _type:type, _slug:slug};
 };
 
 const getPathBySlug = (type, slug) => {
   switch (type) {
+		case "home":
+			return `/`
 		case "page":
 			return `/${slug}`
 		case "contact":
 			return `/${slug}`
-		case "home":
-			return `/`
 		case "menu":
 			return `/${slug}`
 		default:
-			throw "Path not found!";
+			throw `Path ${type} not found!`;
 	}
 };
 
-export { menuController, pageController, contactController, homeController, getControllerByType, getObjectBySlug, getPathBySlug };
+export { 
+	menuController, 
+	pageController, 
+	contactController, 
+	homeController, 
+	getControllerByType, 
+	getObjectBySlug, 
+	getPathBySlug 
+};

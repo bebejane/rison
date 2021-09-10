@@ -31,20 +31,17 @@ export default function Page({page, contact, menu}) {
 
 export async function getStaticProps({params, preview}) {
   const slug = params.slug[0]
-  const page = await pageController.get(slug, preview);
-  const contact = await contactController.get();
-  const menu = await menuController.all();
+  const data = await pageController.get(slug, preview)
   
   return { 
     props: {
-      page,
-      contact,
-      menu
+      ...data
     },
     revalidate:10
   }
 }
 export async function getStaticPaths() {
+  
   const menu = await menuController.all()
   const dirs = fs.readdirSync(`${process.cwd()}/pages`, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name)
   const paths = menu.filter(m => !dirs.includes(m.slug) && m.slug !== 'home').map((m)=>{ return {params:{slug:[m.slug]}}})

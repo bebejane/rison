@@ -12,16 +12,11 @@ export default function OurOffer({page, contact, menu}) {
 }
 
 export async function getStaticProps({params, preview}) {
+  const data = await pageController.get('our-offer', preview);
   
-  const page = await pageController.get('our-offer', preview);
-  const contact = await contactController.get();
-  const menu = await menuController.all();
-
   return { 
     props: {
-      page,
-      contact,
-      menu
+      ...data
     },
     revalidate:10
   }

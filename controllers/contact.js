@@ -1,6 +1,6 @@
 import { apiQuery } from "../lib/api";
 
-const getQuery = `{
+const getContactQuery = `
   contact {
     address
     facebook
@@ -12,11 +12,15 @@ const getQuery = `{
     title
     twitter
   }
-}`;
+`;
 
 export default {
-	get: async (slug = 'contact', preview) => {
-		const { contact } = await apiQuery(getQuery, {}, preview);
+	get: async (preview) => {
+		const { contact } = await apiQuery(`{${getContactQuery}}`, {}, preview);
 		return contact;
 	},
 };
+
+export {
+  getContactQuery
+}
