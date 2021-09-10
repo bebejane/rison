@@ -18,14 +18,13 @@ export default function Home({page, contact, menu}) {
             {page.intro}
           </div>
         </div>
-
         <div className={styles.sections}>
           {page.blocks.map((block, idx)=>
             <div key={idx} className={styles.section}>
-              {block.headline}
-              {block.image && 
-                <Image data={block.image.responsiveImage} />
-              }
+              <p>{block.headline}</p>
+              <p>{block.desc}</p>
+              <p>{block.bigHeadline}</p>
+              {block.image && <Image data={block.image.responsiveImage} />}
             </div>
           )}
         </div>

@@ -28,7 +28,7 @@ export default function NavBar({menu}) {
       <ul className={navStyle}>
         {menu.map((m, idx)=>
           <li key={idx} className={navItemStyle}>
-            <Link href={`/${m.slug || m.page.slug }`}>
+            <Link href={`/${m.slug || '' }`}>
               <a>{m.title}</a>
             </Link>
           </li>
