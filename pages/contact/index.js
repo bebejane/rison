@@ -1,5 +1,6 @@
 import React from "react";
 import Content from "../../components/common/Content";
+import {contactController } from "../../controllers";
 import ReactMarkdown from "react-markdown";
 
 export default function Contact({page, contact, menu}) {
@@ -17,7 +18,7 @@ export default function Contact({page, contact, menu}) {
 }
 
 export async function getStaticProps({preview}) {
-  const data = await pageController.get('contact', preview);
+  const data = await contactController.get(preview);
   return { 
     props: {
       ...data

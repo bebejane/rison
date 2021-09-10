@@ -9,9 +9,9 @@ export default function Page({page, contact, menu}) {
 
   return (
     <Content page={page} contact={contact} menu={menu}>
-      <h1 className={styles['intro-header']}>
+      <h2 className={styles['intro-header']}>
         {page.title}
-      </h1>
+      </h2>
       <div className={styles.intro}>
         {page.intro}
       </div>

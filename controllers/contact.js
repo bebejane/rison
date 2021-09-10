@@ -1,4 +1,6 @@
 import { apiQuery } from "../lib/api";
+import { getPageQuery } from "./page";
+import { allMenusQuery } from "./menu";
 
 const getContactQuery = `
   contact {
@@ -14,10 +16,18 @@ const getContactQuery = `
   }
 `;
 
+const getContact = `
+  query getContact {
+    ${getContactQuery}
+    ${allMenusQuery}
+  }
+`;
+
+
 export default {
 	get: async (preview) => {
-		const { contact } = await apiQuery(`{${getContactQuery}}`, {}, preview);
-		return contact;
+		const { contact, menu } = await apiQuery(getContact, {}, preview);
+		return {contact, menu};
 	},
 };
 
