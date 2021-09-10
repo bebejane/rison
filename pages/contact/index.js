@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React from "react";
 import Content from "../../components/common/Content";
 import { contactController, pageController, menuController } from "../../controllers";
@@ -14,7 +13,6 @@ export default function Contact({page, contact, menu}) {
 				<ReactMarkdown>{contact.text}</ReactMarkdown>
 				{contact.address}
 				<br />
-
 				{contact.facebook}
 				<br />
 			</Content>

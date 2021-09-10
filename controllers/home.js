@@ -1,20 +1,9 @@
 import { apiQuery, apiQueries } from "../lib/utils/api";
 
-const getAllPages = `
-  query getAllPages {
-    allPages{
-      title
-      slug
-      intro
-    }
-  }
-`;
-
-const getPage = `
-  query getPage($slug: String!){
-    page(filter: {slug: {eq: $slug}}){
-      title
-      slug
+const getHome = `
+  query getHome {
+    home {
+      header
       intro
       blocks {
         ... on ImageWithHeadlineAndShortDescRecord {
@@ -41,6 +30,20 @@ const getPage = `
           shortHeadline
           updatedAt
           bigHeadline
+          image {
+            responsiveImage {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              alt
+              title
+              base64
+            }
+          }
         }
       }
     } 
@@ -48,21 +51,12 @@ const getPage = `
 `;
 
 export default {
-	all: async () => {
-		const { allPages } = await apiQuery(getAllPages);
-		return allPages;
-	},
-	get: async (slug) => {
-		const { page } = await apiQuery(getPage, { slug });
-		return page;
-	},
-  both: async (slug = 'start') =>{
-    const data = await apiQueries({q:getPage, p:{slug}}, getAllPages);
-    return data;
-  }
+	get: async () => {
+		const { home } = await apiQuery(getHome);
+		return home;
+	}
 };
 
 export {
-  getPage,
-  getAllPages
+  getHome
 }

@@ -1,8 +1,9 @@
-import Head from "next/head";
 import Content from "../components/common/Content";
-import {menuController, pageController, contactController} from "../controllers";
+import {menuController, homeController, contactController} from "../controllers";
 import styles from './index.module.scss'
 import { Image } from 'react-datocms';
+import { Context } from "../lib/context";
+import { useContext, useEffect } from "react";
 
 export default function Home({page, contact, menu}) {
   
@@ -12,7 +13,7 @@ export default function Home({page, contact, menu}) {
         <div className={styles.intro}>
           <div className={styles.introWrap}>
             <h1 className={styles['intro-header']}>
-              Hello, we are Rison.
+              {page.header}
             </h1>
             {page.intro}
           </div>
@@ -34,10 +35,10 @@ export default function Home({page, contact, menu}) {
 }
 
 export async function getStaticProps(context) {
-  const page = await pageController.get('start');
+  const page = await homeController.get();
   const contact = await contactController.get();
   const menu = await menuController.all();
-
+  
   return { 
     props: {
       page,
