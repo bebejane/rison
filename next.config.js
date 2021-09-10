@@ -9,6 +9,7 @@ module.exports = (phase, {defaultConfig}) => {
           `,
       }
   }
+  /*
   defaultConfig.redirects = async () => {
     return [{
       source: '/home',
@@ -16,5 +17,6 @@ module.exports = (phase, {defaultConfig}) => {
       permanent: true,
     }]
   }
+  */
   return defaultConfig;
 }

@@ -5,14 +5,15 @@ export default function OurOffer({page, contact, menu}) {
   return (
     <>
       <Content page={page} contact={contact} menu={menu}>
-        Our Offer
+        {page.title}
       </Content>
     </>
   )
 }
 
-export async function getStaticProps(context) {
-  const page = await pageController.get('our-offer');
+export async function getStaticProps({params, preview}) {
+  
+  const page = await pageController.get('our-offer', preview);
   const contact = await contactController.get();
   const menu = await menuController.all();
 

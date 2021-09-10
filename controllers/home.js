@@ -1,4 +1,4 @@
-import { apiQuery, apiQueries } from "../lib/utils/api";
+import { apiQuery, apiQueries } from "../lib/api";
 
 const getHome = `
   query getHome {
@@ -51,8 +51,8 @@ const getHome = `
 `;
 
 export default {
-	get: async () => {
-		const { home } = await apiQuery(getHome);
+	get: async (slug = 'home', preview) => {
+		const { home } = await apiQuery(getHome, {}, preview);
 		return home;
 	}
 };

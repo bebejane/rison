@@ -6,6 +6,7 @@ import { Image } from 'react-datocms';
 import styles from './index.module.scss'
 
 export default function Page({page, contact, menu}) {
+
   return (
     <Content page={page} contact={contact} menu={menu}>
       <h1 className={styles['intro-header']}>
@@ -28,9 +29,9 @@ export default function Page({page, contact, menu}) {
   )
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params, preview}) {
   const slug = params.slug[0]
-  const page = await pageController.get(slug);
+  const page = await pageController.get(slug, preview);
   const contact = await contactController.get();
   const menu = await menuController.all();
   

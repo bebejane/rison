@@ -1,4 +1,4 @@
-import { apiQuery } from "../lib/utils/api";
+import { apiQuery } from "../lib/api";
 
 const allQuery = `{
   allMenus{
@@ -14,8 +14,8 @@ const allQuery = `{
 }`;
 
 export default {
-	all: async () => {
-		const { allMenus } = await apiQuery(allQuery);
+	all: async (slug = 'menu', preview) => {
+		const { allMenus } = await apiQuery(allQuery, {}, preview);
 		return allMenus;
 	},
 };

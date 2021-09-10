@@ -1,9 +1,7 @@
-import Content from "../components/common/Content";
-import {menuController, homeController, contactController} from "../controllers";
-import styles from './index.module.scss'
+import Content from "../../components/common/Content";
+import {menuController, homeController, contactController} from "../../controllers";
+import styles from '../index.module.scss'
 import { Image } from 'react-datocms';
-import { Context } from "../lib/context";
-import { useContext, useEffect } from "react";
 
 export default function Home({page, contact, menu}) {
   

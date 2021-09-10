@@ -1,4 +1,4 @@
-import { apiQuery } from "../lib/utils/api";
+import { apiQuery } from "../lib/api";
 
 const getQuery = `{
   contact {
@@ -15,8 +15,8 @@ const getQuery = `{
 }`;
 
 export default {
-	get: async () => {
-		const { contact } = await apiQuery(getQuery);
+	get: async (slug = 'contact', preview) => {
+		const { contact } = await apiQuery(getQuery, {}, preview);
 		return contact;
 	},
 };

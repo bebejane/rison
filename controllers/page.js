@@ -1,4 +1,4 @@
-import { apiQuery, apiQueries } from "../lib/utils/api";
+import { apiQuery, apiQueries } from "../lib/api";
 
 const getAllPages = `
   query getAllPages {
@@ -52,8 +52,8 @@ export default {
 		const { allPages } = await apiQuery(getAllPages);
 		return allPages;
 	},
-	get: async (slug) => {
-		const { page } = await apiQuery(getPage, { slug });
+	get: async (slug, preview) => {
+		const { page } = await apiQuery(getPage, { slug }, preview);
 		return page;
 	},
   both: async (slug = 'start') =>{
