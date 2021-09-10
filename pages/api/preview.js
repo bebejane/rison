@@ -15,7 +15,7 @@ export default async function preview(req, res) {
     if (!post)
       return res.status(401).json({ message: 'Invalid slug' })
       
-    res.setPreviewData({})
+    res.setPreviewData({}, {maxAge: 10})
     res.writeHead(307, { Location: `/${post._slug}` })
     res.end()
   }catch(err){
