@@ -1,5 +1,5 @@
-import Content from "../../components/common/Content";
-import { pageController } from "../../controllers";
+import Content from "/components/common/Content";
+import { pageController } from "/controllers";
 
 export default function OurOffer({page, contact, menu}) {
   return (
