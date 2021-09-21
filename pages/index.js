@@ -1,5 +1,6 @@
 import Home from '/components/pages/home'
 import {homeController} from '/controllers';
+
 export default Home;
 
 export async function getStaticProps({preview}) {
