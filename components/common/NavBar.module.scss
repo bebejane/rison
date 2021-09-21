@@ -26,6 +26,9 @@
       a{
 
       }
+      &:nth-child(odd){
+        background-color: pink;
+      }
     }
     @include mq($until: desktop) {
       display: none;
