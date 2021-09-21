@@ -12,6 +12,7 @@ export default function Page({page, contact, menu}) {
       <div className={styles.intro}>
         {page.intro}
       </div>
+      
       <div className={styles.sections}>
         {page.blocks.map((block, idx)=>
           <div key={idx} className={styles.section}>

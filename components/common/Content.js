@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 export default function Content({page = {}, contact, menu, children}) {
+
   const contentStyle = classes(styles.content);
   const mainStyle = classes(styles.main);
   
@@ -14,7 +15,7 @@ export default function Content({page = {}, contact, menu, children}) {
         <title>Rison {page.title ? ` | ${page.title}` : ''}</title>
         <meta name="description" content={page.description}/>
       </Head>
-      <div className={contentStyle}>
+      <div className={styles.content}>
         <NavBar menu={menu}/>
         <div className={mainStyle}>
           {children}

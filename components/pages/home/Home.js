@@ -1,8 +1,11 @@
 import Content from "/components/common/Content";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
+import Button from '/components/common/Button'
+
 
 export default function Home({page, contact, menu}) {  
+  
   return (
     <Content page={page} contact={contact} menu={menu}>
       <div className={styles.container}>        
@@ -14,6 +17,7 @@ export default function Home({page, contact, menu}) {
             {page.intro}
           </div>
         </div>
+        <Button/>
         <div className={styles.sections}>
           {page.blocks.map((block, idx)=>
             <div key={idx} className={styles.section}>
