@@ -1,5 +1,4 @@
 import Content from "/components/common/Content";
-import {homeController } from "/controllers/home";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
 
