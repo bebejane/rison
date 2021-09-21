@@ -13,11 +13,5 @@ export default function OurOffer({page, contact, menu}) {
 
 export async function getStaticProps({params, preview}) {
   const data = await pageController.get('our-offer', preview);
-  
-  return { 
-    props: {
-      ...data
-    },
-    revalidate:10
-  }
+  return { props: {...data}, revalidate:10 }
 }

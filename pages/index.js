@@ -2,9 +2,6 @@ import Content from "../components/common/Content";
 import {homeController } from "../controllers";
 import styles from './index.module.scss'
 import { Image } from 'react-datocms';
-import { Context } from "../lib/context";
-import { useContext, useEffect } from "react";
-
 export default function Home({page, contact, menu}) {
   
   return (
@@ -35,10 +32,5 @@ export default function Home({page, contact, menu}) {
 
 export async function getStaticProps({preview}) {
   const data = await homeController.get(preview)
-  return { 
-    props: {
-      ...data
-    },
-    revalidate:10
-  }
+  return { props: {...data}, revalidate:10 }
 }

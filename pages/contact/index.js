@@ -19,10 +19,5 @@ export default function Contact({page, contact, menu}) {
 
 export async function getStaticProps({preview}) {
   const data = await contactController.get(preview);
-  return { 
-    props: {
-      ...data
-    },
-    revalidate:10
-  }
+  return { props: {...data}, revalidate:10 }
 }

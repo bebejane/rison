@@ -6,9 +6,12 @@ import { Image } from 'react-datocms';
 import styles from './index.module.scss'
 
 export default function Page({page, contact, menu}) {
+  
+  if(!page) return null
 
   return (
     <Content page={page} contact={contact} menu={menu}>
+
       <h2 className={styles['intro-header']}>
         {page.title}
       </h2>
@@ -32,13 +35,7 @@ export default function Page({page, contact, menu}) {
 export async function getStaticProps({params, preview}) {
   const slug = params.slug[0]
   const data = await pageController.get(slug, preview)
-  
-  return { 
-    props: {
-      ...data
-    },
-    revalidate:10
-  }
+  return { props: {...data}, revalidate:10 }
 }
 export async function getStaticPaths() {
   
