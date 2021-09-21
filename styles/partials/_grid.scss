@@ -1,6 +1,6 @@
 // GRID
-$columns: 14;
-$gutter: 1.7%;
+$columns: 16;
+$gutter: 1%;
 $column-width: ((100% - (($columns - 1) * $gutter)) / $columns);
 
 
@@ -26,18 +26,11 @@ $gutter-nested: $gutter / $difference12; //Denna ska göras om
   @return ($nestedWidth * $element + $gutter * ($element - 1)) / $difference;
 }
 
-//@function spanNestedGrid($container, $element) {
-  //$temp: 100% / spanGrid($container);
-  //@return $temp * spanGrid($element);
-//}
 
 @function nestedGridGutter($container) {
   $temp: 100% / spanGrid($container);
   @return $temp * $gutter;
 }
-
-
-
 
 @mixin three-column-thumb-container() {
   @include outerMargins();

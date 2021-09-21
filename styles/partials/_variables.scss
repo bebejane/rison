@@ -1,43 +1,25 @@
 // COLOR
-$black:             #282828;
-$red:               #e13000;
-$blue:              #0072bc;
-$green:             #349f49;
+$green:             #00be73;
+$black:             #3A3A3A;
+$white:             white;
+$light-gray:        rgb(133, 133, 133);
+$alert-red:         red;
+$alert-green:       $green;
+$alert-blue:       blue;
+$disabled-gray: $light-gray;
 
-$background:        #F8F8F8;
-$light-gray:        #f2f2f2;
-$menu-gray:         #ececec;
-$mid-gray:          #E0E0E0;
-$dark-gray:         #424242;
+// MARGINS & SPACES
+$outer-margin: 3.7%;
+$space: 30px;
 
+// SET OUTER MARGINS ON SECTION
+@mixin outerMargins() {
+  padding-left: $outer-margin * 0.8;
+  padding-right: $outer-margin * 0.8;
 
-$image-border: 5px solid $mid-gray;
+  @include mq($from: tablet) {
+    padding-left: $outer-margin;
+    padding-right: $outer-margin;
+  }
+}
 
-
-/*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
-*********************/
-
-$alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
-
-
-$white:             #fff;
-
-$gray:              #eaedf2;
-$text-color:        #5c6b80;
-$meta-gray:         #9fa6b4;
-
-$tan:               #eceee5;
-
-$bones-pink:        #f01d4f;
-
-$link-color:        $bones-pink;
-$link-hover:        darken($link-color, 9%);
-
-$border-color:      #ccc;
-$disabled-gray:     #cfcfcf;
