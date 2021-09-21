@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import Layout from "../components/common/Layout";
+import Layout from "/components/common/Layout";
 import "../styles/index.scss";
-import { Provider } from "../lib/context";
+import { Provider } from "/lib/context";
 
 const MyApp = ({ Component, pageProps, menu }) => (  
   <>
