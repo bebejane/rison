@@ -3,6 +3,5 @@
 }
 
 .main{
-  padding-right:2%; 
-  padding-left:2%;
+  @include outerMargins();
 }

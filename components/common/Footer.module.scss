@@ -1,28 +1,36 @@
 .footer{
-  color:#fff;
+  @include outerMargins();
+  padding-top: $space;
+  padding-bottom: $space;
+  color: $white;
   background-color: $green;
-  width:spanGrid(2);
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding:20px;
-  box-sizing: border-box;
+  justify-content: space-between;
+
   .title{
-    color:#000;
-    flex: 0 0 130px;
+    color: $black;
+    width: spanGrid(2);
   }
+
   .address{
-    flex: 1 1 auto; 
+    @include mq($until: tablet) {
+      display: none;
+     }
+    flex: 1 1 auto;
   }
+
   .social{
     display: flex;
     flex-direction: row;
-    flex: 0 0 auto;
+    justify-content: flex-end;
     img{
       height:20px;
       width:auto;
-      margin-left:10px;
+      &:not(:last-child) {
+        margin-right: $space;
+      }
     }
   }
 }
