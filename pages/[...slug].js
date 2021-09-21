@@ -1,36 +1,8 @@
-import Head from "next/head";
+import Page from '/components/pages/page'
+import {pageController, menuController} from '/controllers';
 import fs from 'fs'
-import Content from "../components/common/Content";
-import {menuController, pageController, contactController} from "../controllers";
-import { Image } from 'react-datocms';
-import styles from './index.module.scss'
 
-export default function Page({page, contact, menu}) {
-  
-  if(!page) return null
-
-  return (
-    <Content page={page} contact={contact} menu={menu}>
-
-      <h2 className={styles['intro-header']}>
-        {page.title}
-      </h2>
-      <div className={styles.intro}>
-        {page.intro}
-      </div>
-      <div className={styles.sections}>
-        {page.blocks.map((block, idx)=>
-          <div key={idx} className={styles.section}>
-            <p>{block.headline}</p>
-            <p>{block.desc}</p>
-            <p>{block.bigHeadline}</p>
-            {block.image && <Image data={block.image.responsiveImage} />}
-          </div>
-        )}
-      </div>
-    </Content>
-  )
-}
+export default Page;
 
 export async function getStaticProps({params, preview}) {
   const slug = params.slug[0]

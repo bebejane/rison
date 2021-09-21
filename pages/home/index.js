@@ -1,5 +1,5 @@
-import Home from '../'
-import {homeController} from "../../controllers";
+import Home from '/components/pages/home'
+import {homeController} from "/controllers";
 
 export default Home;
 

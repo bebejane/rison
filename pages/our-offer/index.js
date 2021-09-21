@@ -1,13 +1,11 @@
 import Content from "../../components/common/Content";
-import { contactController, pageController, menuController } from "../../controllers";
+import { pageController } from "../../controllers";
 
 export default function OurOffer({page, contact, menu}) {
   return (
-    <>
-      <Content page={page} contact={contact} menu={menu}>
-        {page.title}
-      </Content>
-    </>
+    <Content page={page} contact={contact} menu={menu}>
+      {page.title}
+    </Content>
   )
 }
 
