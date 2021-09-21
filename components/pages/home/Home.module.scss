@@ -16,7 +16,7 @@
   padding-right: spanGrid(2);
   height: calc(100vh - 70px); 
   font-size: 20px;
-  color:#00be73;
+  color: $green;
   
   @include mq($from: desktop) {
     font-size: 30px;
