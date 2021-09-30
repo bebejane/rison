@@ -2,7 +2,6 @@
   display: flex;
   @include verticalMarginTop();
 
-
   &:nth-child(odd) {
     flex-direction: row-reverse;
 
@@ -13,13 +12,14 @@
     padding-left: spanGrid(1);
     padding-right: spanGrid(1);   
 
-    h1 {
+    h2 {
       color: $green;
     }
 
   }
 
   figure {
+    mix-blend-mode: multiply;
     width: 50%;
     padding-left: spanGrid(1);
     padding-right: spanGrid(1);  

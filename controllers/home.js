@@ -6,7 +6,7 @@ const getHomeQuery = `
   page: home {
     header
     intro
-    blocks {
+      blocks {
       ... on ImageWithHeadlineAndShortDescRecord {
         id
         desc
@@ -51,6 +51,8 @@ const getHomeQuery = `
         }
       }
     }
+    ctaText(markdown: false)
+    readMoreText
   }
 `
 const getHome = `
