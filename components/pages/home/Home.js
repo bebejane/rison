@@ -4,13 +4,14 @@ import SectionFollow from "/components/common/SectionFollow";
 import Button from "/components/common/Button";
 import SectionImageHeadline from "/components/common/SectionImageHeadline";
 import styles from './Home.module.scss'
-import { Image } from 'react-datocms';
-import { useRef } from "react"
+import {useRef} from 'react';
+import {useAppState} from '/lib/context';
 
 export default function Home({ page, contact, menu }) {
   const contentRef =  useRef()
   const scrollRef =  useRef()
   const handleScrollDown = () => scrollRef.current.scrollIntoView({behavior:'smooth'})
+  const [state, setAppState] = useAppState()
 
   return (
     <Content page={page} contact={contact} menu={menu} ref={contentRef}>
@@ -38,7 +39,7 @@ export default function Home({ page, contact, menu }) {
             <h2>
               <Markdown>{page.ctaText}</Markdown>
             </h2>
-            <Button label={'Contact us'}/>
+            <Button label={'Contact us'} onClick={()=>setAppState({type:'SHOW_CONTACT'})}/>
             <p>
               <Markdown>{page.readMoreText}</Markdown>
             </p>
