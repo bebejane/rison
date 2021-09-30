@@ -17,7 +17,7 @@ const Contact = ({ contact, showContact, setShowContact }) => {
 				<h3>{contact.headlineCareer}</h3>
 				<h2><ReactMarkdown>{contact.textCareer}</ReactMarkdown></h2>
 			</div>
-			<Footer contact={contact} />
+			{showContact && <Footer contact={contact} />}
 		</div>
 	)
 };
