@@ -3,6 +3,9 @@
 }
 
 .intro {
+  @include outerMargins();
+
+  .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -11,7 +14,8 @@
   flex-direction: column;
   padding-left: spanGrid(2);
   padding-right: spanGrid(2);
-  height: calc(100vh - 70px);
+  height: calc(100vh - 100px);
+  }
 
   h2 {
     color: $green;
@@ -26,13 +30,34 @@
 
 .outro {
   background-color: $beige;
-  padding-left: spanGrid(2);
-  padding-right: spanGrid(2);
-  @include verticalMarginTop();
-  @include verticalMarginBottom();
-  
-  h2 {
-    color: $green;
+  @include outerMargins();
+
+
+  .wrapper {
+    padding-left: spanGrid(2);
+    padding-right: spanGrid(2);
+    @include verticalMarginTop();
+    @include verticalMarginBottom();
   }
 
+  h2 {
+    color: $green;
+
+    p {
+      margin-bottom: 0;
+
+
+      &:first-of-type {
+        color: $black;
+        padding-bottom: 0;
+
+      }
+    }
+  }
+
+  p {
+    a {
+      color: $green;
+    }
+  }
 }

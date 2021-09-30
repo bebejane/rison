@@ -2,7 +2,6 @@ button {
   $height: 200px;
   border-radius: $height/2;
   border: 3px solid $green;
-  font-size: $nav-size;
   padding: 10px;
   padding-left: .8em;
   padding-right: .8em;
@@ -14,6 +13,5 @@ button {
 
   &:hover {
     cursor: pointer;
-    min-height: 120px;
   }
 }

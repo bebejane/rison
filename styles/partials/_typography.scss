@@ -35,7 +35,6 @@ h2, h2 p {
 
   strong {
 		font-weight: normal;
-		color: $black;
 	}
 
 }
@@ -64,8 +63,10 @@ footer {
   font-size: $body-size;
 }
 
-nav {
+nav, button {
+  font-family: $body-font;
   font-size: $body-large;
+
 }
 
 strong, .strong {

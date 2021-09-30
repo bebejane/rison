@@ -1,11 +1,9 @@
 import styles from './Button.module.scss'
-const Button = ({ children }) => {
-  
+const Button = ({ label }) => {
   return (
-    <div className={styles.button}>
-      buttton
-    </div>
+    <button className={styles.button}>
+      {label}
+    </button>
   )
 }
-
 export default Button;
