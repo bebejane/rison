@@ -26,6 +26,11 @@
       padding-top: 1em;
     }
   }
+  .scrollArrow{
+    transform: rotate(90deg);
+    text-align: center;
+    cursor: pointer;
+  }
 }
 
 .outro {
