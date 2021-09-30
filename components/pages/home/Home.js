@@ -4,8 +4,11 @@ import SectionFollow from "/components/common/SectionFollow";
 import SectionImageHeadline from "/components/common/SectionImageHeadline";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
+import { useRef } from "react"
 
 export default function Home({ page, contact, menu }) {
+  const scrollRef =  useRef()
+  const handleScrollDown = () => scrollRef.current.scrollIntoView({behavior:'smooth'})
 
   return (
     <Content page={page} contact={contact} menu={menu}>
@@ -21,10 +24,10 @@ export default function Home({ page, contact, menu }) {
           </div>
           <div>
             <h3>This is how it works</h3>
-            <h3>→</h3>
+            <h3 className={styles.scrollArrow} onClick={handleScrollDown}>→</h3>
           </div>
         </section>
-        <SectionFollow blocks={page.blocks} />
+        <SectionFollow blocks={page.blocks} ref={scrollRef}/>
         <SectionImageHeadline blocks={page.sectionWebapp} />
         <section className={styles.outro}>
           <h2>

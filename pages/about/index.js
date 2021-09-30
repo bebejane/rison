@@ -1,7 +1,7 @@
-import OurOffer from "/components/pages/our-offer";
+import About from "/components/pages/about";
 import { pageController } from "/controllers";
 
-export default OurOffer;
+export default About;
 
 export async function getStaticProps({params, preview}) {
   const data = await pageController.get('our-offer', preview);
