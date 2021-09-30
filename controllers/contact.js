@@ -6,11 +6,13 @@ const getContactQuery = `
   contact {
     address
     facebook
-    headline
     id
     instagram
     slug
-    text(markdown: false)
+    headlineGeneral
+    headlineCareer
+    textGeneral(markdown: false)
+    textCareer(markdown: false)
     title
     twitter
   }

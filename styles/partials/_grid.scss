@@ -9,12 +9,8 @@ $column-width: ((100% - (($columns - 1) * $gutter)) / $columns);
   @return $column-width * $amount + $gutter * ($amount - 1);
 }
 
-$totalWidth12cols: spanGrid(12);
-$difference12: $totalWidth12cols / 100%;
-$gutter-nested: $gutter / $difference12; //Denna ska göras om
 
-
-// WIDTH OF UNITS IN GRID WITH  LAST GUTTER
+// WIDTH OF UNITS IN GRID WITH LAST GUTTER
 @function spanGridWithGutter($amount) {
   @return $column-width * $amount + $gutter * $amount;
 }
@@ -25,7 +21,6 @@ $gutter-nested: $gutter / $difference12; //Denna ska göras om
   $difference: $totalWidth / 100%;
   @return ($nestedWidth * $element + $gutter * ($element - 1)) / $difference;
 }
-
 
 @function nestedGridGutter($container) {
   $temp: 100% / spanGrid($container);

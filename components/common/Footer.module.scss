@@ -1,7 +1,7 @@
 .footer{
   @include outerMargins();
-  padding-top: $space;
-  padding-bottom: $space;
+  padding-top: $space * 0.7;
+  padding-bottom: $space  * 0.7;
   color: $white;
   background-color: $green;
   width: 100%;
@@ -9,12 +9,23 @@
   flex-direction: row;
   justify-content: space-between;
 
+  @include mq($from: tablet) {
+    padding-top: $space;
+    padding-bottom: $space;
+   }
+
   .title{
     color: $black;
-    width: spanGrid(2);
+    display: flex;
+    align-items: center;
+    @include mq($from: tablet) {
+      width: spanGridWithGutter(2);
+     }
   }
 
   .address{
+    display: flex;
+    align-items: center;
     @include mq($until: tablet) {
       display: none;
      }
@@ -25,12 +36,15 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    img{
-      height:20px;
-      width:auto;
-      &:not(:last-child) {
-        margin-right: $space;
+    a {
+      &:not(:last-of-type) {
+        padding-right: $space / 2;
       }
+      img{
+        height:20px;
+        width:auto;
+      }      
     }
+  
   }
 }

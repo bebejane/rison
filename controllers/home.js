@@ -27,6 +27,8 @@ const getHomeQuery = `
           }
         }
       }
+    }
+    sectionWebapp {
       ... on ImageWithHeadlineRecord {
         id
         shortHeadline

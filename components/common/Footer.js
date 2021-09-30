@@ -4,8 +4,8 @@ import styles from "./Footer.module.scss";
 
 const Footer = ({ contact : {address, email, twitter, facebook, instagram} }) => {
 	return (
-		<div className={styles.footer}>
-			<div className={styles.title}>Riton Capital</div>
+		<footer className={styles.footer}>
+			<div className={styles.title}>Rison Capital</div>
 			<div className={styles.address}>{address}</div>
 			<div className={styles.email}>{email}</div>
 			
@@ -26,7 +26,7 @@ const Footer = ({ contact : {address, email, twitter, facebook, instagram} }) =>
 					</Link>
 				}
 			</div>
-		</div>
+		</footer>
 	)
 };
 

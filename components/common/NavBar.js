@@ -4,7 +4,7 @@ import classes from 'classnames'
 import {useEffect, useState, useContext} from 'react'
 import { Context } from "../../lib/context";
 
-export default function NavBar({menu}) {
+export default function NavBar({menu, setShowContact, showContact}) {
   /*
   const [menu, setMenu] = useState([]);
   useEffect(async ()=>{
@@ -17,7 +17,7 @@ export default function NavBar({menu}) {
   const navItemStyle = classes(styles['nav-item']);
 
   return (
-    <div className={styles.nav}>
+    <nav className={styles.nav}>
       <div className={styles.logo}>
         <Link href={`/`}>
           <a>
@@ -34,9 +34,10 @@ export default function NavBar({menu}) {
           </li>
         )}    
       </ul>
+      <button className={styles.contact} onClick={()=>setShowContact(!showContact)}>Contact us</button>
       <div className={styles['nav-mobile']}>
         <img className={styles.logo} src={'/images/icons/icon-menu.svg'}/>
       </div>
-    </div>
+    </nav>
   )
 }

@@ -1,0 +1,5 @@
+.section {
+  width: 100%;
+  background-color: $beige;
+  @include outerMargins();
+}

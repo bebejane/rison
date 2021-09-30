@@ -1,0 +1,34 @@
+.contact {
+  height: 100vh;
+  background-color: $green;
+  position: sticky;
+  //top: 0;
+  z-index: 100;
+  width: 100%;
+  @include outerMargins();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  &.hidden {
+    display: none;
+  }
+
+  a {
+    color: $black;
+  }
+
+  h3 {
+    color: $black;
+  }
+
+  strong {
+    font-weight: normal;
+    color: $black;
+  }
+
+  .wrapper {
+    width: spanGrid(12);
+  }
+}

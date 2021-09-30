@@ -1,4 +1,3 @@
-//@import '../../styles/partials/mediaqueries.scss';
 
 .nav{
   position: sticky;
@@ -23,9 +22,6 @@
     justify-content: flex-end;
     .nav-item{
       margin:10px;
-      a{
-
-      }
     }
     @include mq($until: desktop) {
       display: none;
@@ -49,4 +45,9 @@
       text-decoration: none !important;
     }
   }
+
+  .contact {
+    margin-left: 1em;
+  }
+
 }

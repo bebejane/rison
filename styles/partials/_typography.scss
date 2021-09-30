@@ -1,40 +1,49 @@
 
-$headline-size:         72px;
+$headline-size:         3.2vw;
+$headline-size-mobile:  26px;
 $headline-size-mid:     60px;
 
 $intro-size:            3.2vw;
 
 $body-size:             18px;
 $body-large:            22px;
-$mid-size:            22px;
-
+$mid-size:              22px;
 
 $small-size:            13px;
 $nav-size:              18px;
 
 $line-height:           1.3em;
-$line-height-headline:  1em;
+$line-height-headline:  1.2em;
 
 
-h1, {
-  font-size: $headline-size * 0.7;
+h2, h2 p {
+  font-size: $headline-size-mobile;
   font-family: $headline-font;
   line-height: $line-height-headline;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  transition: color .3s ease-out;
+  padding-bottom: .2em;
 
   @include mq($from: tablet) {
     font-size: $headline-size;
   }
 }
 
+h3 {
+  text-transform: uppercase;
+  font-size: $nav-size;
+  font-family: $body-font;
+  font-weight: normal;
+  letter-spacing: 1px;
+  padding-bottom: 1em;
+}
+
 p {
   line-height: $line-height;
-  font-size: $body-size * .8;
+  font-size: $body-large;
 
-  &.intro-big {
+  &.intro-big, &.intro-big p {
       font-family: $headline-font;
       font-size: $intro-size;    
     }

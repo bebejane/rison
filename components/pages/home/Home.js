@@ -1,4 +1,6 @@
 import Content from "/components/common/Content";
+import SectionFollow from "/components/common/SectionFollow";
+import SectionImageHeadline from "/components/common/SectionImageHeadline";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
 
@@ -8,23 +10,15 @@ export default function Home({page, contact, menu}) {
       <div className={styles.container}>        
         <div className={styles.intro}>
           <div className={styles.introWrap}>
-            <h1 className={styles['intro-header']}>
+            <h2 className={styles['intro-header']}>
               {page.header}
-            </h1>
             {page.intro}
+            </h2>
           </div>
         </div>
-        <div className={styles.sections}>
-          {page.blocks.map((block, idx)=>
-            <div key={idx} className={styles.section}>
-              <p>{block.headline}</p>
-              <p>{block.desc}</p>
-              <p>{block.bigHeadline}</p>
-              {block.image && <Image data={block.image.responsiveImage} />}
-            </div>
-          )}
+        <SectionFollow blocks={page.blocks}/>
+        <SectionImageHeadline blocks={page.sectionWebapp}/>
         </div>
-      </div>
     </Content>
   )
 }

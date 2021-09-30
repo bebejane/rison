@@ -1,9 +1,6 @@
 .container{
   width:100%;
 }
-.en-ny-class {
-
-}
 
 .intro{
   display: flex;
@@ -15,19 +12,24 @@
   padding-left: spanGrid(2);
   padding-right: spanGrid(2);
   height: calc(100vh - 70px); 
-  font-size: 20px;
   color: $green;
-  
-  @include mq($from: desktop) {
-    font-size: 30px;
   }
-  h1 {
-    color:#000;
-    font-size: 26px;
-    margin-bottom: 20px;
-    @include mq($from: desktop) {
-      font-size: 40px;
+
+  .section {
+    background-color: green;
+
+    .myDiv {
+      display: flex;
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    article {
+      width: 50%;
+    }
+
+    figure {
+      width: 50%;
     }
   }
-  line-height: 1.3;
-}
