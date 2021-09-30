@@ -11,7 +11,7 @@ export default function Content({page = {}, contact, menu, children}) {
   const contentStyle = classes(styles.content);
   const mainStyle = classes(styles.main);
   const [showContact, setShowContact] = useState(false)
-  console.log(showContact);
+  
   return (
     <>
       <Head>
@@ -24,8 +24,8 @@ export default function Content({page = {}, contact, menu, children}) {
           {children}
         </div>
       </div>
-      <Contact contact={contact} className={!showContact && styles.hidden} />
-     <Footer contact={contact} />
+      <Contact contact={contact} showContact={showContact} setShowContact={setShowContact} />
+      <Footer contact={contact} />
     </>
   )
 }
