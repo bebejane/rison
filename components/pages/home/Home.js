@@ -26,7 +26,7 @@ export default function Home({ page, contact, menu }) {
             </div>
             <div>
               <h3>This is how it works</h3>
-              <h3>→</h3>
+              <h3 className={styles.scrollArrow} onClick={handleScrollDown}>→</h3>
             </div>
           </div>
         </section>
