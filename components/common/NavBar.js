@@ -2,9 +2,11 @@ import styles from './NavBar.module.scss'
 import Link from 'next/link'
 import classes from 'classnames'
 import {useEffect, useState, useContext} from 'react'
-import { Context } from "../../lib/context";
+import { AppContext } from "/lib/context";
 
 export default function NavBar({menu, setShowContact, showContact}) {
+
+  const {state, dispath} = useContext(AppContext)
   /*
   const [menu, setMenu] = useState([]);
   useEffect(async ()=>{
@@ -12,7 +14,7 @@ export default function NavBar({menu, setShowContact, showContact}) {
     setMenu(menus)
   }, [])
   */
-  
+  console.log(state)
   const navStyle = classes(styles['nav-items']);
   const navItemStyle = classes(styles['nav-item']);
 

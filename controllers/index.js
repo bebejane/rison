@@ -2,6 +2,7 @@ import menuController from "./menu";
 import pageController from "./page";
 import contactController from "./contact";
 import homeController from "./home";
+import ourOfferController from "./ourOffer";
 
 const controllers = {
 	'page': pageController,
@@ -41,7 +42,8 @@ export {
 	menuController, 
 	pageController, 
 	contactController, 
-	homeController, 
+	homeController,
+	ourOfferController, 
 	getControllerByType, 
 	getObjectBySlug, 
 	getPathBySlug 

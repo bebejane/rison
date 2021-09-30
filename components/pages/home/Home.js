@@ -8,11 +8,12 @@ import { Image } from 'react-datocms';
 import { useRef } from "react"
 
 export default function Home({ page, contact, menu }) {
+  const contentRef =  useRef()
   const scrollRef =  useRef()
   const handleScrollDown = () => scrollRef.current.scrollIntoView({behavior:'smooth'})
 
   return (
-    <Content page={page} contact={contact} menu={menu}>
+    <Content page={page} contact={contact} menu={menu} ref={contentRef}>
       <div className={styles.container}>
         <section className={styles.intro}>
           <div className={styles.wrapper}>
