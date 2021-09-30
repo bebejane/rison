@@ -7,12 +7,7 @@ import Contact from "./Contact";
 import {useState} from "react";
 import {motion} from "framer-motion"
 
-const variants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-}
-const pageVariants = {
+const pageAnimation = {
   initial: {
     x: '100%',
     opacity: 1,
@@ -46,7 +41,7 @@ export default function Content({page = {}, contact, menu, children}) {
         initial="initial"
         animate="animate"
         exit="exit"
-        variants={pageVariants}
+        variants={pageAnimation}
       >
         <div className={contentStyle}>
           <NavBar menu={menu} setShowContact={setShowContact} showContact={showContact} />
