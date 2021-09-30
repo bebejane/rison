@@ -22,11 +22,6 @@
 	h3 {
 		color: $black;
 	}
-	strong {
-		font-weight: normal;
-		color: $black;
-	}
-  
 	.close {
     @include outerMargins();
     opacity: 0;

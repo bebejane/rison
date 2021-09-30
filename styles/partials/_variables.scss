@@ -3,16 +3,17 @@ $green:             #00be73;
 $black:             #3A3A3A;
 $white:             white;
 $beige:             #E1DCD2;
+$light-beige:       lighten($beige, 10%);
 $light-gray:        rgb(133, 133, 133);
 $alert-red:         red;
 $alert-green:       $green;
-$alert-blue:       blue;
-$disabled-gray: $light-gray;
+$alert-blue:         blue;
+$disabled-gray:     $light-gray;
 
 // MARGINS & SPACES
 $outer-margin: 3.7%;
 $space: 30px;
-$scale-space: 2vw;
+$scale-space: 2.5vw;
 
 // SET OUTER MARGINS ON SECTION
 @mixin outerMargins() {
@@ -30,6 +31,14 @@ $scale-space: 2vw;
 
   @include mq($from: tablet) {
     padding-top: $scale-space * 2;
+  }
+}
+
+@mixin verticalMarginBottom() {
+  padding-bottom: $scale-space;
+
+  @include mq($from: tablet) {
+    padding-bottom: $scale-space * 2;
   }
 }
 
