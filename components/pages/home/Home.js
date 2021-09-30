@@ -1,11 +1,9 @@
 import Content from "/components/common/Content";
+import Markdown from "/components/common/Markdown";
 import SectionFollow from "/components/common/SectionFollow";
 import SectionImageHeadline from "/components/common/SectionImageHeadline";
-import ReactMarkdown from "react-markdown";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
-import Button from '/components/common/Button'
-
 
 export default function Home({ page, contact, menu }) {
 
@@ -30,10 +28,10 @@ export default function Home({ page, contact, menu }) {
         <SectionImageHeadline blocks={page.sectionWebapp} />
         <section className={styles.outro}>
           <h2>
-          <ReactMarkdown>{page.ctaText}</ReactMarkdown>
+            <Markdown>{page.ctaText}</Markdown>
           </h2>
           <p>
-           <ReactMarkdown>{page.readMoreText}</ReactMarkdown>
+            <Markdown>{page.readMoreText}</Markdown>
           </p>
         </section>
       </div>
