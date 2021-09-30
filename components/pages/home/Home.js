@@ -3,8 +3,11 @@ import SectionFollow from "/components/common/SectionFollow";
 import SectionImageHeadline from "/components/common/SectionImageHeadline";
 import styles from './Home.module.scss'
 import { Image } from 'react-datocms';
+import Button from '/components/common/Button'
+
 
 export default function Home({page, contact, menu}) {  
+  
   return (
     <Content page={page} contact={contact} menu={menu}>
       <div className={styles.container}>        

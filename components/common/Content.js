@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import {useState} from "react";
 
 export default function Content({page = {}, contact, menu, children}) {
+
   const contentStyle = classes(styles.content);
   const mainStyle = classes(styles.main);
   const [showContact, setShowContact] = useState(false)
