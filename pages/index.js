@@ -14,7 +14,7 @@ export default function Home({ page, contact, menu }) {
 	return (
 		<Content page={page} contact={contact} menu={menu} ref={contentRef}>
 			<div className={styles.container}>
-				<section className={styles.intro}>
+				<div className={styles.intro}>
 					<div className={styles.wrapper}>
 						<div>
 							<h2 className={styles["intro-header"]}>{page.header}</h2>
@@ -27,7 +27,7 @@ export default function Home({ page, contact, menu }) {
 							</h3>
 						</div>
 					</div>
-				</section>
+				</div>
 				<SectionFollow blocks={page.blocks} ref={scrollRef} />
 				<SectionImageHeadline blocks={page.sectionWebapp} />
 				<section className={styles.outro}>
