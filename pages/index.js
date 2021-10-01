@@ -47,7 +47,9 @@ export default function Home({ page, contact, menu }) {
 }
 
 export async function getStaticProps({ preview }) {
+	console.time('home')
   const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
-	return { props: { ...data }, revalidate: 10 };
+	console.timeEnd('home')
+	return { props: { ...data }, revalidate: 30 };
 }

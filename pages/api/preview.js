@@ -10,6 +10,7 @@ export default async function preview(req, res) {
   try {
     const type = path.dirname(query).replace(/\//g,'')
     const slug = path.basename(query)
+    //console.log('preview', slug, type)
     const post = await getObjectBySlug(type, slug, true)
     
     if (!post)
