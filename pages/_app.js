@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps, router, menu }) => (
     </Head>  
     <UIProvider>
       <Layout>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter initial={false}>
           <Component {...pageProps} key={router.route}/>
         </AnimatePresence>
       </Layout>
