@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "./Content.module.scss";
 import {Footer, NavBar, Contact} from "./";
 import { motion } from "framer-motion";
-const duration = 5;
+const duration = 0.3;
 
 const pageAnimation = {
 	initial: {
