@@ -5,7 +5,7 @@ query GetHome {
       blocks {
       ... on ImageWithHeadlineAndShortDescRecord {
         id
-        desc
+        text
         headline
         image {
           responsiveImage {
