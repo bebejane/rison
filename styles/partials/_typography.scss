@@ -10,7 +10,7 @@ $body-large:            24px;
 $mid-size:              22px;
 
 $small-size:            13px;
-$nav-size:              18px;
+$nav-size:              22px;
 
 $line-height:           1.3em;
 $line-height-headline:  1.25em;
@@ -41,7 +41,7 @@ h2, h2 p {
 
 h3 {
   text-transform: uppercase;
-  font-size: $body-large;
+  font-size: $nav-size;
   font-family: $body-font;
   font-weight: normal;
   letter-spacing: 0.1em;
@@ -65,7 +65,7 @@ footer {
 
 nav, button {
   font-family: $body-font;
-  font-size: $body-large;
+  font-size: $nav-size;
 
 }
 

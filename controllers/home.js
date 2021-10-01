@@ -9,7 +9,7 @@ const getHomeQuery = `
       blocks {
       ... on ImageWithHeadlineAndShortDescRecord {
         id
-        desc
+        text(markdown: false)
         headline
         image {
           responsiveImage {
