@@ -43,6 +43,5 @@ const MyApp = ({ Component, pageProps, router, menu }) => {
     </UIProvider>
   </>
   )
-  
 }
 export default MyApp;
