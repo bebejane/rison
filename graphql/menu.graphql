@@ -1,4 +1,4 @@
-query GetMenus {
+query GetMenu {
   menu: allMenus {
     title,
     slug,
