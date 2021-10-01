@@ -5,31 +5,28 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Contact from "./Contact";
 import { motion } from "framer-motion";
-import { useAppState } from "lib/context";
 
 const pageAnimation = {
 	initial: {
 		x: "100%",
 		opacity: 1,
-		transition: { duration: 0.5, delay: 0.0 },
+		transition: { duration: 0.3, delay: 0.0 },
 	},
 	animate: {
 		x: "0%",
 		opacity: 1,
-		transition: { duration: 0.5 },
+		transition: { duration: 0.3 },
 	},
 	exit: {
 		x: "-100%",
 		opacity: 1,
-		transition: { duration: 0.5, delay: 0.0 },
+		transition: { duration: 0.3, delay: 0.0 },
 	},
 };
 
 export default function Content({ page = {}, contact, menu, children }) {
 	const contentStyle = classes(styles.content);
 	const mainStyle = classes(styles.main);
-
-	const [state, setAppState] = useAppState();
 
 	return (
 		<>
@@ -45,8 +42,7 @@ export default function Content({ page = {}, contact, menu, children }) {
 				</motion.div>
 			</div>
 			<Footer contact={contact} />
-
-			<Contact contact={contact} showContact={state.showContact} />
+			<Contact contact={contact} />
 		</>
 	);
 }

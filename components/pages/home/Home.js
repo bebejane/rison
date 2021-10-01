@@ -5,13 +5,13 @@ import Button from "/components/common/Button";
 import SectionImageHeadline from "/components/common/SectionImageHeadline";
 import styles from './Home.module.scss'
 import {useRef} from 'react';
-import {useAppState} from '/lib/context';
+import {useUI, UIAction} from '/lib/context/ui';
 
 export default function Home({ page, contact, menu }) {
+  const [ui, setUI] = useUI()
   const contentRef =  useRef()
   const scrollRef =  useRef()
   const handleScrollDown = () => scrollRef.current.scrollIntoView({behavior:'smooth'})
-  const [state, setAppState] = useAppState()
 
   return (
     <Content page={page} contact={contact} menu={menu} ref={contentRef}>
@@ -39,7 +39,7 @@ export default function Home({ page, contact, menu }) {
             <h2>
               <Markdown>{page.ctaText}</Markdown>
             </h2>
-            <Button label={'Contact us'} onClick={()=>setAppState({type:'SHOW_CONTACT'})}/>
+            <Button label={'Contact us'} onClick={()=>setUI({type:UIAction.SHOW_CONTACT})}/>
             <p>
               <Markdown>{page.readMoreText}</Markdown>
             </p>
