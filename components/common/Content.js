@@ -25,9 +25,6 @@ const pageAnimation = {
 };
 
 export default function Content({ page = {}, contact, menu, children }) {
-	const contentStyle = classes(styles.content);
-	const mainStyle = classes(styles.main);
-
 	return (
 		<>
 			<Head>
@@ -35,10 +32,10 @@ export default function Content({ page = {}, contact, menu, children }) {
 				<meta name="description" content={page.description} />
 			</Head>
 
-			<div className={contentStyle}>
+			<div className={styles.content}>
 				<NavBar menu={menu} />
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
-					<div className={mainStyle}>{children}</div>
+					<div className={styles.main}>{children}</div>
 				</motion.div>
 			</div>
 			<Footer contact={contact} />
