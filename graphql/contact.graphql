@@ -1,0 +1,15 @@
+query GetContact {
+  contact {
+    address
+    facebook
+    id
+    instagram
+    slug
+    headlineGeneral
+    headlineCareer
+    textGeneral(markdown: false)
+    textCareer(markdown: false)
+    title
+    twitter
+  }
+}

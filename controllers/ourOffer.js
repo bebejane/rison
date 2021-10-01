@@ -7,7 +7,7 @@ const getOurOfferQuery = `
   page: ourOffer {
     intro
     id
-    howItWorks {
+    blocks {
       headline
       desc
       image {
