@@ -1,7 +1,7 @@
 // FONT EMBEDDING & TYPO VARIABLES
 $headline-font: "Signifier Extra";
 $body-font: "Founders Regular";
-$icon-font: "SKFIcons";
+$icon-font: "IconFont";
 
 
 @font-face {
@@ -18,3 +18,9 @@ $icon-font: "SKFIcons";
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'IconFont';
+    src:          url('../../public/fonts/icon-font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

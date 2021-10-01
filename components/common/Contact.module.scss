@@ -13,9 +13,16 @@
 	color: $white;
 	transition: transform 0.3s cubic-bezier(.01, 1.1, .69, 1);
 	transform: translateY(100%);
-	a {
+  
+
+	a, strong {
 		color: $black;
 	}
+
+  a:hover {
+    border-bottom: 1px solid $dark-green;
+  }
+
 	h3 {
 		color: $black;
 	}
@@ -35,11 +42,8 @@
       right:0;
 			border-color: $white;
       &:hover{
-        transition: none;
         min-height: unset;
         cursor: pointer;
-        transition: transform .2s;
-        transform: scale(1.03);
       }
       &:active{
         transition: transform .2s;
@@ -52,11 +56,18 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-		width: spanGrid(12);
+		width: 100%;
 		flex: 1 1 auto;
     height: 100%;
     transform: scale(0.95);
     @include outerMargins();
+
+    .innerWrapper {
+      width: spanGrid(12);
+      margin: auto;
+
+    }
+
 	}
 }
 .show {

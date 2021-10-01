@@ -23,7 +23,7 @@ export default function Home({ page, contact, menu }) {
 						<div>
 							<h3>This is how it works</h3>
 							<h3 className={styles.scrollArrow} onClick={handleScrollDown}>
-								→
+							↓
 							</h3>
 						</div>
 					</div>
@@ -36,9 +36,7 @@ export default function Home({ page, contact, menu }) {
 							<Markdown>{page.ctaText}</Markdown>
 						</h2>
 						<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
-						<p>
-							<Markdown>{page.readMoreText}</Markdown>
-						</p>
+							<div><Markdown>{page.readMoreText}</Markdown> <span>→</span></div>
 					</div>
 				</section>
 			</div>

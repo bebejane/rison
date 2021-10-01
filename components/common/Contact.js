@@ -10,19 +10,21 @@ const Contact = ({ contact, showContact, setShowContact }) => {
 	return (
 		<div className={cn(styles.contact, ui.showContact && styles.show)}>
 			<div className={styles.close}>
-				<button 
-					className={cn(styles.closeButton, !showContact && styles.hide)} 
-					onClick={()=>setUI({type:UIAction.HIDE_CONTACT})}
+				<button
+					className={cn(styles.closeButton, !showContact && styles.hide)}
+					onClick={() => setUI({ type: UIAction.HIDE_CONTACT })}
 				>
 					Close
 				</button>
 			</div>
-			<div className={styles.wrapper}>
-				<h3>{contact.headlineGeneral}</h3>
-				<h2><ReactMarkdown>{contact.textGeneral}</ReactMarkdown></h2>
-				<h3>{contact.headlineCareer}</h3>
-				<h2><ReactMarkdown>{contact.textCareer}</ReactMarkdown></h2>
-			</div>
+				<div className={styles.wrapper}>
+					<div className={styles.innerWrapper}>
+					<h3>{contact.headlineGeneral}</h3>
+					<h2><ReactMarkdown>{contact.textGeneral}</ReactMarkdown></h2>
+					<h3>{contact.headlineCareer}</h3>
+					<h2><ReactMarkdown>{contact.textCareer}</ReactMarkdown></h2>
+				</div>
+				</div>
 			<Footer contact={contact} />
 		</div>
 	)
