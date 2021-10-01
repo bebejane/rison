@@ -4,6 +4,7 @@ import Layout from "/components/common/Layout";
 import { UIProvider } from "/lib/context/ui";
 import { AnimatePresence } from 'framer-motion';
 import Router from "next/router";
+import { useEffect } from "react";
 
 const routeChange = () => {
   // Temporary fix to avoid flash of unstyled content
@@ -23,7 +24,12 @@ const routeChange = () => {
 Router.events.on("routeChangeComplete", routeChange );
 Router.events.on("routeChangeStart", routeChange );
 
-const MyApp = ({ Component, pageProps, router, menu }) => (  
+const MyApp = ({ Component, pageProps, router, menu }) => {
+  useEffect(() => {
+    router.push(router.pathname);
+  }, []);
+  
+  return (  
   <>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -36,5 +42,6 @@ const MyApp = ({ Component, pageProps, router, menu }) => (
       </Layout>
     </UIProvider>
   </>
-);
+  )
+}
 export default MyApp;
