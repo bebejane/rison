@@ -31,7 +31,7 @@ export default function Content({ page = {}, contact, menu, children }) {
 			<div className={styles.content}>
 				<NavBar menu={menu} />
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
-					<div className={styles.main}>{children}</div>
+					<div key={'content'} className={styles.main}>{children}</div>
 				</motion.div>
 			</div>
 			<Footer contact={contact} />
