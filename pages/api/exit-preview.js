@@ -1,4 +1,4 @@
-import { getPathBySlug } from '../../controllers'
+import { getPathBySlug } from '/lib/api'
 import path from 'path'
 
 export default async function exit(req, res) {

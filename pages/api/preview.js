@@ -1,4 +1,4 @@
-import { getObjectBySlug } from '../../controllers'
+import { getObjectBySlug } from '/lib/api'
 import path from 'path'
 
 export default async function preview(req, res) {
