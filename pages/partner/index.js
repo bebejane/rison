@@ -1,14 +1,14 @@
-import styles from "./About.module.scss";
+import styles from "./Partner.module.scss";
 import { Content, Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
 import { GetHome, GetMenu, GetContact } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
 
-export default function About({page, contact, menu}) {
+export default function Partner({page, contact, menu}) {
 	return (
 		<Content page={page} contact={contact} menu={menu}>
-      About content
+      Partner content
 		</Content>
 	);
 }

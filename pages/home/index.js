@@ -1,15 +1,10 @@
-import Home from '/components/pages/home'
-import {homeController} from "/controllers";
-import { apiQuery } from '/lib/api';
-import { GetHome } from '/graphql/home';
-import { GetMenu } from '/graphql/menu';
-import { GetContact } from '/graphql/contact';
+import Home from '../'
+import { GetHome, GetMenu, GetContact } from "/graphql";
+import { apiQuery } from "/lib/api";
 
-export default Home;
+export default Home
 
 export async function getStaticProps({preview}) {
-  const data = await homeController.get(preview)
-  const test = await apiQuery([GetHome, GetMenu, GetContact], [], preview)
-  console.log(test)
+  const data = await apiQuery([GetHome, GetMenu, GetContact], [], preview)
   return { props: {...data}, revalidate:10 }
 }

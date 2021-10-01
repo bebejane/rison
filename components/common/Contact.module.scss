@@ -11,9 +11,8 @@
 	width: 100%;
 	height: 100vh;
 	color: $white;
-	transition: transform 0.3s cubic-bezier(.01,1.1,.69,1);
+	transition: transform 0.3s cubic-bezier(.01, 1.1, .69, 1);
 	transform: translateY(100%);
-	
 	a {
 		color: $black;
 	}
@@ -28,7 +27,7 @@
     top:0;
     right:0;
     z-index: 2;
-    transform: scale(0);
+    transform: scale(0.95);
     .closeButton {
       display: block;      
       top:0;
@@ -55,7 +54,7 @@
 		width: spanGrid(12);
 		flex: 1 1 auto;
     height: 100%;
-    transform: scale(0.7);
+    transform: scale(0.95);
     @include outerMargins();
 	}
 }
