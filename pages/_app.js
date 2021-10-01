@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import Router from "next/router";
 import { useEffect } from "react";
 
+// bugfix for framer-motion page transition 
 const routeChange = () => {
   // Temporary fix to avoid flash of unstyled content
   // during route transitions. Keep an eye on this
@@ -25,9 +26,9 @@ Router.events.on("routeChangeComplete", routeChange );
 Router.events.on("routeChangeStart", routeChange );
 
 const MyApp = ({ Component, pageProps, router, menu }) => {
-  useEffect(() => {
-    router.push(router.pathname);
-  }, []);
+
+  // bugfix for framer-motion page transition 
+  useEffect(() => router.push({pathname: router.pathname, query: {...router.query}}), []);
   
   return (  
   <>
