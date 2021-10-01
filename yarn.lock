@@ -1720,7 +1720,14 @@
     "extract-files" "^9.0.0"
     "form-data" "^3.0.0"
 
-"graphql@^15.5.3", "graphql@14.x || 15.x":
+"graphql-tag@^2.10.0", "graphql-tag@^2.12.5":
+  "integrity" "sha512-5xNhP4063d16Pz3HBtKprutsPrmHZi5IdUGOWRxA2B6VF7BIRGOHZ5WQvDmJXZuPcBg7rYwaFxvQYjqkSdR3TQ=="
+  "resolved" "https://registry.npmjs.org/graphql-tag/-/graphql-tag-2.12.5.tgz"
+  "version" "2.12.5"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^15.5.3", "graphql@14.x || 15.x":
   "integrity" "sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA=="
   "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.5.3.tgz"
   "version" "15.5.3"
@@ -2732,6 +2739,13 @@
   "integrity" "sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc="
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
+
+"next-plugin-graphql@^0.0.2":
+  "integrity" "sha512-PgRqONNSF+lTyrtraNC7wJWNYq1U4v4jgIHmvTXYvdtYEz7oeuNNqk3N8mlunV2WzntpSFSe0BCdinRN25tkmQ=="
+  "resolved" "https://registry.npmjs.org/next-plugin-graphql/-/next-plugin-graphql-0.0.2.tgz"
+  "version" "0.0.2"
+  dependencies:
+    "graphql-tag" "^2.10.0"
 
 "next@>=10.2.0", "next@11.1.2":
   "integrity" "sha512-azEYL0L+wFjv8lstLru3bgvrzPvK0P7/bz6B/4EJ9sYkXeW8r5Bjh78D/Ol7VOg0EIPz0CXoe72hzAlSAXo9hw=="

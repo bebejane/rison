@@ -1,20 +1,11 @@
 import styles from './NavBar.module.scss'
 import Link from 'next/link'
 import classes from 'classnames'
-import {useEffect, useState, useContext} from 'react'
-import { AppContext } from "/lib/context";
+import { useUI } from "/lib/context/ui";
 
 export default function NavBar({menu, setShowContact, showContact}) {
 
-  const {state, dispath} = useContext(AppContext)
-  /*
-  const [menu, setMenu] = useState([]);
-  useEffect(async ()=>{
-    const menus = await menuController.all();
-    setMenu(menus)
-  }, [])
-  */
-  console.log(state)
+  const [ui, setUI] = useUI()
   const navStyle = classes(styles['nav-items']);
   const navItemStyle = classes(styles['nav-item']);
 
@@ -36,7 +27,7 @@ export default function NavBar({menu, setShowContact, showContact}) {
           </li>
         )}    
       </ul>
-      <button className={styles.contact} onClick={()=>setShowContact(!showContact)}>Contact us</button>
+      <button className={styles.contact} onClick={()=>setUI({type:'SHOW_CONTACT'})}>Contact us</button>
       <div className={styles['nav-mobile']}>
         <img className={styles.logo} src={'/images/icons/icon-menu.svg'}/>
       </div>

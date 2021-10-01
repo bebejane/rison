@@ -1,7 +1,7 @@
 import "../styles/index.scss";
 import Head from "next/head";
 import Layout from "/components/common/Layout";
-import { AppProvider } from "/lib/context";
+import { UIProvider } from "/lib/context/ui";
 import { AnimatePresence } from 'framer-motion';
 
 const MyApp = ({ Component, pageProps, router, menu }) => (  
@@ -9,13 +9,13 @@ const MyApp = ({ Component, pageProps, router, menu }) => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     </Head>  
-    <AppProvider>
+    <UIProvider>
       <Layout>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Component {...pageProps} key={router.route}/>
         </AnimatePresence>
       </Layout>
-    </AppProvider>
+    </UIProvider>
   </>
 );
 export default MyApp;

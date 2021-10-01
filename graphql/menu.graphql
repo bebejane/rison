@@ -1,0 +1,12 @@
+query GetMenus {
+  menu: allMenus {
+    title,
+    slug,
+    page {
+      ... on PageRecord {
+        slug
+        title
+      }
+    }
+  }
+}

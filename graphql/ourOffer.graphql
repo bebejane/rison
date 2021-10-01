@@ -1,0 +1,15 @@
+#import "./fragments/ImageFragment.graphql"
+
+query GetOurOffer {
+  page: ourOffer {
+    intro
+    id
+    blocks {
+      headline
+      desc
+      image {
+        ...ImageFragment
+      }
+    }
+  }
+}
