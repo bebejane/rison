@@ -11,6 +11,7 @@ const getHomeQuery = `
         id
         text(markdown: false)
         headline
+        shortHeadline
         image {
           responsiveImage {
             aspectRatio

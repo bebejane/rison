@@ -7,8 +7,8 @@ import ReactMarkdown from "react-markdown";
 const SectionFollowBlock = ({ block }) => (
   <div className={styles.myDiv}>
     <article>
+      <h3 className={'tight'}>{block.shortHeadline}</h3>
       <h2 className={'tight'}>{block.headline}</h2>
-      <h2 className={'tight'}>{block.bigHeadline}</h2>
       <p><ReactMarkdown>{block.text}</ReactMarkdown></p>
     </article>
     <figure>
