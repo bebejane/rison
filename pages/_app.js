@@ -6,28 +6,22 @@ import { AnimatePresence } from 'framer-motion';
 import Router from "next/router";
 import { useEffect } from "react";
 
-// bugfix for framer-motion page transition 
-const routeChange = () => {
-  // Temporary fix to avoid flash of unstyled content
-  // during route transitions. Keep an eye on this
-  // issue and remove this code when resolved:
-  // https://github.com/vercel/next.js/issues/17464
+// Bugfix for framer-motion page transition 
+// https://github.com/vercel/next.js/issues/17464
 
+const routeChange = () => {
   const tempFix = () => {
     const allStyleElems = document.querySelectorAll('style[media="x"]');
-    allStyleElems.forEach((elem) => {
-      elem.removeAttribute("media");
-    });
-  };
+    allStyleElems.forEach(elem => elem.removeAttribute("media"));
+  }
   tempFix();
 };
-
 Router.events.on("routeChangeComplete", routeChange );
 Router.events.on("routeChangeStart", routeChange );
 
 const MyApp = ({ Component, pageProps, router, menu }) => {
 
-  // bugfix for framer-motion page transition 
+  // Bugfix for framer-motion page transition 
   useEffect(() => router.push({pathname: router.pathname, query: {...router.query}}), []);
   
   return (  
