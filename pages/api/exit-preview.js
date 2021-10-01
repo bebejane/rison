@@ -14,10 +14,13 @@ export default async function exit(req, res) {
     // Fetch the headless CMS to check if the provided `slug` exists
     const type = path.dirname(query).replace(/\//g,'')
     const slug = path.basename(query)
+    console.log('exit', type, slug)
     const location = getPathBySlug(type, slug)
+
     res.writeHead(307, { Location: location })
     res.end()
   }catch(err){
+    console.log(err)
     return res.status(401).json({ message: 'Error previewing page!' })
   }
 }
