@@ -28,12 +28,12 @@ export default function Content({ page = {}, contact, menu, children }) {
 				<title>Rison {page.title ? ` | ${page.title}` : ""}</title>
 				<meta name="description" content={page.description} />
 			</Head>
-			<div className={styles.content}>
-				<NavBar menu={menu} />
-				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
+			<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
+				<div className={styles.content}>
+					<NavBar menu={menu} />
 					<div key={'content'} className={styles.main}>{children}</div>
-				</motion.div>
-			</div>
+				</div>
+			</motion.div>
 			<Footer contact={contact} />
 			<Contact contact={contact} />
 		</>
