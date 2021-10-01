@@ -41,7 +41,7 @@ h2, h2 p {
 
 h3 {
   text-transform: uppercase;
-  font-size: $nav-size;
+  font-size: $nav-size - 2px;
   font-family: $body-font;
   font-weight: normal;
   letter-spacing: 0.07em;

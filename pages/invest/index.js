@@ -8,7 +8,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 export default function Invest({page, contact, menu}) {
 	return (
 		<Content page={page} contact={contact} menu={menu}>
-      Invest content
+      <h2>Invest content</h2>
 		</Content>
 	);
 }

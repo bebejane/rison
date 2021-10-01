@@ -8,7 +8,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 export default function About({page, contact, menu}) {
 	return (
 		<Content page={page} contact={contact} menu={menu}>
-      About content
+      <h2>About content</h2>
 		</Content>
 	);
 }

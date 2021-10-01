@@ -22,14 +22,15 @@
 	.close {
     @include outerMargins();
     opacity: 0;
-		margin: 20px;
+		margin-top: 22px;
 		position: absolute;
     top:0;
     right:0;
     z-index: 2;
     transform: scale(0.95);
     .closeButton {
-      display: block;      
+      display: block;
+      width: 137px;     
       top:0;
       right:0;
 			border-color: $white;

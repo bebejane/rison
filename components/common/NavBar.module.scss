@@ -1,6 +1,6 @@
 
 .nav{
-  
+ 
   top:0;
   z-index: 1;
   background-color: #fff;
@@ -11,8 +11,8 @@
   @include outerMargins();
   padding: 3%;
   width: 100%;
-  max-height: 70px;
-  min-height: 70px;
+  max-height: 100px;
+  min-height: 100px;
   
   .nav-items{
     list-style: none;
@@ -22,6 +22,14 @@
     justify-content: flex-end;
     .nav-item{
       margin:10px;
+      a {
+        transition: color .3s ease;
+      }
+
+      a:hover {
+        color: $green;
+      }
+
     }
     @include mq($until: desktop) {
       display: none;
