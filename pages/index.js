@@ -4,15 +4,15 @@ import { apiQuery } from "/lib/api";
 import { GetHome, GetMenu, GetContact } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
+import { REVALIDATE_TIME } from "lib/utils/constant";
 
 export default function Home({ page, contact, menu }) {
 	const [ui, setUI] = useUI();
-	const contentRef = useRef();
 	const scrollRef = useRef();
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
 	return (
-		<Content page={page} contact={contact} menu={menu} ref={contentRef}>
+		<Content page={page} contact={contact} menu={menu}>
 			<div className={styles.container}>
 				<section className={styles.intro}>
 					<div className={styles.wrapper}>
@@ -45,9 +45,7 @@ export default function Home({ page, contact, menu }) {
 }
 
 export async function getStaticProps({ preview }) {
-	console.time('home')
   const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
-	console.timeEnd('home')
-	return { props: { ...data }, revalidate: 30 };
+	return { props: { ...data }, revalidate: REVALIDATE_TIME };
 }
