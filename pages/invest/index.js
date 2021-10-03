@@ -8,9 +8,7 @@ import { REVALIDATE_TIME } from "/lib/utils/constant"
 
 export default function Invest({page, contact, menu}) {
 	return (
-		<Content page={page} contact={contact} menu={menu}>
-      <h2>Invest content</h2>
-		</Content>
+    <h2>Invest content</h2>
 	);
 }
 

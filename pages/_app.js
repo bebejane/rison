@@ -5,6 +5,7 @@ import { UIProvider } from "/lib/context/ui";
 import { AnimatePresence } from 'framer-motion';
 import Router from "next/router";
 import { useEffect } from "react";
+import { Content } from "components/common";
 
 // Bugfix for framer-motion page transition 
 // https://github.com/vercel/next.js/issues/17464
@@ -18,11 +19,12 @@ const routeChange = () => {
 Router.events.on("routeChangeComplete", routeChange );
 Router.events.on("routeChangeStart", routeChange );
 
-const MyApp = ({ Component, pageProps, router, menu }) => {
+const MyApp = ({ Component, pageProps, router }) => {
 
   // Bugfix for framer-motion page transition 
   useEffect(() => router.push({pathname: router.pathname, query: {...router.query}}), []);
-  
+  const {page, menu, contact} = pageProps
+
   return (  
     <>
       <Head>
@@ -31,7 +33,9 @@ const MyApp = ({ Component, pageProps, router, menu }) => {
       <UIProvider>
         <Layout>
           <AnimatePresence exitBeforeEnter initial={false}>
-            <Component {...pageProps} key={router.route}/>
+            <Content page={page} menu={menu} contact={contact} key={router.route}>
+              <Component {...pageProps} />
+            </Content>
           </AnimatePresence>
         </Layout>
       </UIProvider>

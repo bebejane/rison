@@ -8,9 +8,7 @@ import { REVALIDATE_TIME } from "/lib/utils/constant"
 
 export default function About({page, contact, menu}) {
 	return (
-		<Content page={page} contact={contact} menu={menu}>
       <h2>About content</h2>
-		</Content>
 	);
 }
 

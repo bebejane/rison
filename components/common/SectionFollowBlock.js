@@ -1,20 +1,25 @@
-import React from "react";
+import {useState} from "react";
 import styles from './SectionFollowBlock.module.scss'
 import { Image } from 'react-datocms';
 import Markdown from "/components/common/Markdown";
-import ReactMarkdown from "react-markdown";
+import useVisibility from "/lib/hooks/useVisibility"
 
-const SectionFollowBlock = ({ block }) => (
-  <div className={styles.myDiv}>
-    <article>
-      <h3 className={'tight'}>{block.shortHeadline}</h3>
-      <h2 className={'tight'}>{block.headline}</h2>
-      <p><ReactMarkdown>{block.text}</ReactMarkdown></p>
-    </article>
-    <figure>
-      {block.image && <Image data={block.image.responsiveImage} />}
-    </figure>
-  </div>
-);
+const SectionFollowBlock = ({ block, odd }) => {
+  const [ref, ratio] =  useVisibility()
+  const x = Math.min((ratio - 0.3) * 100, 0)
+  const scrollStyle = {}//{transform:`translateX(${odd ? x : Math.abs(x)}%)`}
+  return (
+    <div className={styles.myDiv} ref={ref} style={scrollStyle}>
+      <article>
+        <h3 className={'tight'}>{block.shortHeadline}</h3>
+        <h2 className={'tight'}>{block.headline}</h2>
+        <p><Markdown>{block.text}</Markdown></p>
+      </article>
+      <figure>
+        {block.image && <Image data={block.image.responsiveImage} />}
+      </figure>
+    </div>
+  );
+}
 
 export default SectionFollowBlock;

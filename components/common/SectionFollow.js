@@ -6,7 +6,7 @@ import { Image } from 'react-datocms';
 const SectionFollow = React.forwardRef(({blocks}, ref) => (  
   <section className={styles.section} ref={ref}>
     {blocks.map((block, idx)=>
-      <SectionFollowBlock block={block} key={idx}/>
+      <SectionFollowBlock block={block} key={idx} odd={idx % 2 == 0}/>
     )}
   </section>
 ));

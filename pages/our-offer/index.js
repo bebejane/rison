@@ -9,12 +9,12 @@ export default function OurOffer({ page, contact, menu }) {
 	const { intro, blocks } = page;
 
 	return (
-		<Content page={page} contact={contact} menu={menu}>
+		<>
 			<section className={styles.intro}>
 				<h2>{page.intro}</h2>
 			</section>
 			<SectionFollow blocks={page.blocks} />
-		</Content>
+		</>
 	);
 }
 

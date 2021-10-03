@@ -9,9 +9,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 
 export default function Partner({page, contact, menu}) {
 	return (
-		<Content page={page} contact={contact} menu={menu}>
-      <h2>Partner content</h2>
-		</Content>
+    <h2>Partner content</h2>
 	);
 }
 

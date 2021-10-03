@@ -8,17 +8,17 @@ const pageAnimation = {
 	initial: {
 		//x: "100%",
 		opacity: 1,
-		transition: { duration, delay: 0.0 },
+		transition: { duration},
 	},
 	animate: {
 		//x: "0%",
 		opacity: 1,
-		transition: { duration },
+		transition: { duration},
 	},
 	exit: {
 		//x: "-100%",
 		opacity: 0,
-		transition: { duration, delay: 0.0 },
+		transition: { duration},
 	},
 };
 
@@ -32,7 +32,9 @@ export default function Content({ page = {}, contact, menu, children }) {
 			<div className={styles.content}>
 				<NavBar menu={menu} />
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
-					<div key={'content'} className={styles.main}>{children}</div>
+					<div key={'content'} className={styles.main}>
+						{children}
+					</div>
 				</motion.div>
 			</div>
 			<Footer contact={contact} />
