@@ -5,7 +5,7 @@ import Markdown from "/components/common/Markdown";
 import useVisibility from "/lib/hooks/useVisibility"
 
 const SectionFollowBlock = ({ block, odd }) => {
-  
+
   /* Slide in Animation
   const [ref, ratio] =  useVisibility()
   const x = Math.min((ratio - 0.3) * 100, 0)
@@ -13,7 +13,7 @@ const SectionFollowBlock = ({ block, odd }) => {
   */
 
   return (
-    <div className={styles.myDiv} ref={ref} style={scrollStyle}>
+    <div className={styles.myDiv} >
       <article>
         <h3 className={'tight'}>{block.shortHeadline}</h3>
         <h2 className={'tight'}>{block.headline}</h2>
