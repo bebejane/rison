@@ -1,7 +1,8 @@
-import Head from "next/head";
 import styles from "./Content.module.scss";
+import Head from "next/head";
 import {Footer, NavBar, Contact} from "./";
 import { motion } from "framer-motion";
+
 const duration = 0.3;
 
 const pageAnimation = {
