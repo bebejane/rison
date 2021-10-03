@@ -20,13 +20,6 @@ class MyDocument extends Document {
           <meta name="google" content="notranslate" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="keywords" content="" />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:site_name" content="" />
-          <meta property="og:title" content="" />
-          <meta property="og:description" content=""/>
-          <meta property="og:url" content="" />
-          <meta property="og:image" content=""/>
         </Head>
         <body>
           <Main />

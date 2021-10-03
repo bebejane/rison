@@ -1,0 +1,7 @@
+fragment SEOFragment on HomeRecord {
+  tags: _seoMetaTags {
+    attributes
+    content
+    tag
+  }
+}

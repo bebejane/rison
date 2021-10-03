@@ -28,4 +28,18 @@ query GetHome {
     ctaText(markdown: false)
     readMoreText
   }
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  seo: home {
+    tags: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
 }

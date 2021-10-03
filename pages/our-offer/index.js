@@ -1,6 +1,6 @@
 import styles from "./OurOffer.module.scss";
 import { REVALIDATE_TIME } from "/lib/utils/constant"
-import { Content, Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
+import {  Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
 import { GetOurOffer, GetMenu, GetContact } from "/graphql";
 import { Image } from 'react-datocms';

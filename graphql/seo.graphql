@@ -1,0 +1,17 @@
+
+query GetHomeSEO{
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  seo: home {
+    tags: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}

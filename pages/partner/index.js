@@ -1,6 +1,6 @@
 import styles from "./Partner.module.scss";
 import { REVALIDATE_TIME } from "/lib/utils/constant"
-import { Content, Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
+import { Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
 import { GetHome, GetMenu, GetContact } from "/graphql";
 import { useRef } from "react";

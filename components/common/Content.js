@@ -1,5 +1,4 @@
 import styles from "./Content.module.scss";
-import Head from "next/head";
 import {Footer, NavBar, Contact} from "./";
 import { motion } from "framer-motion";
 
@@ -24,12 +23,9 @@ const pageAnimation = {
 };
 
 export default function Content({ page = {}, contact, menu, children }) {
+
 	return (
 		<>
-			<Head>
-				<title>Rison {page.title ? ` | ${page.title}` : ""}</title>
-				<meta name="description" content={page.description} />
-			</Head>
 			<div className={styles.content}>
 				<NavBar menu={menu} />
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>

@@ -12,4 +12,18 @@ query GetOurOffer {
       }
     }
   }
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  seo: ourOffer {
+    tags: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
 }

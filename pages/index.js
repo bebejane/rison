@@ -1,12 +1,12 @@
 import styles from "./index.module.scss";
-import { Content, Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
+import { Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
-import { GetHome, GetMenu, GetContact } from "/graphql";
+import { GetHome, GetMenu, GetContact, GetHomeSEO } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
 import { REVALIDATE_TIME } from "lib/utils/constant";
 
-export default function Home({ page, contact, menu }) {
+export default function Home({page}) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
