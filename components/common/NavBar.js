@@ -3,12 +3,12 @@ import Link from 'next/link'
 import classes from 'classnames'
 import { useUI } from "/lib/context/ui";
 
-export default function NavBar({menu, setShowContact, showContact}) {
+export default function NavBar({menu, pathname}) {
 
   const [ui, setUI] = useUI()
   const navStyle = classes(styles['nav-items']);
   const navItemStyle = classes(styles['nav-item']);
-
+  console.log(pathname)
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>

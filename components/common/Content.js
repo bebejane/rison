@@ -22,12 +22,11 @@ const pageAnimation = {
 	},
 };
 
-export default function Content({ page = {}, contact, menu, children }) {
-
+export default function Content({ page = {}, contact, menu, pathname, children }) {
 	return (
 		<>
 			<div className={styles.content}>
-				{menu && <NavBar menu={menu} />}
+				{menu && <NavBar menu={menu} pathname={pathname}/>}
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
 					<div key={'content'} className={styles.main}>
 						{children}

@@ -26,7 +26,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 	useEffect(() => router.push({ pathname: router.pathname, query: { ...router.query } }), []);
 
 	const { page, menu, contact, seo, site } = pageProps;
-
+	
 	return (
 		<>
 			<Head>
@@ -36,7 +36,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 			<UIProvider>
 				<Layout>
 					<AnimatePresence exitBeforeEnter initial={false}>
-						<Content page={page} menu={menu} contact={contact} key={router.route}>
+						<Content page={page} menu={menu} contact={contact} key={router.route} pathname={router.pathname}>
 							<Component {...pageProps} />
 						</Content>
 					</AnimatePresence>
