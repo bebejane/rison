@@ -30,13 +30,18 @@ const MyApp = ({ Component, pageProps, router }) => {
 	return (
 		<>
 			<Head>
-				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-				{seo && seo.tags && site && site.favicon && renderMetaTags(seo.tags.concat(site.favicon))}
+				{renderMetaTags(generateMetaTags({seo, site, pathname:router.pathname}))}
 			</Head>
 			<UIProvider>
 				<Layout>
 					<AnimatePresence exitBeforeEnter initial={false}>
-						<Content page={page} menu={menu} contact={contact} key={router.route} pathname={router.pathname}>
+						<Content 
+							key={router.route} 
+							page={page} 
+							menu={menu} 
+							contact={contact} 
+							pathname={router.pathname}
+						>
 							<Component {...pageProps} />
 						</Content>
 					</AnimatePresence>
@@ -45,4 +50,33 @@ const MyApp = ({ Component, pageProps, router }) => {
 		</>
 	);
 };
+
+const generateMetaTags = ({seo, site, pathname}) => {
+
+	if(!seo || !site) return []
+	
+	const { favicon, globalSeo } = site;
+	const { tags } = seo;
+
+	let metaTags = tags && favicon ? tags.concat(favicon) : []
+	let titleTag = metaTags.filter(m=> m.tag === "title")[0]
+	
+	if(pathname === "/")
+		titleTag.content = globalSeo.siteName
+	else if(!titleTag.content.startsWith(globalSeo.siteName))
+		titleTag.content = `${globalSeo.siteName} -- ${titleTag.content}`
+
+	metaTags = metaTags.map(t => { return t.tag !== 'title' ? t : titleTag})
+	
+	metaTags.push({
+		tag:"meta", 
+		content:null, 
+		attributes:{
+			property:"viewport",
+			content:"width=device-width, initial-scale=1, maximum-scale=1"
+		}
+	})
+	return metaTags
+}
+
 export default MyApp;

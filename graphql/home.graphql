@@ -1,4 +1,7 @@
 #import "./fragments/ImageFragment.graphql"
+#import "./fragments/SEOFragment.graphql"
+#import "./fragments/SiteFragment.graphql"
+
 query GetHome {
   page: home {
     header
@@ -29,17 +32,11 @@ query GetHome {
     readMoreText
   }
   site: _site {
-    favicon: faviconMetaTags {
-      attributes
-      content
-      tag
-    }
+    ... SiteFragment
   }
   seo: home {
     tags: _seoMetaTags {
-      attributes
-      content
-      tag
+      ... SEOFragment
     }
   }
 }

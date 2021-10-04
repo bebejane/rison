@@ -1,4 +1,6 @@
 #import "./fragments/ImageFragment.graphql"
+#import "./fragments/SEOFragment.graphql"
+#import "./fragments/SiteFragment.graphql"
 
 query GetOurOffer {
   page: ourOffer {
@@ -13,17 +15,11 @@ query GetOurOffer {
     }
   }
   site: _site {
-    favicon: faviconMetaTags {
-      attributes
-      content
-      tag
-    }
+    ... SiteFragment
   }
   seo: ourOffer {
     tags: _seoMetaTags {
-      attributes
-      content
-      tag
+      ... SEOFragment
     }
   }
 }

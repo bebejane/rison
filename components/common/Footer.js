@@ -2,7 +2,9 @@ import React, { useState, useContext } from "react";
 import Link from 'next/link';
 import styles from "./Footer.module.scss";
 
-const Footer = ({ contact : {address, email, twitter, facebook, instagram} }) => {
+const Footer = ({ contact}) => {
+	if(!contact) return null
+	const {address, email, twitter, facebook, instagram} = contact
 	return (
 		<footer className={styles.footer}>
 			<div className={styles.title}>Rison Capital</div>

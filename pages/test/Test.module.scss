@@ -1,0 +1,78 @@
+.container {
+  width: 100%;
+}
+
+.intro {
+  @include outerMargins();
+
+  .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  padding-left: spanGridWithGutter(2);
+  padding-right: spanGridWithGutter(2);
+  height: calc(100vh - 100px);
+  }
+
+  h2 {
+    color: $green;
+
+    &:first-of-type {
+      color: $black;
+      padding-right: 0.5em;
+      padding-top: 1em;
+    }
+  }
+  .scrollArrow{
+    font-family: $icon-font;
+    text-align: center;
+    cursor: pointer;
+    color: $green;
+  }
+}
+
+.outro {
+  background-color: $beige;
+  @include outerMargins();
+
+
+  .wrapper {
+    padding-left: spanGridWithGutter(2);
+    padding-right: spanGridWithGutter(2);
+    @include verticalMarginTop();
+    @include verticalMarginBottom();
+
+    div p {
+      display: inline-block;
+    }
+
+    span {
+      padding-left: .2em;;
+      font-family: $icon-font;
+      font-size: 20px;
+    }
+
+  }
+
+  h2 {
+    color: $green;
+
+    p {
+      margin-bottom: 0;
+      &:first-of-type {
+        color: $black;
+        padding-bottom: 0;
+
+      }
+    }
+  }
+
+  p {
+    a {
+      color: $green;
+    }
+  }
+}
