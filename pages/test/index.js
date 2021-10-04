@@ -17,7 +17,7 @@ export default function Test(data) {
 
 export async function getStaticProps({ preview }) {
 	
-  const queries = [GetHomeSEO, GetMenu, GetContact];
+  const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
 	return { props: { ...data }, revalidate: REVALIDATE_TIME };
 }
