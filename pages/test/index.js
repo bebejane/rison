@@ -1,6 +1,6 @@
 import styles from "./Test.module.scss";
 import { apiQuery } from "/lib/api";
-import { GetHome, GetMenu, GetContact, GetHomeSEO } from "/graphql";
+import { GetHome, GetMenu, GetContact } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
 import { REVALIDATE_TIME } from "lib/utils/constant";
