@@ -6,7 +6,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 import { REVALIDATE_TIME } from "lib/utils/constant";
 
 export default function Test(data) {
-  console.log(data)
+  //console.log(data)
 	const [ui, setUI] = useUI();
 	return (
 		<div className={styles.container}>
