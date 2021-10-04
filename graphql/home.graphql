@@ -1,5 +1,5 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/seoFragment.graphql"
+#import "./fragments/_SEOFragment.graphql"
 #import "./fragments/SiteFragment.graphql"
 
 query GetHome {
