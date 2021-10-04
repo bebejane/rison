@@ -27,15 +27,15 @@ export default function Content({ page = {}, contact, menu, children }) {
 	return (
 		<>
 			<div className={styles.content}>
-				<NavBar menu={menu} />
+				{menu && <NavBar menu={menu} />}
 				<motion.div initial="initial" animate="animate" exit="exit" variants={pageAnimation}>
 					<div key={'content'} className={styles.main}>
 						{children}
 					</div>
 				</motion.div>
 			</div>
-			<Footer contact={contact} />
-			<Contact contact={contact} />
+			{contact && <Footer contact={contact} /> }
+			{contact && <Contact contact={contact} /> }
 		</>
 	);
 }

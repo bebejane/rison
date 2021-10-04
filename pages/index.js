@@ -43,7 +43,9 @@ export default function Home({page}) {
 }
 
 export async function getStaticProps({ preview }) {
+	console.time('home getStaticProps')
   const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
+	console.timeEnd('home getStaticProps')
 	return { props: { ...data }, revalidate: REVALIDATE_TIME };
 }
