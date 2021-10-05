@@ -4,7 +4,6 @@ import { apiQuery } from "/lib/api";
 import { GetHome, GetMenu, GetContact, GetHomeSEO } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
-import { REVALIDATE_TIME } from "lib/utils/constant";
 
 export default function Home({page}) {
 	const [ui, setUI] = useUI();
@@ -43,9 +42,7 @@ export default function Home({page}) {
 }
 
 export async function getStaticProps({ preview }) {
-	console.time('home getStaticProps')
   const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
-	console.timeEnd('home getStaticProps')
-	return { props: { ...data }, revalidate: REVALIDATE_TIME };
+	return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
 }

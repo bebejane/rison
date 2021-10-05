@@ -6,17 +6,14 @@ const duration = 0.3;
 
 const pageAnimation = {
 	initial: {
-		//x: "100%",
 		opacity: 1,
 		transition: { duration},
 	},
 	animate: {
-		//x: "0%",
 		opacity: 1,
 		transition: { duration},
 	},
 	exit: {
-		//x: "-100%",
 		opacity: 0,
 		transition: { duration},
 	},

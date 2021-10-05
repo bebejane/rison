@@ -1,5 +1,4 @@
 import styles from "./OurOffer.module.scss";
-import { REVALIDATE_TIME } from "/lib/utils/constant"
 import {  Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
 import { GetOurOffer, GetMenu, GetContact } from "/graphql";
@@ -21,5 +20,5 @@ export default function OurOffer({ page, contact, menu }) {
 export async function getStaticProps({ preview }) {
 	const queries = [GetOurOffer, GetMenu, GetContact];
 	const data = await apiQuery(queries, {}, preview);
-	return { props: { ...data }, revalidate: REVALIDATE_TIME };
+	return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
 }
