@@ -1,7 +1,9 @@
+@use "sass:math";
+
 // GRID
 $columns: 16;
 $gutter: 1%;
-$column-width: ((100% - (($columns - 1) * $gutter)) / $columns);
+$column-width: math.div((100% - (($columns - 1) * $gutter)), $columns);
 
 
 // WIDTH OF UNITS IN GRID WITHOUT LAST GUTTER
