@@ -1,89 +1,156 @@
 .nav {
-  top: 0;
-  z-index: 1;
-  background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  @include outerMargins();
-  padding-top: $space/2;
-  width: 100%;
-  @include mq($from: tablet) {
-    max-height: 100px;
-    min-height: 100px;
-  }
+	top: 0;
+	z-index: 1;
+	background-color: #fff;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	@include outerMargins();
+	padding-top: math.div($space, 2);
+	width: 100%;
+	@include mq($from: tablet) {
+		max-height: 100px;
+		min-height: 100px;
+	}
 
-  .nav-items {
-    list-style: none;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    .nav-item {
-      margin: 10px;
-      a {
-        transition: color 0.3s ease;
-      }
+	.navItems {
+		list-style: none;
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		.navItem {
+			margin: 10px;
+			a {
+				transition: color 0.3s ease;
+			}
+			a:hover,
+			&.selected > a {
+				color: $green;
+			}
+		}
+		@include mq($until: desktop) {
+			display: flex;
+			position: fixed;
+			@include outerMargins();
+			padding-top: 20vh;
+			top: 0;
+			right: 0;
+			background: $black;
+			height: 100vh;
+			z-index: 1000;
+			flex-direction: column;
+			width: 100%;
+			justify-content: flex-start;
+			transition: transform 2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+			transform: translateX(100%);
+			a {
+				color: $white;
+			}
+			li {
+				margin-left: 0;
+			}
+			&.showMobile {
+				transform: translateX(0%);
+			}
+		}
+	}
+	.navMobile {
+		flex: 0 0 auto;
+		z-index: 10000;
+		@include mq($from: desktop) {
+			display: none;
+		}
+		img {
+			height: 30px;
+		}
+	}
+	.logo {
+		flex: 1 1 auto;
+		z-index: 10000;
 
-      a:hover {
-        color: $green;
-      }
-    }
-    @include mq($until: desktop) {
-      display: none;
-      position: fixed;
-      @include outerMargins();
-      padding-top: 20vh;
-      top: 0;
-      left: 0;
-      background: $black;
-      height: 100vh;
-      z-index: 1000;
-      flex-direction: column;
-      width: 100%;
-      justify-content: flex-start;
+		img {
+			width: auto;
+			@include mq($until: tablet) {
+				height: 25px;
+			}
+		}
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
 
-      a {
-        color: $white;
-      }
+	.contact {
+		@include mq($until: tablet) {
+			display: none;
+		}
 
-      li {
-        margin-left: 0;
-      }
+		margin-left: 1em;
+	}
+}
 
-    }
-  }
-  .nav-mobile {
-    flex: 0 0 auto;
-    z-index: 10000;
-    @include mq($from: desktop) {
-      display: none;
-    }
-    img {
-      height: 30px;
-    }
-  }
-  .logo {
-    flex: 1 1 auto;
-    z-index: 10000;
+// Menu CSS
 
-    img {
-      width: auto;
-      @include mq($until: tablet) {
-        height: 25px;
-      }
-    }
-    &:hover {
-      text-decoration: none !important;
-    }
-  }
+.hamburger {
+	padding: 15px 15px;
+	display: inline-block;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+	font: inherit;
+	color: inherit;
+	text-transform: none;
+	background-color: transparent;
+	border: 0;
+	margin: 0;
+	overflow: visible;
+}
+.hamburger:hover {
+	opacity: 0.7;
+}
+.hamburger.is-active:hover {
+	opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+	background-color: #000;
+}
 
-  .contact {
-    @include mq($until: tablet) {
-      display: none;
-    }
+.hamburger-box {
+	width: 40px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
 
-    margin-left: 1em;
-  }
+.hamburger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -2px;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+	width: 40px;
+	height: 4px;
+	background-color: #000;
+	border-radius: 4px;
+	position: absolute;
+	transition-property: transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+	content: "";
+	display: block;
+}
+.hamburger-inner::before {
+	top: -10px;
+}
+.hamburger-inner::after {
+	bottom: -10px;
 }

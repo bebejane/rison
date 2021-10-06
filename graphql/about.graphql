@@ -5,7 +5,6 @@
 query GetAbout {
   page: about {
     intro
-    title
     people {
       name
       title

@@ -1,11 +1,5 @@
-import { GetHome } from "./home.graphql";
-import { GetContact } from "./contact.graphql";
-import { GetMenu } from "./menu.graphql";
-import { GetOurOffer } from "./ourOffer.graphql";
-
-export { 
-  GetHome, 
-  GetContact, 
-  GetMenu, 
-  GetOurOffer
-};
+export { default as GetHome } from "./home.graphql";
+export { default as GetContact } from "./contact.graphql";
+export { default as GetMenu } from "./menu.graphql";
+export { default as GetOurOffer } from "./ourOffer.graphql";
+export { default as GetAbout } from "./about.graphql";
