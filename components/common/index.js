@@ -9,3 +9,4 @@ export { default as SectionFollow } from "./SectionFollow";
 export { default as SectionFollowBlock } from "./SectionFollowBlock";
 export { default as SectionImageHeadline } from "./SectionImageHeadline";
 export { default as SectionImageHeadlineBlock } from "./SectionImageHeadlineBlock";
+export { default as SectionManagement } from "./SectionManagement";

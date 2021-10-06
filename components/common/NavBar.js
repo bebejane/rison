@@ -9,7 +9,7 @@ export default function NavBar({menu, contact, pathname}) {
   if(!menu) return null
   const [ui, setUI] = useUI()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  console.log(contact)
+  
   return (
     <nav className={cn(styles.nav, showMobileMenu && styles.showMobile)}>
       <div className={styles.logo}>
@@ -32,7 +32,6 @@ export default function NavBar({menu, contact, pathname}) {
           <a href="tel://0046031223300">+46 (0) 31 223 300</a>
         </div> 
       </ul>
-       
       <button className={styles.contact} onClick={()=>setUI({type:'SHOW_CONTACT'})}>Contact us</button>
       <div className={styles.navMobile}>
         <Hamburger 
