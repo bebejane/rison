@@ -1,0 +1,26 @@
+#import "./fragments/ImageFragment.graphql"
+#import "./fragments/SEOFragment.graphql"
+#import "./fragments/SiteFragment.graphql"
+
+query GetAbout {
+  page: about {
+    intro
+    title
+    people {
+      name
+      title
+      image {
+        ...ImageFragment
+      }
+      text
+    }
+  }
+  site: _site {
+    ... SiteFragment
+  }
+  seo: about {
+    tags: _seoMetaTags {
+      ... SEOFragment
+    }
+  }
+}
