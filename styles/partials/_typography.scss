@@ -31,7 +31,9 @@ h2 p {
   }
 
   &.tight {
-    line-height: $line-height-headline * 0.9;
+    @include mq($from: tablet) {
+      line-height: $line-height-headline * 0.9;
+    }
   }
 
   @include mq($from: tablet) {
@@ -83,6 +85,18 @@ button {
   @include mq($from: tablet) {
     font-size: $nav-size;
   }
+}
+
+nav {
+  @include mq($until: tablet) {
+    font-size: $headline-size-mobile;
+    line-height: $line-height-headline;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    padding-bottom: 0.2em;
+    font-family: $headline-font-mobile;
+   } 
 }
 
 strong,

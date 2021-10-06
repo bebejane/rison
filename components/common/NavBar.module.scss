@@ -32,10 +32,31 @@
     }
     @include mq($until: desktop) {
       display: none;
+      position: fixed;
+      @include outerMargins();
+      padding-top: 20vh;
+      top: 0;
+      left: 0;
+      background: $black;
+      height: 100vh;
+      z-index: 1000;
+      flex-direction: column;
+      width: 100%;
+      justify-content: flex-start;
+
+      a {
+        color: $white;
+      }
+
+      li {
+        margin-left: 0;
+      }
+
     }
   }
   .nav-mobile {
     flex: 0 0 auto;
+    z-index: 10000;
     @include mq($from: desktop) {
       display: none;
     }
@@ -45,6 +66,7 @@
   }
   .logo {
     flex: 1 1 auto;
+    z-index: 10000;
 
     img {
       width: auto;
