@@ -1,6 +1,8 @@
+@use "sass:math";
+
 button {
   $height: 200px;
-  border-radius: $height/2;
+  border-radius: math.div($height,2);
   border: 3px solid $green;
   padding: 10px;
   padding-left: .8em;
