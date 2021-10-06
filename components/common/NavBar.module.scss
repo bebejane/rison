@@ -1,4 +1,5 @@
 .nav {
+  position: fixed;
 	top: 0;
 	z-index: 1;
 	background-color: #fff;
@@ -10,6 +11,7 @@
 	padding-top: math.div($space, 2);
 	width: 100%;
 	@include mq($from: tablet) {
+    position: relative;
 		max-height: 100px;
 		min-height: 100px;
 	}
@@ -43,7 +45,7 @@
 			flex-direction: column;
 			width: 100%;
 			justify-content: flex-start;
-			transition: transform 2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+			transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
 			transform: translateX(100%);
 			a {
 				color: $white;
@@ -51,11 +53,26 @@
 			li {
 				margin-left: 0;
 			}
-			&.showMobile {
-				transform: translateX(0%);
-			}
+			
 		}
 	}
+  .contactFooter {
+    display: none;
+    position: absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: $space;
+	}
+  &.showMobile {
+    .navItems{
+      transform: translateX(0%);
+    }
+    .contactFooter{
+      display: block;
+    }
+  }
 	.navMobile {
 		flex: 0 0 auto;
 		z-index: 10000;
@@ -82,10 +99,9 @@
 	}
 
 	.contact {
-		@include mq($until: tablet) {
+		@include mq($until: desktop) {
 			display: none;
 		}
-
 		margin-left: 1em;
 	}
 }

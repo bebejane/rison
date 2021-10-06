@@ -1,5 +1,7 @@
 .content{
- 
+  @include mq($until: tablet) {
+    margin-top: $space * 2;
+  }
 }
 .main{
   //@include outerMargins();

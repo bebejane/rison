@@ -5,13 +5,13 @@ import { useUI } from "/lib/context/ui";
 import { useState } from 'react';
 import {Squash as Hamburger} from 'hamburger-react'
 
-export default function NavBar({menu, pathname}) {
+export default function NavBar({menu, contact, pathname}) {
   if(!menu) return null
   const [ui, setUI] = useUI()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  console.log(showMobileMenu)
+  console.log(contact)
   return (
-    <nav className={styles.nav}>
+    <nav className={cn(styles.nav, showMobileMenu && styles.showMobile)}>
       <div className={styles.logo}>
         <Link href={`/`}>
           <a>
@@ -19,22 +19,29 @@ export default function NavBar({menu, pathname}) {
           </a>
         </Link>
       </div>
-      <ul className={cn(styles.navItems, showMobileMenu && styles.showMobile)}>
+      <ul className={styles.navItems}>
         {menu.map((m, idx)=>
           <li key={idx} className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}>
             <Link href={`/${m.slug || '' }`}>
               <a>{m.title}</a>
             </Link>
           </li>
-        )}    
+        )}
+        <div className={styles.contactFooter}>
+          <a href="mailto:info@rison.com">info@rison.com</a><br/>
+          <a href="tel://0046031223300">+46 (0) 31 223 300</a>
+        </div> 
       </ul>
+       
       <button className={styles.contact} onClick={()=>setUI({type:'SHOW_CONTACT'})}>Contact us</button>
-      <Hamburger 
-        isOpen={showMobileMenu} 
-        duration={1.0}
-        onToggle={(toggle)=>setShowMobileMenu(toggle)}
-        color={showMobileMenu ? '#fff' : '#000'}
-      />
+      <div className={styles.navMobile}>
+        <Hamburger 
+          isOpen={showMobileMenu} 
+          duration={0.4}
+          onToggle={(toggle)=>setShowMobileMenu(toggle)}
+          color={showMobileMenu ? '#fff' : '#000'}
+        />
+      </div>
     </nav>
   )
 }

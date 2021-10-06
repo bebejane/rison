@@ -23,7 +23,11 @@ export default function Content({ page = {}, contact, menu, pathname, children }
 	return (
 		<>
 			<div className={styles.content}>
-				<NavBar menu={menu} pathname={pathname}/>
+				<NavBar 
+					menu={menu} 
+					contact={contact} 
+					pathname={pathname}
+				/>
 				<motion.main 
 					className={styles.main}
 					initial="initial" 
