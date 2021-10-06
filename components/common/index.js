@@ -1,25 +1,11 @@
-import Button from "./Button";
-import Contact from "./Contact";
-import Content from "./Content";
-import Footer from "./Footer";
-import Layout from "./Layout";
-import Markdown from "./Markdown";
-import NavBar from "./NavBar";
-import SectionFollow from "./SectionFollow";
-import SectionFollowBlock from "./SectionFollowBlock";
-import SectionImageHeadline from "./SectionImageHeadline";
-import SectionImageHeadlineBlock from "./SectionImageHeadlineBlock";
-
-export {
-	Button,
-	Contact,
-	Content,
-	Footer,
-	Layout,
-	Markdown,
-	NavBar,
-	SectionFollow,
-	SectionFollowBlock,
-	SectionImageHeadline,
-	SectionImageHeadlineBlock,
-};
+export { default as Button } from "./Button";
+export { default as Contact } from "./Contact";
+export { default as Content } from "./Content";
+export { default as Footer } from "./Footer";
+export { default as Layout } from "./Layout";
+export { default as Markdown } from "./Markdown";
+export { default as NavBar } from "./NavBar";
+export { default as SectionFollow } from "./SectionFollow";
+export { default as SectionFollowBlock } from "./SectionFollowBlock";
+export { default as SectionImageHeadline } from "./SectionImageHeadline";
+export { default as SectionImageHeadlineBlock } from "./SectionImageHeadlineBlock";
