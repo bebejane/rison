@@ -1,65 +1,77 @@
 .myDiv {
   display: flex;
 
-  &:before {
-    content: "1";
-    position: absolute;
-    left: calc(50% - 15px);
-    width: 30px;
-    height: 30px;
-    background: $green;
-    border-radius: 15px;
-    color: $white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @include mq($until: tablet) {
+    flex-direction: column-reverse;
   }
 
-  &:nth-child(2):before {
-    content: "2";
-  }
+  @include mq($from: tablet) {
+    &:before {
+      content: "1";
+      position: absolute;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      background: $green;
+      border-radius: 15px;
+      color: $white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  &:nth-child(3):before {
-    content: "3";
-  }
+    &:nth-child(2):before {
+      content: "2";
+    }
 
-  &:nth-child(odd) {
-    flex-direction: row-reverse;
-  }
-
-  &:nth-child(even) {
-    article {
-      border-right: 1px solid $green;
-      border-left: 0px solid $green;
+    &:nth-child(3):before {
+      content: "3";
     }
   }
 
-  &:not(:last-child) article{
+  @include mq($from: tablet) {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(even) {
+      article {
+        border-right: 1px solid $green;
+        border-left: 0px solid $green;
+      }
+    }
+  }
+
+  &:not(:last-child) article {
     @include verticalMarginBottom();
   }
 
   article {
-    width: 50%;
-    padding-left: spanGrid(1);
-    padding-right: spanGrid(1);
-    border-left: 1px solid $green;
-    
+    @include mq($from: tablet) {
+      width: 50%;
+      padding-left: spanGrid(1);
+      padding-right: spanGrid(1);
+      border-left: 1px solid $green;
+    }
+
     h2 {
       color: $green;
-      padding-bottom: .3em;
+      padding-bottom: 0.3em;
     }
 
     h3 {
       padding-top: 0.2em;
     }
-
   }
 
   figure {
     mix-blend-mode: multiply;
-    width: 50%;
     padding-left: spanGrid(1);
     padding-right: spanGrid(1);
+
+    @include mq($from: tablet) {
+      width: 50%;
+    }
   }
 }

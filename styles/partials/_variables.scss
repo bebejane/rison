@@ -20,8 +20,8 @@ $scale-space: 2.5vw;
 
 // SET OUTER MARGINS ON SECTION
 @mixin outerMargins() {
-  padding-left: $outer-margin * 1.1;
-  padding-right: $outer-margin * 1.1;
+  padding-left: $outer-margin * 1.5;
+  padding-right: $outer-margin * 1.5;
 
   @include mq($from: tablet) {
     padding-left: $outer-margin;
@@ -30,7 +30,7 @@ $scale-space: 2.5vw;
 }
 
 @mixin verticalMarginTop() {
-  padding-top: $scale-space;
+  padding-top: $space;
 
   @include mq($from: tablet) {
     padding-top: $scale-space * 2;
@@ -38,7 +38,7 @@ $scale-space: 2.5vw;
 }
 
 @mixin verticalMarginBottom() {
-  padding-bottom: $scale-space;
+  padding-bottom: $space;
 
   @include mq($from: tablet) {
     padding-bottom: $scale-space * 2;

@@ -1,7 +1,5 @@
-
-.nav{
- 
-  top:0;
+.nav {
+  top: 0;
   z-index: 1;
   background-color: #fff;
   display: flex;
@@ -9,53 +7,61 @@
   justify-content: flex-start;
   align-items: center;
   @include outerMargins();
-  padding: 3%;
+  padding-top: $space/2;
   width: 100%;
-  max-height: 100px;
-  min-height: 100px;
-  
-  .nav-items{
+  @include mq($from: tablet) {
+    max-height: 100px;
+    min-height: 100px;
+  }
+
+  .nav-items {
     list-style: none;
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    .nav-item{
-      margin:10px;
+    .nav-item {
+      margin: 10px;
       a {
-        transition: color .3s ease;
+        transition: color 0.3s ease;
       }
 
       a:hover {
         color: $green;
       }
-
     }
     @include mq($until: desktop) {
       display: none;
     }
   }
-  .nav-mobile{
+  .nav-mobile {
     flex: 0 0 auto;
     @include mq($from: desktop) {
       display: none;
     }
-    img{
-      height:40px;
+    img {
+      height: 30px;
     }
   }
-  .logo{
+  .logo {
     flex: 1 1 auto;
-    img{
+
+    img {
       width: auto;
+      @include mq($until: tablet) {
+        height: 25px;
+      }
     }
-    &:hover{
+    &:hover {
       text-decoration: none !important;
     }
   }
 
   .contact {
+    @include mq($until: tablet) {
+      display: none;
+    }
+
     margin-left: 1em;
   }
-
 }
