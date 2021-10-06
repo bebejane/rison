@@ -19,6 +19,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding-bottom: 2px;
     }
 
     &:nth-child(2):before {
@@ -57,7 +58,7 @@
 
     h2 {
       color: $green;
-      padding-bottom: 0.3em;
+      padding-bottom: 0.4em;
     }
 
     h3 {

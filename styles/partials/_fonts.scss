@@ -1,5 +1,6 @@
 // FONT EMBEDDING & TYPO VARIABLES
 $headline-font: "Signifier Extra";
+$headline-font-mobile: "Signifier Light";
 $body-font: "Founders Regular";
 $icon-font: "IconFont";
 
@@ -14,6 +15,13 @@ $icon-font: "IconFont";
 @font-face {
     font-family: 'Signifier Extra';
     src:          url('../../public/fonts/signifier-web-extralight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier Light';
+    src:          url('../../public/fonts/signifier-web-light.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }

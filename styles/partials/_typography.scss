@@ -1,31 +1,34 @@
+$headline-size: 3.2vw;
+$headline-size-mobile: 26px;
+$headline-size-mid: 60px;
 
-$headline-size:         3.2vw;
-$headline-size-mobile:  26px;
-$headline-size-mid:     60px;
+$intro-size: 3.2vw;
 
-$intro-size:            3.2vw;
+$body-size: 18px;
+$body-large: 24px;
+$mid-size: 22px;
 
-$body-size:             18px;
-$body-large:            24px;
-$mid-size:              22px;
+$small-size: 13px;
+$nav-size: 22px;
 
-$small-size:            13px;
-$nav-size:              22px;
-
-$line-height:           1.3em;
-$line-height-headline:  1.25em;
+$line-height: 1.3em;
+$line-height-headline: 1.25em;
 
 $icon-font: "IconFont";
 
-
-h2, h2 p {
+h2,
+h2 p {
   font-size: $headline-size-mobile;
-  font-family: $headline-font;
   line-height: $line-height-headline;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  padding-bottom: .2em;
+  padding-bottom: 0.2em;
+  font-family: $headline-font-mobile;
+
+  @include mq($from: tablet) {
+    font-family: $headline-font;
+  }
 
   &.tight {
     line-height: $line-height-headline * 0.9;
@@ -36,9 +39,8 @@ h2, h2 p {
   }
 
   strong {
-		font-weight: normal;
-	}
-
+    font-weight: normal;
+  }
 }
 
 h3 {
@@ -47,50 +49,50 @@ h3 {
   font-weight: normal;
   letter-spacing: 0.07em;
   padding-bottom: 1em;
-  font-size: $nav-size - 6px;
+  font-size: $nav-size - 7px;
 
   @include mq($from: tablet) {
     font-size: $nav-size - 2px;
-   }
-
+  }
 }
 
 p {
   line-height: $line-height;
   font-size: $body-size;
 
-  @include mq($from: tablet) { 
+  @include mq($from: tablet) {
     font-size: $body-large;
   }
 
-
-  &.intro-big, &.intro-big p {
-      font-family: $headline-font;
-      font-size: $intro-size;    
-    }
-  
+  &.intro-big,
+  &.intro-big p {
+    font-family: $headline-font;
+    font-size: $intro-size;
+  }
 }
 
 footer {
   font-size: $body-size;
 }
 
-nav, button {
+nav,
+button {
   font-family: $body-font;
   font-size: $body-size;
 
   @include mq($from: tablet) {
     font-size: $nav-size;
-     }
-
+  }
 }
 
-strong, .strong {
+strong,
+.strong {
   font-weight: 600;
   font-family: $body-font;
 }
 
-em, i {
+em,
+i {
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
