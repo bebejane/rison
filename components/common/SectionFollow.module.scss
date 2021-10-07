@@ -4,5 +4,7 @@
   @include outerMargins();
   @include verticalMarginTop();
   @include verticalMarginBottom();
-
+  @include mq($until: tablet) {
+    scroll-margin-top: 68px;
+  }
 }

@@ -1,18 +1,28 @@
 import styles from "./Test.module.scss";
-import { apiQuery } from "/lib/api";
-import { GetHome, GetMenu, GetContact } from "/graphql";
+import DatoSEO from "/lib/dato/seo";
+import { GetTest } from "./test.graphql";
+import { SEOQuery } from "/graphql";
+import { withGlobalProps } from "/lib/utils";
 
 export default function Test(data) {
-  //console.log(data)
+	const { seo } = data;
+
 	return (
-		<div className={styles.container}>
-      test
-		</div>
+		<>
+			<DatoSEO {...data} title={"Rison -- SEO test"} />
+			<div className={styles.container}>
+				<table className={styles.seoTable}>
+					{seo.tags.map(({ tag, content, attributes }, idx) => (
+						<tr key={idx}>
+							<td>{tag}</td>
+							<td>{attributes && `${attributes.property || attributes.name}`}</td>
+							<td>{attributes ? `${attributes.content}` : content}</td>
+						</tr>
+					))}
+				</table>
+			</div>
+		</>
 	);
 }
 
-export async function getStaticProps({ preview }) {
-  const queries = [GetHome, GetMenu, GetContact];
-  const data = await apiQuery(queries, {}, preview);
-	return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME)};
-}
+export const getStaticProps = withGlobalProps([GetTest, SEOQuery("test")]);

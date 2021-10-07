@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from "./Footer.module.scss";
 
 const Footer = ({ contact}) => {
-	if(!contact) return null
+	
 	const {address, email, twitter, facebook, instagram} = contact
 	return (
 		<footer className={styles.footer}>

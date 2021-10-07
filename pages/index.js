@@ -4,12 +4,13 @@ import { apiQuery } from "/lib/api";
 import { GetHome, GetMenu, GetContact, GetHomeSEO } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
+import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 export default function Home({page}) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
-	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
-
+	const handleScrollDown = () => elementScrollIntoView(scrollRef.current, { behavior: "smooth" });
+	
 	return (
 		<div className={styles.container}>
 			<section className={styles.intro}>
@@ -42,6 +43,7 @@ export default function Home({page}) {
 }
 
 export async function getStaticProps({ preview }) {
+	console.log('home')
   const queries = [GetHome, GetMenu, GetContact];
   const data = await apiQuery(queries, {}, preview);
 	return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
