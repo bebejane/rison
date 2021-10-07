@@ -4,14 +4,15 @@ import { Image } from 'react-datocms';
 
 
 const SectionManagementBlock = ({ block }) => (
-  <div className={styles.myDiv}>
-    <article>
-      <h2>{block.shortHeadline}</h2>
-      <h2>{block.bigHeadline}</h2>
-    </article>
-    <figure>
+  <div className={styles.people}>
+      <figure>
       {block.image && <Image data={block.image.responsiveImage} />}
     </figure>
+    <article>
+      <p><strong>{block.name}</strong></p>
+      <p>{block.title}</p>
+      <p className={'small'}>{block.text}</p>
+    </article>
   </div>
 );
 

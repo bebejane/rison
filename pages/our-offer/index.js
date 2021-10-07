@@ -1,5 +1,5 @@
 import styles from "./OurOffer.module.scss";
-import {  Markdown, SectionFollow, Button, SectionImageHeadline } from "/components/common";
+import {  Markdown, SectionFollow, SectionIntro, Button, SectionImageHeadline } from "/components/common";
 import { apiQuery } from "/lib/api";
 import { GetOurOffer, GetMenu, GetContact } from "/graphql";
 import { Image } from 'react-datocms';
@@ -9,9 +9,7 @@ export default function OurOffer({ page, contact, menu }) {
 
 	return (
 		<>
-			<section className={styles.intro}>
-				<h2>{page.intro}</h2>
-			</section>
+			<SectionIntro intro={page.intro} />
 			<SectionFollow blocks={page.blocks} />
 		</>
 	);

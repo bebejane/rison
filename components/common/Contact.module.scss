@@ -43,10 +43,6 @@
         min-height: unset;
         cursor: pointer;
       }
-      &:active{
-        transition: transform .2s;
-        transform: scale(1.1); 
-      }
 		}
 
 	}
@@ -57,7 +53,7 @@
 		width: 100%;
 		flex: 1 1 auto;
     height: 100%;
-    transform: scale(0.95);
+   // transform: scale(0.95);
     @include outerMargins();
 
     .innerWrapper {

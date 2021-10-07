@@ -1,0 +1,16 @@
+.who {
+  width: spanGrid(5);
+
+  figure {
+    width: 70%;
+    mix-blend-mode: multiply;
+  }
+
+  article {
+    p:first-of-type {
+      color: $green;
+      padding-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+}

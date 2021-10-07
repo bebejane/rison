@@ -1,0 +1,21 @@
+.section {
+  width: 100%;
+  background-color: $beige;
+  @include outerMargins();
+  @include verticalMarginTop();
+  @include verticalMarginBottom();
+  display: flex;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: spanGrid(14);
+
+    h3 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

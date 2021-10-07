@@ -2,24 +2,23 @@
 #import "./fragments/SEOFragment.graphql"
 #import "./fragments/SiteFragment.graphql"
 
-query GetAbout {
-  page: about {
+query GetInvest {
+  page: invest {
     headline
     intro
-    aboutManagement
-    people {
-      name
-      title
+    cta
+    whoAreYou {
+      headline
+      text
       image {
         ...ImageFragment
       }
-      text
     }
-  }
+ }
   site: _site {
     ... SiteFragment
   }
-  seo: about {
+  seo: invest {
     tags: _seoMetaTags {
       ... SEOFragment
     }

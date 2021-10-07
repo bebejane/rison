@@ -1,7 +1,4 @@
-.section {
-  width: 100%;
-  background-color: $beige;
-  @include outerMargins();
-  @include verticalMarginTop();
-  @include verticalMarginBottom();
+.team {
+  display: flex;
+  justify-content: space-between
 }

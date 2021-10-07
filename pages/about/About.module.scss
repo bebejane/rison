@@ -1,0 +1,36 @@
+.team {
+  width: 100%;
+  background-color: $beige;
+  @include outerMargins();
+  @include verticalMarginTop();
+  @include verticalMarginBottom();
+
+  .wrapper {
+    width: spanGrid(14);
+    margin: auto;
+    display: flex;
+
+    h2 {
+      width: 100%;
+      color: $green;
+      padding-bottom: 1em;
+    }
+
+    h3 {
+      width: spanNestedGrid(14,4);
+    }
+
+    div.people {
+      width: spanNestedGrid(14,10);
+      display: flex;
+      flex-wrap: wrap;
+
+      div.management {
+        display: flex;
+      }
+
+    }
+
+  }
+
+}
