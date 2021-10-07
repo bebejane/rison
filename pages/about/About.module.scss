@@ -6,7 +6,7 @@
   @include verticalMarginBottom();
 
   .wrapper {
-    width: spanGrid(14);
+    width: spanGrid(12);
     margin: auto;
     display: flex;
 
@@ -17,20 +17,18 @@
     }
 
     h3 {
-      width: spanNestedGrid(14,4);
+      width: spanNestedGrid(12, 2);
+      padding-top: 1em;
     }
 
     div.people {
-      width: spanNestedGrid(14,10);
+      width: spanNestedGrid(12, 10);
       display: flex;
       flex-wrap: wrap;
 
       div.management {
         display: flex;
       }
-
     }
-
   }
-
 }
