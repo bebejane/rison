@@ -1,0 +1,16 @@
+.outro {
+  width: 100%;
+  background-color: $white;
+  @include outerMargins();
+  @include verticalMarginTop();
+  @include verticalMarginBottom();
+
+  h2 {
+    padding-left: spanGrid(2);
+    padding-right: spanGrid(2);
+  }
+
+  button {
+    margin-left: spanGrid(2);
+  }
+}

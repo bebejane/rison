@@ -5,8 +5,10 @@ export { default as GetContact } from "./contact.graphql";
 export { default as GetMenu } from "./menu.graphql";
 export { default as GetOurOffer } from "./ourOffer.graphql";
 export { default as GetAbout } from "./about.graphql";
+export { default as GetPartner } from "./partner.graphql";
+export { default as GetInvest } from "./invest.graphql";
 
-export const SEOQuery = (schema) =>{
+export const SEOQuery = (schema) => {
   return gql`
     query GetSEO {
       site: _site {

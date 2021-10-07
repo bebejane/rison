@@ -11,9 +11,12 @@ button {
   display: inline-block;
   color: $black;
   transition: min-height .1s ease-out;
+  background-color: white;
+  transition: background-color .15s ease-in;
   min-height: 0;
 
   &:hover {
     cursor: pointer;
+    background-color: $green;
   }
 }

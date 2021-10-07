@@ -1,0 +1,24 @@
+.people {
+  width: spanNestedGrid(10, 5);
+
+  div {
+    width: 50%;
+    border: 6px solid $white;
+    border-radius: 50%;
+  }
+
+  strong {
+    color: $green;
+    font-weight: normal;
+  }
+
+  p:first-of-type {
+    margin-bottom: 0;
+    margin-top: 1em;
+  }
+
+  p:last-of-type {
+    padding-right: 2vw;
+  }
+
+}
