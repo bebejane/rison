@@ -3,5 +3,22 @@
     {
       "path": "."
     }
-  ]
+  ],
+  "settings": {
+    "files.exclude": {
+      ".env.local": false,
+      "jsconfig.json": false,
+      "README.md": false,
+      "Rison.code-workspace": false,
+      "yarn.lock": false,
+      ".gitignore": false,
+      "node_modules": false,
+      ".next": false,
+      "package-lock.json": false,
+      "package.json": false,
+      "next.config.js": false,
+      "TODO": false
+    },
+    "workspace.isHidden": false
+  }
 }

@@ -12,7 +12,12 @@ const sassOptions = {
 }
 const nextOptions = {
   devIndicators: {
-    autoPrerender: false,
+    buildActivity: false
   },
+  experimental:{
+    //swcMinify:true,
+    //swcLoader:true,
+    //esmExternals:true
+  }
 }
 module.exports = withPlugins([withGraphql, withTM], {sassOptions, ...nextOptions})

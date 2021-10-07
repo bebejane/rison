@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sentry/node": "^6.12.0",
-    "axios": "^0.21.4",
     "classnames": "^2.3.1",
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.3",
@@ -29,8 +27,7 @@
     "react-markdown": "^7.0.1",
     "remark-gfm": "^2.0.0",
     "sass": "^1.39.0",
-    "seamless-scroll-polyfill": "^2.1.4",
-    "swr": "^1.0.0"
+    "seamless-scroll-polyfill": "^2.1.4"
   },
   "devDependencies": {
     "eslint": "7.32.0",
