@@ -10,7 +10,7 @@ export default function Home({page}) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
 	const handleScrollDown = () => elementScrollIntoView(scrollRef.current, { behavior: "smooth" });
-
+	
 	return (
 		<div className={styles.container}>
 			<section className={styles.intro}>

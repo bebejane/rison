@@ -1,12 +1,13 @@
 import "../styles/index.scss";
 import Head from "next/head";
+import DatoSEO from '/lib/dato/seo';
 import Router from "next/router";
 import Layout from "/components/common/Layout";
 import { useEffect } from "react";
 import { UIProvider } from "/lib/context/ui";
 import { AnimatePresence } from "framer-motion";
 import { Content } from "components/common";
-import { renderMetaTags } from "react-datocms";
+
 
 // Bugfix for framer-motion page transition
 // https://github.com/vercel/next.js/issues/17464
@@ -29,9 +30,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 	
 	return (
 		<>
-			<Head>
-				{renderMetaTags(generateMetaTags({seo, site, pathname:router.pathname}))}
-			</Head>
+			<DatoSEO seo={seo} site={site} pathname={router.pathname} key={router.pathname}/>
 			<UIProvider>
 				<Layout>
 					<AnimatePresence exitBeforeEnter initial={false}>
@@ -42,7 +41,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 							contact={contact} 
 							pathname={router.pathname}
 						>
-							<Component {...pageProps} />
+							<Component {...pageProps} pathname={router.pathname}/>
 						</Content>
 					</AnimatePresence>
 				</Layout>
