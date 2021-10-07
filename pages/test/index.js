@@ -1,7 +1,6 @@
 import styles from "./Test.module.scss";
 import DatoSEO from "/lib/dato/seo";
 import { GetTest } from "./test.graphql";
-import { SEOQuery } from "/graphql";
 import { withGlobalProps } from "/lib/utils";
 
 export default function Test(data) {
@@ -25,4 +24,4 @@ export default function Test(data) {
 	);
 }
 
-export const getStaticProps = withGlobalProps([GetTest, SEOQuery("test")]);
+export const getStaticProps = withGlobalProps({query: GetTest, model: "test"});

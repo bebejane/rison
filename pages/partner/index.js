@@ -1,10 +1,7 @@
 import styles from "./Partner.module.scss";
 import { Markdown, SectionIntroSplit, SectionIntro, SectionWho, SectionCTA } from "/components/common";
-import { apiQuery } from "/lib/api";
-import { GetPartner, GetMenu, GetContact } from "/graphql";
-import { useRef } from "react";
-import { useUI, UIAction } from "/lib/context/ui";
-
+import { GetPartner } from "/graphql";
+import { withGlobalProps } from "/lib/utils";
 
 export default function Partner({ page, contact, menu }) {
   const { intro, headline } = page;
@@ -18,8 +15,4 @@ export default function Partner({ page, contact, menu }) {
   );
 }
 
-export async function getStaticProps({ preview }) {
-  const queries = [GetPartner, GetMenu, GetContact];
-  const data = await apiQuery(queries, {}, preview);
-  return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
-}
+export const getStaticProps = withGlobalProps({query: GetPartner, model: "partner"});
