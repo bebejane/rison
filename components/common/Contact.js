@@ -9,6 +9,7 @@ const Contact = ({ contact, showContact, setShowContact }) => {
 	if(!contact) return null
 	
 	const [ui, setUI] = useUI()
+	
 	return (
 		<div className={cn(styles.contact, ui.showContact && styles.show)}>
 			<div className={styles.close}>

@@ -10,8 +10,8 @@ export default function Test({seo, site, pathname}) {
 		<>
 			<div className={styles.container}>
 				<table className={styles.seoTable}>
-				{seo.tags.map(({tag, content, attributes})=>
-					<tr><td>{tag}</td><td>{attributes && `${attributes.property || attributes.name}`}</td><td>{attributes ? `${attributes.content}` : content }</td></tr>
+				{seo.tags.map(({tag, content, attributes}, idx)=>
+					<tr key={idx}><td>{tag}</td><td>{attributes && `${attributes.property || attributes.name}`}</td><td>{attributes ? `${attributes.content}` : content }</td></tr>
 				)}
 				</table>
 			</div>

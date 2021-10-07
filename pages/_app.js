@@ -27,21 +27,21 @@ const MyApp = ({ Component, pageProps, router }) => {
 	useEffect(() => router.push({ pathname: router.pathname, query: { ...router.query } }), []);
 
 	const { page, menu, contact, seo, site } = pageProps;
-	
+	const { pathname, route } = router
 	return (
 		<>
-			<DatoSEO seo={seo} site={site} pathname={router.pathname} key={router.pathname}/>
+			<DatoSEO seo={seo} site={site} pathname={pathname} key={pathname}/>
 			<UIProvider>
 				<Layout>
 					<AnimatePresence exitBeforeEnter initial={false}>
 						<Content 
-							key={router.route} 
+							key={route} 
 							page={page} 
 							menu={menu} 
 							contact={contact} 
-							pathname={router.pathname}
+							pathname={pathname}
 						>
-							<Component {...pageProps} pathname={router.pathname}/>
+							<Component {...pageProps} pathname={pathname}/>
 						</Content>
 					</AnimatePresence>
 				</Layout>
