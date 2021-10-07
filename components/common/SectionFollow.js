@@ -1,7 +1,6 @@
-import React from "react";
 import styles from './SectionFollow.module.scss'
+import React from "react";
 import SectionFollowBlock from "/components/common/SectionFollowBlock";
-import { Image } from 'react-datocms';
 
 const SectionFollow = React.forwardRef(({blocks}, ref) => (  
   <section className={styles.section} ref={ref}>
