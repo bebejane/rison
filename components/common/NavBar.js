@@ -6,7 +6,6 @@ import { useState } from 'react';
 import {Squash as Hamburger} from 'hamburger-react'
 
 export default function NavBar({menu, contact, pathname}) {
-  if(!menu) return null
   const [ui, setUI] = useUI()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   

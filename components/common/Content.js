@@ -20,6 +20,7 @@ const pageAnimation = {
 };
 
 export default function Content({ page = {}, contact, menu, pathname, children }) {
+	if(!contact || !menu || !page) return null
 	return (
 		<>
 			<div className={styles.content}>
