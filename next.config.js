@@ -13,11 +13,9 @@ const sassOptions = {
 const nextOptions = {
   devIndicators: {
     buildActivity: false
-  },
-  experimental:{
-    //swcMinify:true,
-    //swcLoader:true,
-    //esmExternals:true
   }
 }
-module.exports = withPlugins([withGraphql, withTM], {sassOptions, ...nextOptions})
+
+const config = withPlugins([withGraphql, withTM], {sassOptions, ...nextOptions})
+
+module.exports = config
