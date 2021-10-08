@@ -1,17 +1,6 @@
-#import "/graphql/fragments/SEOFragment.graphql"
-#import "/graphql/fragments/SiteFragment.graphql"
-
 query GetTest {
   page: test {
     lover
     first
-  }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: test {
-    tags: _seoMetaTags {
-      ... SEOFragment
-    }
   }
 }
