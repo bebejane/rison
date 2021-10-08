@@ -15,7 +15,7 @@ const nextOptions = {
   devIndicators: {
     buildActivity: false
   },
-  distDir: 'build'
+  distDir: 'out'
 }
 
 const config = withPlugins([withBundleAnalyzer, withGraphql, withTM], {sassOptions, ...nextOptions})
