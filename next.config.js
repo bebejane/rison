@@ -11,12 +11,12 @@ const sassOptions = {
     @import "./styles/partials/grid";
   `
 }
-const nextOptions = {
+const nextConfig = {
   devIndicators: {
     buildActivity: false
   }
 }
 
-const config = withPlugins([withGraphql, withTM], {sassOptions, ...nextOptions})
+const config = withPlugins([withGraphql, withTM], {sassOptions, ...nextConfig})
 
 module.exports = config
