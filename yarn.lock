@@ -1627,6 +1627,11 @@
   "resolved" "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz"
   "version" "4.2.8"
 
+"graphql-combine-query@^1.2.3":
+  "integrity" "sha512-VIY9PsJW8Kw1ZRljAxKgmfnv9EtsYbQklko9wJ/1Sq34Knc2sL9PkjLNlG6B9VsENF/JqGwQj70HMTDQ6Oodmg=="
+  "resolved" "https://registry.npmjs.org/graphql-combine-query/-/graphql-combine-query-1.2.3.tgz"
+  "version" "1.2.3"
+
 "graphql-request@^3.5.0":
   "integrity" "sha512-Io89QpfU4rqiMbqM/KwMBzKaDLOppi8FU8sEccCE4JqCgz95W9Q8bvxQ4NfPALLSMvg9nafgg8AkYRmgKSlukA=="
   "resolved" "https://registry.npmjs.org/graphql-request/-/graphql-request-3.5.0.tgz"
@@ -1643,7 +1648,7 @@
   dependencies:
     "tslib" "^2.1.0"
 
-"graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^15.5.3", "graphql@14.x || 15.x":
+"graphql@^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0", "graphql@^15.1.0", "graphql@^15.5.3", "graphql@14.x || 15.x":
   "integrity" "sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA=="
   "resolved" "https://registry.npmjs.org/graphql/-/graphql-15.5.3.tgz"
   "version" "15.5.3"

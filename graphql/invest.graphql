@@ -1,6 +1,4 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/SEOFragment.graphql"
-#import "./fragments/SiteFragment.graphql"
 
 query GetInvest {
   page: invest {
@@ -13,14 +11,6 @@ query GetInvest {
       image {
         ...ImageFragment
       }
-    }
- }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: invest {
-    tags: _seoMetaTags {
-      ... SEOFragment
     }
   }
 }

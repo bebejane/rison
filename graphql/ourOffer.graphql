@@ -1,6 +1,4 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/SEOFragment.graphql"
-#import "./fragments/SiteFragment.graphql"
 
 query GetOurOffer {
   page: ourOffer {
@@ -12,14 +10,6 @@ query GetOurOffer {
       image {
         ...ImageFragment
       }
-    }
-  }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: ourOffer {
-    tags: _seoMetaTags {
-      ... SEOFragment
     }
   }
 }
