@@ -1,7 +1,7 @@
 import styles from "./Partner.module.scss";
+import { withGlobalProps } from "/lib/utils";
 import { Markdown, SectionIntroSplit, SectionIntro, SectionWho, SectionCTA } from "/components/common";
 import { GetPartner } from "/graphql";
-import { withGlobalProps } from "/lib/utils";
 
 export default function Partner({ page, contact, menu }) {
   const { intro, headline } = page;

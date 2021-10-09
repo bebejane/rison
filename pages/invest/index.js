@@ -1,7 +1,7 @@
 import styles from "./Invest.module.scss";
+import { withGlobalProps } from "/lib/utils";
 import { Button, SectionIntroSplit, SectionIntro, SectionWho, SectionCTA } from "/components/common";
 import { GetInvest } from "/graphql";
-import { withGlobalProps } from "/lib/utils";
 
 export default function Invest({ page, contact, menu }) {
   const { intro, headline } = page;

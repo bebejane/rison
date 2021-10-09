@@ -1,7 +1,7 @@
 import styles from "./About.module.scss";
+import { withGlobalProps } from "/lib/utils";
 import { Markdown, SectionManagement, SectionIntro, Button } from "/components/common";
 import { GetAbout } from "/graphql";
-import { withGlobalProps } from "/lib/utils";
 
 export default function About({ page, contact, menu }) {
   const { intro, people } = page;

@@ -14,17 +14,17 @@ const Footer = ({ contact}) => {
 			<div className={styles.social}>
 				{twitter && 
 					<Link href={twitter}>
-						<a><img src={"/images/icons/twitter.svg"} /></a>
+						<a><img alt="Twitter" src={"/images/icons/twitter.svg"} /></a>
 					</Link>
 				}
 				{instagram && 
 					<Link href={instagram}>
-						<a><img src={"/images/icons/instagram.svg"} /></a>
+						<a><img alt="Instagram" src={"/images/icons/instagram.svg"} /></a>
 					</Link>
 				}
 				{facebook && 
 					<Link href={facebook}>
-						<a><img src={"/images/icons/facebook.svg"} /></a>
+						<a><img alt="Facebook" src={"/images/icons/facebook.svg"} /></a>
 					</Link>
 				}
 			</div>

@@ -19,7 +19,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 
 	const { page, menu, contact, seo, site } = pageProps;
 	const { pathname, route } = router
-
+	
 	return (
 		<>
 			<DatoSEO seo={seo} site={site} pathname={pathname} key={pathname}/>
