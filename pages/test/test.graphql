@@ -1,6 +1,0 @@
-query GetTest {
-  page: test {
-    lover
-    first
-  }
-}
