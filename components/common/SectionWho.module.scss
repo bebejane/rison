@@ -11,7 +11,9 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: spanGrid(14);
+    @include mq($from: tablet) {
+      width: spanGrid(14);
+    }
 
     h3 {
       width: 100%;

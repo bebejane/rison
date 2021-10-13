@@ -2,8 +2,10 @@
   @include outerMargins();
   @include verticalMarginBottom;
   //@include verticalMarginTop;
-  margin-left: spanGrid(2);
-  margin-right: spanGrid(2);
+  @include mq($from: tablet) {
+    margin-left: spanGrid(2);
+    margin-right: spanGrid(2);
+  }
 
   h2 {
     &:first-of-type {

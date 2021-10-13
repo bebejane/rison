@@ -6,11 +6,15 @@
   @include verticalMarginBottom();
 
   h2 {
-    padding-left: spanGridWithGutter(2);
-    padding-right: spanGridWithGutter(2);
+    @include mq($from: tablet) {
+      padding-left: spanGridWithGutter(2);
+      padding-right: spanGridWithGutter(2);
+    }
   }
 
   button {
-    margin-left: spanGridWithGutter(2);
+    @include mq($from: tablet) {
+      margin-left: spanGridWithGutter(2);
+    }
   }
 }
