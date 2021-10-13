@@ -127,3 +127,13 @@ i {
   font-style: italic;
   font-stretch: normal;
 }
+
+form,
+input {
+  font-size: $body-size;
+  font-family: $body-font;
+
+  @include mq($from: tablet) {
+    font-size: $body-large;
+  }
+}
