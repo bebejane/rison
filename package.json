@@ -27,6 +27,7 @@
     "react-flippy": "^1.1.0",
     "react-intersection-observer": "^8.32.1",
     "react-markdown": "^7.0.1",
+    "react-use-scroll-direction": "^0.1.0",
     "remark-gfm": "^2.0.0",
     "sass": "^1.39.0"
   },

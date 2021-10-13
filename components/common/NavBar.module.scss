@@ -16,6 +16,9 @@
 		max-height: 100px;
 		min-height: 100px;
 	}
+	&.floater {
+		position: fixed;
+	}
 	.menu {	
 		display: flex;
 		flex-direction: row;
@@ -116,9 +119,7 @@
 				margin-left: 36px;
 			} 
 		}
-		
 		.logoMobile{
-			
 			width: auto;
 			height: 25px;
 			@include mq($from: desktop) {
@@ -138,21 +139,33 @@
 	}
 }
 
+
 .floater{
-	position: fixed;
-	top: 0;
-	left:0;
-	width: 100%;
-	z-index: 3;
-	max-height: 100px;
-	min-height: 100px;
+	@include mq($from: desktop) {
+		position: fixed;
+		top: 0;
+		left:0;
+		width: 100%;
+		z-index: 3;
+		max-height: 100px;
+		min-height: 100px;
+		background-color: #fff;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		@include outerMargins();
+		padding-top: math.div($space, 2);
+		animation: floater .5s cubic-bezier(0.55, 0.08, 0.68, 0.53) forwards;
+		
+	}
+}
 
-	background-color: #fff;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	@include outerMargins();
-	padding-top: math.div($space, 2);
-
+@keyframes floater {
+	from{
+		transform: translateY(-100%);
+	}
+	to{
+		transform: translateY(0%);
+	}
 }
