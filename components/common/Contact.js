@@ -27,12 +27,10 @@ const Contact = ({ contact }) => {
 					<h3>{contact.headlineCareer}</h3>
 					<h2><ReactMarkdown>{contact.textCareer}</ReactMarkdown></h2>
 					<Flippy
-						flipOnHover={false} // default false
-						flipOnClick={true} // default false
-						flipDirection="vertical" // horizontal or vertical
+						flipOnHover={false} 
+						flipOnClick={true}
+						flipDirection="vertical"
 						isFlipped={showNewsletter}
-						// if you pass isFlipped prop component will be controlled component.
-						// and other props, which will go to div
 					>
 						<FrontSide className={styles.newsletter}>
 							<p>
@@ -41,7 +39,7 @@ const Contact = ({ contact }) => {
 						</FrontSide>
 						<BackSide className={styles.newsletterForm}>
 							<form className={cn(styles.newsletterForm, showNewsletter && styles.visible)} onClick={(e)=>e.stopPropagation()}>
-								<input placeholder={'E-mail...'} type="text" />
+								<input autoFocus={true} placeholder={'E-mail...'} type="text" />
 								<input type="submit" value={'Send'}/>
 							</form>
 						</BackSide>

@@ -1,6 +1,7 @@
 .nav {
   position: fixed;
 	top: 0;
+	left:0;
 	z-index: 1;
 	background-color: #fff;
 	display: flex;
@@ -11,46 +12,53 @@
 	padding-top: math.div($space, 2);
 	width: 100%;
 	@include mq($from: tablet) {
-    position: relative;
+		position: relative;
 		max-height: 100px;
 		min-height: 100px;
 	}
-	.navItems {
-		list-style: none;
-		flex: 1 1 auto;
+	.menu {	
 		display: flex;
 		flex-direction: row;
-		justify-content: flex-end;
-		.navItem {
-			margin: 10px;
-			a {
-				transition: color 0.3s ease;
-			}
-			a:hover,
-			&.selected > a {
-				color: $green;
-			}
-		}
-		@include mq($until: desktop) {
+		justify-content: flex-start;
+		align-items: center;
+		
+		.navItems {
+			list-style: none;
+			flex: 1 1 auto;
 			display: flex;
-			position: fixed;
-			@include outerMargins();
-			padding-top: 20vh;
-			top: 0;
-			right: 0;
-			background: $black;
-			height: 100vh;
-			z-index: 1000;
-			flex-direction: column;
-			width: 100%;
-			justify-content: flex-start;
-			transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
-			transform: translateX(100%);
-			a {
-				color: $white;
+			flex-direction: row;
+			justify-content: flex-end;
+			.navItem {
+				margin: 10px;
+				a {
+					transition: color 0.3s ease;
+				}
+				a:hover,
+				&.selected > a {
+					color: $green;
+				}
 			}
-			li {
-				margin-left: 0;
+			@include mq($until: desktop) {
+				display: flex;
+				position: fixed;
+				@include outerMargins();
+				padding-top: 20vh;
+				top: 0;
+				right: 0;
+				background: $black;
+				height: 100vh;
+				z-index: 1000;
+				flex-direction: column;
+				width: 100%;
+				justify-content: flex-start;
+				transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+				transform: translateX(100%);
+				a {
+					color: $white;
+				}
+				li {
+					margin-left: 0;
+				}
 			}
 		}
 	}
@@ -73,6 +81,9 @@
 			}
     }
   }
+	&.showFloater {	
+		position: fixed;
+	}
 	.navMobile {
 		flex: 0 0 auto;
 		z-index: 10000;
@@ -89,10 +100,29 @@
 		flex: 1 1 auto;
 		z-index: 10000;
 		line-height: 0;
-		img {
+		a{
+			position: relative;
+		}
+
+		img:not(img.logoMobile){
 			width: auto;
-			@include mq($until: tablet) {
-				height: 25px;
+			height: 35px;
+			margin-right: 4px;
+			@include mq($until: desktop) {
+				display: none;
+			}
+			margin-right: 4px;
+			&:nth-child(5){
+				margin-left: 36px;
+			} 
+		}
+		
+		.logoMobile{
+			
+			width: auto;
+			height: 25px;
+			@include mq($from: desktop) {
+				display: none;
 			}
 		}
 		&:hover {
@@ -106,4 +136,23 @@
 		}
 		margin-left: 1em;
 	}
+}
+
+.floater{
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100%;
+	z-index: 3;
+	max-height: 100px;
+	min-height: 100px;
+
+	background-color: #fff;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	@include outerMargins();
+	padding-top: math.div($space, 2);
+
 }

@@ -21,6 +21,8 @@ const pageAnimation = {
 
 export default function Content({ page = {}, contact, menu, pathname, children }) {
 	if(!contact || !menu || !page) return null
+
+
 	return (
 		<>
 			<div className={styles.content}>
@@ -30,6 +32,7 @@ export default function Content({ page = {}, contact, menu, pathname, children }
 					pathname={pathname}
 				/>
 				<motion.main 
+					
 					className={styles.main}
 					initial="initial" 
 					animate="animate" 
