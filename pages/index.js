@@ -9,6 +9,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 export default function Home({ page }) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
+	
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
 	return (

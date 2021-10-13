@@ -26,10 +26,7 @@
     padding-bottom: 0.1em;
   }
 
-  p.newsletter {
-    margin: 0;
-  }
-
+  
   h3 {
     color: $black;
   }
@@ -89,28 +86,36 @@
     transition: transform 0.4s;
     transform: scale(1);
   }
-
-  form {
-    display: none;
+  .newsletter{
+    position: relative;
+    box-shadow: none;
+    background-color: $green;
+    padding:0;
   }
-
-  input {
-    padding: 0.3em;
-    background: transparent;
-    border-width: 0;
-    border-bottom: 1px solid $white;
-    box-sizing: border-box;
-    color: $black;
-  }
-
-  input[type="submit"] {
-    margin-left: 0.5em;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-    border: none;
-
-    &:hover {
-      background: white;
+  .newsletterForm {
+    background-color: $green;
+    box-shadow: none;
+    padding:0;
+    input {
+      padding: 0.3em;
+      background: transparent;
+      border-width: 0;
+      border-bottom: 1px solid $white;
+      box-sizing: border-box;
+      color: $black;
+      outline: none;
+    }
+  
+    input[type="submit"] {
+      margin-left: 0.5em;
+      padding-left: 0.6em;
+      padding-right: 0.6em;
+      border: none;
+  
+      &:hover {
+        background: white;
+      }
     }
   }
+  
 }
