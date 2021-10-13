@@ -3,15 +3,17 @@ import Link from 'next/link'
 import cn from 'classnames'
 import { useUI } from "/lib/context/ui";
 import { useState } from 'react';
+import useVisibility from '/lib/hooks/useVisibility';
 import {Squash as Hamburger} from 'hamburger-react'
 
 export default function NavBar({menu, contact, pathname}) {
   const [ui, setUI] = useUI()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [ref, scroller] = useVisibility('logo')
   
   return (
     <nav className={cn(styles.nav, showMobileMenu && styles.showMobile)}>
-      <div className={styles.logo}>
+      <div className={styles.logo} ref={ref}>
         <Link href={`/`}>
           <a>
             <img alt="Logo" src={'/images/Logo.svg'}/>
