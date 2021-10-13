@@ -1,6 +1,4 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/SEOFragment.graphql"
-#import "./fragments/SiteFragment.graphql"
 
 query GetAbout {
   page: about {
@@ -10,18 +8,10 @@ query GetAbout {
     people {
       name
       title
+      text
       image {
         ...ImageFragment
       }
-      text
-    }
-  }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: about {
-    tags: _seoMetaTags {
-      ... SEOFragment
     }
   }
 }

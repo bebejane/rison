@@ -4,3 +4,4 @@ node_modules
 .env.local
 TODO
 Rison.code-workspace
+out

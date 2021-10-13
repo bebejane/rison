@@ -14,7 +14,7 @@ export default function NavBar({menu, contact, pathname}) {
       <div className={styles.logo}>
         <Link href={`/`}>
           <a>
-            <img src={'/images/Logo.svg'}/>
+            <img alt="Logo" src={'/images/Logo.svg'}/>
           </a>
         </Link>
       </div>
@@ -35,9 +35,10 @@ export default function NavBar({menu, contact, pathname}) {
       <div className={styles.navMobile}>
         <Hamburger 
           isOpen={showMobileMenu} 
-          duration={0.4}
+          duration={0.5}
           onToggle={(toggle)=>setShowMobileMenu(toggle)}
           color={showMobileMenu ? '#fff' : '#000'}
+          label={'Menu'}
         />
       </div>
     </nav>

@@ -1,6 +1,4 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/SEOFragment.graphql"
-#import "./fragments/SiteFragment.graphql"
 
 query GetPartner {
   page: partner {
@@ -13,14 +11,6 @@ query GetPartner {
       image {
         ...ImageFragment
       }
-    }
- }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: partner {
-    tags: _seoMetaTags {
-      ... SEOFragment
     }
   }
 }

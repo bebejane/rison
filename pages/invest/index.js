@@ -1,9 +1,7 @@
 import styles from "./Invest.module.scss";
+import { withGlobalProps } from "/lib/utils";
 import { Button, SectionIntroSplit, SectionIntro, SectionWho, SectionCTA } from "/components/common";
-import { apiQuery } from "/lib/api";
-import { GetInvest, GetMenu, GetContact } from "/graphql";
-import { useRef } from "react";
-import { useUI, UIAction } from "/lib/context/ui";
+import { GetInvest } from "/graphql";
 
 export default function Invest({ page, contact, menu }) {
   const { intro, headline } = page;
@@ -17,8 +15,4 @@ export default function Invest({ page, contact, menu }) {
   );
 }
 
-export async function getStaticProps({ preview }) {
-  const queries = [GetInvest, GetMenu, GetContact];
-  const data = await apiQuery(queries, {}, preview);
-  return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
-}
+export const getStaticProps = withGlobalProps({query: GetInvest, model: "invest"});

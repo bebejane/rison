@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,6 +13,7 @@
     "classnames": "^2.3.1",
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.3",
+    "graphql-combine-query": "^1.2.3",
     "graphql-request": "^3.5.0",
     "graphql-tag": "^2.12.5",
     "hamburger-react": "^2.4.1",
@@ -19,18 +21,18 @@
     "next-compose-plugins": "^2.2.1",
     "next-plugin-graphql": "^0.0.2",
     "next-seo": "^4.28.1",
-    "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
     "react-datocms": "^1.6.3",
     "react-dom": "17.0.2",
     "react-intersection-observer": "^8.32.1",
     "react-markdown": "^7.0.1",
     "remark-gfm": "^2.0.0",
-    "sass": "^1.39.0",
-    "seamless-scroll-polyfill": "^2.1.4"
+    "sass": "^1.39.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^11.1.2",
     "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2"
+    "eslint-config-next": "11.1.2",
+    "next-sitemap": "^1.6.179"
   }
 }

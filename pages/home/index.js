@@ -1,10 +1,7 @@
-import Home from '../'
-import { GetHome, GetMenu, GetContact } from "/graphql";
-import { apiQuery } from "/lib/api";
+import Home from "../";
+import { withGlobalProps } from "/lib/utils";
+import { GetHome } from "/graphql";
 
-export default Home
+export default Home;
 
-export async function getStaticProps({preview}) {
-  const data = await apiQuery([GetHome, GetMenu, GetContact], [], preview)
-  return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
-}
+export const getStaticProps = withGlobalProps({ query: GetHome, model: "home" });

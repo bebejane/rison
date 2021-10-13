@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rison.vercel.app
+
+# Sitemaps
+Sitemap: https://rison.vercel.app/sitemap.xml

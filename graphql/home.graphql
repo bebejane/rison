@@ -1,6 +1,4 @@
 #import "./fragments/ImageFragment.graphql"
-#import "./fragments/SEOFragment.graphql"
-#import "./fragments/SiteFragment.graphql"
 
 query GetHome {
   page: home {
@@ -31,12 +29,5 @@ query GetHome {
     ctaText(markdown: false)
     readMoreText
   }
-  site: _site {
-    ... SiteFragment
-  }
-  seo: home {
-    tags: _seoMetaTags {
-      ... SEOFragment
-    }
-  }
+  
 }

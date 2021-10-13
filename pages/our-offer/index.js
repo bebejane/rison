@@ -1,7 +1,7 @@
 import styles from "./OurOffer.module.scss";
-import {  Markdown, SectionFollow, SectionIntro, Button, SectionImageHeadline } from "/components/common";
-import { apiQuery } from "/lib/api";
-import { GetOurOffer, GetMenu, GetContact } from "/graphql";
+import { withGlobalProps } from "/lib/utils";
+import { Markdown, SectionFollow, SectionIntro, Button, SectionImageHeadline } from "/components/common";
+import { GetOurOffer } from "/graphql";
 import { Image } from 'react-datocms';
 
 export default function OurOffer({ page, contact, menu }) {
@@ -15,8 +15,4 @@ export default function OurOffer({ page, contact, menu }) {
 	);
 }
 
-export async function getStaticProps({ preview }) {
-	const queries = [GetOurOffer, GetMenu, GetContact];
-	const data = await apiQuery(queries, {}, preview);
-	return { props: { ...data }, revalidate: parseInt(process.env.REVALIDATE_TIME) };
-}
+export const getStaticProps = withGlobalProps({query: GetOurOffer, model: "ourOffer"});

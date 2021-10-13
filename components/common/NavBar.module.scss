@@ -84,9 +84,11 @@
 		}
 	}
 	.logo {
+		display: flex;
+		align-items: center;
 		flex: 1 1 auto;
 		z-index: 10000;
-
+		line-height: 0;
 		img {
 			width: auto;
 			@include mq($until: tablet) {
