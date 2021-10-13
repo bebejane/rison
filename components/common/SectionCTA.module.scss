@@ -6,11 +6,11 @@
   @include verticalMarginBottom();
 
   h2 {
-    padding-left: spanGrid(2);
-    padding-right: spanGrid(2);
+    padding-left: spanGridWithGutter(2);
+    padding-right: spanGridWithGutter(2);
   }
 
   button {
-    margin-left: spanGrid(2);
+    margin-left: spanGridWithGutter(2);
   }
 }

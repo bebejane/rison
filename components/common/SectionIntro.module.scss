@@ -1,7 +1,22 @@
 .intro {
   @include outerMargins();
   @include verticalMarginBottom;
-  @include verticalMarginTop;
+  //@include verticalMarginTop;
   margin-left: spanGrid(2);
   margin-right: spanGrid(2);
+
+  h2 {
+    &:first-of-type {
+      color: $green;
+      padding-top: 0.8em;
+    }
+    p:first-of-type {
+      margin-bottom: 0;
+    }
+
+    p + p {
+      text-indent: 1.5em;
+      margin-bottom: 0;
+    }
+  }
 }

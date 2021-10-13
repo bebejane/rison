@@ -10,7 +10,7 @@ export default function Invest({ page, contact, menu }) {
 
   return (
     <>
-      <SectionIntro intro={page.intro} />
+      <SectionIntro intro={page.intro} headline={page.headline} />
       <SectionWho blocks={page.whoAreYou} />
       <SectionCTA text={page.cta} />
     </>
