@@ -2,21 +2,21 @@
 
 button {
   $height: 200px;
-  border-radius: math.div($height,2);
+  border-radius: math.div($height, 2);
   border: 3px solid $green;
   padding: 10px;
-  padding-left: .8em;
-  padding-right: .8em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
   width: auto;
   display: inline-block;
   color: $black;
-  transition: min-height .1s ease-out;
+  transition: min-height 0.1s ease-out;
   background-color: white;
-  transition: background-color .15s ease-in;
+  transition: all 0.15s ease-in;
   min-height: 0;
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
     background-color: $green;
   }
 }
