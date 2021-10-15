@@ -29,7 +29,7 @@ export default function NavBar({ menu, contact, pathname }) {
 				position: "fixed", 
 				width: "100%",
 				left:0,
-				right:0, 
+				top:0, 
 				backgroundColor: "#fff",
 				transition:'transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53)',
 				transform: `translateY(0%)`

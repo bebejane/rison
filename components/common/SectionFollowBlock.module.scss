@@ -62,6 +62,7 @@
   }
 
   article {
+    
     position: relative;
     @include mq($from: tablet) {
       width: 50%;
@@ -106,9 +107,9 @@
 }
 
 .fadeUp {
-  transform: translateY(50px);
   opacity: 0;
-  animation: fadeUp 1s cubic-bezier(.17,.67,.44,1.16) 0.2s forwards;
+  transform: translateY(50px);
+  animation: fadeUp 1s cubic-bezier(.17,.67,.44,1.16) 0s forwards;
 }
 @keyframes fadeUp {
   from{
