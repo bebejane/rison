@@ -90,20 +90,21 @@ export default function NavBar({ menu, contact, pathname }) {
 const generateScrollStyles = (ratio, direction, marker) => {
 	const opacity = 1 - ratio;
 	const scale = Math.max(1, 1 + ratio - 0.2);
-	
+	const fontSize = `${1-ratio}em`
+	const margin = 100
 	return {
-		r: { transform: `translateX(-${ratio * 200}px)`, opacity },
-		i: { transform: `translateX(-${ratio * 200}px)`, opacity },
-		s: { transform: `translateX(-${ratio * 200}px)`, opacity },
+		r: { transform: `translateX(-${ratio * margin}px)`, opacity},
+		i: { transform: `translateX(-${ratio * margin}px)`, opacity},
+		s: { transform: `translateX(-${ratio * margin}px)`, opacity},
 		o: { transform: `translateX(-${ratio * 70}px) scale(${scale})` },
-		n: { transform: `translateY(-${ratio * 200}px)`, opacity },
+		n: { transform: `translateY(-${ratio * margin}px)`, opacity, fontSize },
 		menu: {
 			position: "fixed",
 			top: 0,
 			left: 0,
 			width: "100%",
 			backgroundColor: "#fff",
-			transform: `translateY(-${ratio * 200}%)`,
+			transform: `translateY(-${ratio * margin}%)`,
 		},
 		direction,
 		marker,
