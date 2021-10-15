@@ -10,60 +10,62 @@ export default function NavBar({menu, contact, pathname}) {
   const [ui, setUI] = useUI()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [showFloaterMenu, setShowFloaterMenu] = useState(false)
-  const [scrollStyles, setScrollStyles] = useState({})
+  const [scrollStyles, setScrollStyles] = useState({ratio:0, lastBack:0, lastFfw:0, marker:0})
   const menuHeight = 100;
 
   useScrollPosition(({ prevPos, currPos }) => {
-    const scrollDown = prevPos.y >= currPos.y
-    const {scrollBack} = scrollStyles
-    const ratio = scrollDown ? Math.min(Math.abs(currPos.y)/menuHeight, 1) : (100-Math.min(currPos.y-scrollBack, 100))/100
+    
+    if(window.innerWidth < 768) return setScrollStyles({})
+    const y = currPos.y
+    const {y:prevY} = prevPos;
+    const direction = prevY > y ? "down" : "up"
+    const marker = scrollStyles.direction != direction ? y : scrollStyles.marker
+    const ratio = direction === "down" ? Math.min(Math.abs(y-marker)/menuHeight, 1) : (100-Math.min(y-marker, 100))/100
     const opacity = 1-(ratio)
     const scale = Math.max(1, (1+ratio) -0.2)
-    
     const sStyles = {
-      scrollBack: currPos.y > scrollBack ? scrollBack : currPos.y,
-      r:{
-        transform:`translateX(-${ratio*200}px)`,
-        opacity
-      },
-      i:{
-        transform:`translateX(-${ratio*200}px)`,
-        opacity
-      },
-      s:{
-        transform:`translateX(-${ratio*200}px)`,
-        opacity
-      },
-      o:{
-        position:'fixed',
-        transform:`translateX(-${ratio*100}px) scale(${scale})`
-      },
-      n:{
-        transform:`translateY(-${ratio*200}px)`,
-        opacity
-      },
+      r:{ transform:`translateX(-${ratio*200}px)`, opacity},
+      i:{ transform:`translateX(-${ratio*200}px)`,opacity},
+      s:{ transform:`translateX(-${ratio*200}px)`, opacity},
+      o:{ transform:`translateX(-${ratio*70}px) scale(${scale})`},
+      n:{transform:`translateY(-${ratio*200}px)`, opacity},
       menu:{
-        transform:`translateY(-${ratio*100}%)`,
-      }
+        position:'absolute',
+        top:`${Math.abs(y)}px`,
+        left:0,
+        width:'100%',
+        backgroundColor:'#fff',
+        transform:`translateY(-${ratio*200}%)`,
+      },
+      direction,
+      marker,
+      t: new Date().getTime()
     }
     setScrollStyles(sStyles)
-    console.log(ratio, scrollDown, )
   })
+
+  const handleFloaterMenu = (e) => {
+    setScrollStyles({
+      menu:{ position:'fixed',width:'100%',top:0, left:0,backgroundColor:'#fff'},
+      direction:"up",
+      marker:-(window.scrollTop)-menuHeight
+    })
+  }
+
   return (
     <nav className={cn(styles.nav, showMobileMenu && styles.showMobile)}>
       <div className={styles.logo}>
         <Link href={`/`}>
-          <a className={styles.logoLetters}>
-            <img style={scrollStyles.r} alt="R" src={'/images/logo-r.svg'}/>
-            <img style={scrollStyles.i} alt="I" src={'/images/logo-i.svg'}/>
-            <img style={scrollStyles.s} alt="S" src={'/images/logo-s.svg'}/>
-            <img style={scrollStyles.o} alt="O" src={'/images/logo-o.svg'} onMouseEnter={()=> setShowFloaterMenu(true)}/>
-            <img style={scrollStyles.n} alt="N" src={'/images/logo-n.svg'}/>
-            <img className={styles.logoMobile} alt="Logo-o" src={'/images/logo.svg'}/>
+          <a>
+            <span style={scrollStyles.r} alt="R">R</span>
+            <span style={scrollStyles.i} alt="I">I</span>
+            <span style={scrollStyles.s} alt="S">S</span>
+            <span style={scrollStyles.o} alt="O" onMouseEnter={handleFloaterMenu}>O</span>
+            <span style={scrollStyles.n} alt="N">N</span>
           </a>
         </Link>
       </div>
-      <div className={cn(styles.menu)}  onMouseLeave={()=>setShowFloaterMenu(false)}>
+      <div className={cn(styles.menu)} style={scrollStyles.menu} onMouseLeave={()=>setShowFloaterMenu(false)}>
         <ul className={styles.navItems}>
           {menu.map((m, idx)=>
             <li key={idx} className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}>
@@ -93,7 +95,6 @@ export default function NavBar({menu, contact, pathname}) {
           />
         </div>
       </div>
-  
     </nav>
   )
 }

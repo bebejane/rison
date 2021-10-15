@@ -40,3 +40,10 @@ $icon-font: "IconFont";
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Rison';
+    src:          url('../../public/fonts/Rison-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}

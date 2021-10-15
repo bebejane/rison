@@ -54,7 +54,7 @@ const Contact = ({ contact }) => {
 					>
 						<FrontSide className={styles.newsletter}>
 							{!subscribed ? 
-								<p>Keep yourself updated by <a href onClick={toggleNewsletter}> joining our newsletter</a>.</p>
+								<p>Keep yourself updated by <a onClick={toggleNewsletter}> joining our newsletter</a>.</p>
 								:
 								<p>Thanks for signing up!</p>
 							}
