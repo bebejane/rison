@@ -9,7 +9,7 @@ $body-size: 22px;
 $body-large: 24px;
 $mid-size: 22px;
 
-$small-size: 13px;
+$small-size: 18px;
 $nav-size: 22px;
 
 $line-height: 1.3em;
@@ -75,7 +75,7 @@ h3 {
 
 p {
   line-height: $line-height;
-  font-size: $body-size;
+  font-size: $body-size - 2px;
 
   @include mq($from: tablet) {
     font-size: $body-large;
@@ -90,13 +90,13 @@ p {
 
 footer,
 p.small {
-  font-size: $body-size;
+  font-size: $small-size;
 }
 
 nav,
 button {
   font-family: $body-font;
-  font-size: $body-size;
+  font-size: $body-size - 4px;
 
   @include mq($from: tablet) {
     font-size: $nav-size;

@@ -1,10 +1,16 @@
 .people {
-  width: spanNestedGrid(10, 5);
+  @include mq($from: tablet) {
+    width: spanNestedGrid(10, 5);
+  }
 
   div {
     width: 50%;
     border: 6px solid $white;
     border-radius: 50%;
+
+    @include mq($until: tablet) {
+      margin: auto;
+    }
   }
 
   strong {
@@ -20,5 +26,4 @@
   p:last-of-type {
     padding-right: 2vw;
   }
-
 }

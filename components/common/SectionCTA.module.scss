@@ -5,6 +5,12 @@
   @include verticalMarginTop();
   @include verticalMarginBottom();
 
+  @include mq($until: tablet) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   h2 {
     @include mq($from: tablet) {
       padding-left: spanGridWithGutter(2);

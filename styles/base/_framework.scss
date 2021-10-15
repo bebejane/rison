@@ -3,10 +3,10 @@
 button {
   $height: 200px;
   border-radius: math.div($height, 2);
-  border: 3px solid $green;
-  padding: 10px;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  padding-left: 1em;
+  padding-right: 1em;
   width: auto;
   display: inline-block;
   color: $black;
@@ -15,6 +15,11 @@ button {
   transition: all 0.15s ease-in;
   min-height: 0;
   cursor: pointer;
+  border: 2px solid $green;
+
+  @include mq($from: tablet) {
+    border: 3px solid $green;
+  }
 
   &:hover {
     background-color: $green;
