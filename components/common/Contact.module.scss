@@ -46,11 +46,14 @@
 
     .closeButton {
       display: block;
-      width: 137px;
       top: 0;
       right: 0;
       border-color: $white;
       background: $green;
+
+      @include mq($from: tablet) {
+        width: 137px;
+      }
 
       &:hover {
         min-height: unset;

@@ -28,6 +28,10 @@
 		justify-content: flex-start;
 		align-items: center;
 
+		@include mq($from: tablet) {
+			margin-right: -9px;
+		}
+
 		.navItems {
 			list-style: none;
 			flex: 1 1 auto;
