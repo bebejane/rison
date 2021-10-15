@@ -12,9 +12,7 @@
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "axios": "^0.23.0",
-    "campaignmonitor": "^1.0.14",
     "classnames": "^2.3.1",
-    "createsend-node": "^0.8.2",
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.3",
     "graphql-combine-query": "^1.2.3",
