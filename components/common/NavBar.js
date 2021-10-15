@@ -15,7 +15,8 @@ export default function NavBar({menu, contact, pathname}) {
 
   useScrollPosition(({ prevPos, currPos }) => {
     
-    if(window.innerWidth < 768) return setScrollStyles({})
+    if(window.innerWidth < 768 ) return setScrollStyles({})
+    if(currPos.y > 0) return
     const y = currPos.y
     const {y:prevY} = prevPos;
     const direction = prevY > y ? "down" : "up"
@@ -30,8 +31,9 @@ export default function NavBar({menu, contact, pathname}) {
       o:{ transform:`translateX(-${ratio*70}px) scale(${scale})`},
       n:{transform:`translateY(-${ratio*200}px)`, opacity},
       menu:{
-        position:'absolute',
-        top:`${Math.abs(y)}px`,
+        position:'fixed',
+        //top:`${Math.abs(y)}px`,
+        top:0,
         left:0,
         width:'100%',
         backgroundColor:'#fff',
@@ -42,6 +44,7 @@ export default function NavBar({menu, contact, pathname}) {
       t: new Date().getTime()
     }
     setScrollStyles(sStyles)
+    console.log(y)
   })
 
   const handleFloaterMenu = (e) => {
