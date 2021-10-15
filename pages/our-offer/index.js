@@ -1,6 +1,6 @@
 import styles from "./OurOffer.module.scss";
 import { withGlobalProps } from "/lib/utils";
-import { Markdown, SectionFollow, SectionIntro, Button, SectionImageHeadline } from "/components/common";
+import { Markdown, SectionFollow, SectionIntro, SectionCTA, Button, SectionImageHeadline } from "/components/common";
 import { GetOurOffer } from "/graphql";
 import { Image } from 'react-datocms';
 
@@ -9,10 +9,11 @@ export default function OurOffer({ page, contact, menu }) {
 
 	return (
 		<>
-			<SectionIntro intro={page.intro} />
+			<SectionIntro intro={page.intro} headline={page.headline} />
 			<SectionFollow blocks={page.blocks} />
+			<SectionCTA text={page.cta} />
 		</>
 	);
 }
 
-export const getStaticProps = withGlobalProps({query: GetOurOffer, model: "ourOffer"});
+export const getStaticProps = withGlobalProps({ query: GetOurOffer, model: "ourOffer" });

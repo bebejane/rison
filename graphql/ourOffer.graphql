@@ -2,6 +2,7 @@
 
 query GetOurOffer {
   page: ourOffer {
+    headline
     intro
     id
     blocks {
@@ -11,5 +12,6 @@ query GetOurOffer {
         ...ImageFragment
       }
     }
+    cta
   }
 }
