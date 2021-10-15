@@ -63,7 +63,7 @@ export default function NavBar({menu, contact, pathname}) {
           </a>
         </Link>
       </div>
-      <div className={cn(styles.menu, styles.floater)}  style={scrollStyles.menu} onMouseLeave={()=>setShowFloaterMenu(false)}>
+      <div className={cn(styles.menu)}  onMouseLeave={()=>setShowFloaterMenu(false)}>
         <ul className={styles.navItems}>
           {menu.map((m, idx)=>
             <li key={idx} className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}>
