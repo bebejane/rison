@@ -21,8 +21,9 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
+		z-index: 100;
 		@include mq($from: desktop) {
-			@include outerMargins();
+			
 			padding-top: $space;
 			padding-bottom: math.div($space, 2);
 		}

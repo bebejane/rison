@@ -13,7 +13,7 @@ export default function NavBar({ menu, contact, pathname }) {
 	const menuHeight = 100;
 	
 	useScrollPosition(({ prevPos, currPos }) => {
-		if (window.innerWidth < 768) return setScrollStyles({});
+		if (window.innerWidth < 980) return setScrollStyles({}); //Skip below desktop
 		if (currPos.y > 0) return;
 		const y = currPos.y;
 		const { y: prevY } = prevPos;
@@ -27,12 +27,12 @@ export default function NavBar({ menu, contact, pathname }) {
 		setScrollStyles({
 			menu: { 
 				position: "fixed", 
-				width: "100%", 
-				top: 0, 
-				left: 0, 
+				width: "100%",
+				left:0,
+				right:0, 
 				backgroundColor: "#fff",
 				transition:'transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53)',
-				transform: `translateY(0%)`,
+				transform: `translateY(0%)`
 			},
 			direction: "up",
 			marker: -window.scrollTop - menuHeight,
@@ -100,11 +100,13 @@ const generateScrollStyles = (ratio, direction, marker) => {
 		n: { transform: `translateY(-${ratio * margin}px)`, opacity, fontSize },
 		menu: {
 			position: "fixed",
-			top: 0,
-			left: 0,
 			width: "100%",
+			top:0,
+			left:0,
 			backgroundColor: "#fff",
 			transform: `translateY(-${ratio * margin}%)`,
+			paddingRight:'3.7%',
+			paddingLeft:'3.7%',
 		},
 		direction,
 		marker,

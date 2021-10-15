@@ -1,6 +1,6 @@
-.myDiv {
+.wrapper {
   display: flex;
-
+  
   @include mq($until: tablet) {
     flex-direction: column-reverse;
   }
@@ -20,6 +20,7 @@
       align-items: center;
       justify-content: center;
       padding-bottom: 1px;
+      
     }
 
     &:nth-child(2):before {
@@ -46,8 +47,12 @@
 
     &:nth-child(even) {
       article {
-        border-right: 1px solid $green;
-        border-left: 0px solid $green;
+        .line{
+          right:0;
+          left:unset;
+        }
+        //border-right: 1px solid $green;
+        //border-left: 0px solid $green;
       }
     }
   }
@@ -57,11 +62,12 @@
   }
 
   article {
+    position: relative;
     @include mq($from: tablet) {
       width: 50%;
       padding-left: spanGrid(1);
       padding-right: spanGrid(1);
-      border-left: 1px solid $green;
+      //border-left: 1px solid $green;
     }
 
     h2 {
@@ -71,6 +77,20 @@
 
     h3 {
       padding-top: 0.2em;
+    }
+    .line{
+      position: absolute;
+      margin-top:30px;
+		  top: 0;
+		  left: 0;
+		  width: 1px;
+		  height: 100%;
+      z-index: 0;
+      transition: height 0.5s linear;
+		  background-color: $green;
+      @include mq($until: tablet) {
+        display: none;
+      }
     }
   }
 
@@ -82,5 +102,21 @@
     @include mq($from: tablet) {
       width: 50%;
     }
+  }
+}
+
+.fadeUp {
+  transform: translateY(50px);
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(.17,.67,.44,1.16) 0.2s forwards;
+}
+@keyframes fadeUp {
+  from{
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
