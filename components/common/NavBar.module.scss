@@ -11,7 +11,7 @@
 	width: 100%;
 	@include outerMargins();
 	padding-top: math.div($space, 2);
-	@include mq($from: tablet) {
+	@include mq($from: desktop) {
 		position: relative;
 		max-height: 100px;
 		min-height: 100px;
@@ -38,8 +38,7 @@
 				a {
 					transition: color 0.3s ease;
 				}
-				a:hover,
-				&.selected > a {
+				a:hover, &.selected > a {
 					color: $green;
 				}
 			}
@@ -81,6 +80,7 @@
 	}
 	&.showMobile {
 		.navItems {
+			transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
 			transform: translateX(0%);
 		}
 		.contactFooter {

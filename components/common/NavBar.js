@@ -11,7 +11,7 @@ export default function NavBar({ menu, contact, pathname }) {
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const [scrollStyles, setScrollStyles] = useState({ratio: 0,marker: 0});
 	const menuHeight = 100;
-
+	
 	useScrollPosition(({ prevPos, currPos }) => {
 		if (window.innerWidth < 768) return setScrollStyles({});
 		if (currPos.y > 0) return;
@@ -20,39 +20,27 @@ export default function NavBar({ menu, contact, pathname }) {
 		const direction = prevY > y ? "down" : "up";
 		const marker = scrollStyles.direction != direction ? y : scrollStyles.marker;
 		const ratio = direction === "down" ? Math.min(Math.abs(y - marker) / menuHeight, 1) : (Math.min(Math.abs(marker), 100) - Math.min(y - marker, 100)) / 100;
-		const opacity = 1 - ratio;
-		const scale = Math.max(1, 1 + ratio - 0.2);
-		const sStyles = {
-			r: { transform: `translateX(-${ratio * 200}px)`, opacity },
-			i: { transform: `translateX(-${ratio * 200}px)`, opacity },
-			s: { transform: `translateX(-${ratio * 200}px)`, opacity },
-			o: { transform: `translateX(-${ratio * 70}px) scale(${scale})` },
-			n: { transform: `translateY(-${ratio * 200}px)`, opacity },
-			menu: {
-				position: "fixed",
-				top: 0,
-				left: 0,
-				width: "100%",
-				backgroundColor: "#fff",
-				transform: `translateY(-${ratio * 200}%)`,
-			},
-			direction,
-			marker,
-			t: new Date().getTime(),
-		};
-		setScrollStyles(sStyles);
+		setScrollStyles(generateScrollStyles(ratio, direction, marker));
 	});
 
 	const enableFloaterMenu = (e) => {
 		setScrollStyles({
-			menu: { position: "fixed", width: "100%", top: 0, left: 0, backgroundColor: "#fff" },
+			menu: { 
+				position: "fixed", 
+				width: "100%", 
+				top: 0, 
+				left: 0, 
+				backgroundColor: "#fff",
+				transition:'transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53)',
+				transform: `translateY(0%)`,
+			},
 			direction: "up",
 			marker: -window.scrollTop - menuHeight,
 		});
 	};
 
 	return (
-		<nav className={cn(styles.nav, showMobileMenu && styles.showMobile)}>
+		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)}>
 			<div className={styles.logo}>
 				<Link href={`/`}>
 					<a>
@@ -97,4 +85,28 @@ export default function NavBar({ menu, contact, pathname }) {
 			</div>
 		</nav>
 	);
+}
+
+const generateScrollStyles = (ratio, direction, marker) => {
+	const opacity = 1 - ratio;
+	const scale = Math.max(1, 1 + ratio - 0.2);
+	
+	return {
+		r: { transform: `translateX(-${ratio * 200}px)`, opacity },
+		i: { transform: `translateX(-${ratio * 200}px)`, opacity },
+		s: { transform: `translateX(-${ratio * 200}px)`, opacity },
+		o: { transform: `translateX(-${ratio * 70}px) scale(${scale})` },
+		n: { transform: `translateY(-${ratio * 200}px)`, opacity },
+		menu: {
+			position: "fixed",
+			top: 0,
+			left: 0,
+			width: "100%",
+			backgroundColor: "#fff",
+			transform: `translateY(-${ratio * 200}%)`,
+		},
+		direction,
+		marker,
+		t: new Date().getTime()
+	}
 }
