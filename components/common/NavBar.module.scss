@@ -9,8 +9,8 @@
 	justify-content: flex-start;
 	align-items: center;
 	@include outerMargins();
-	padding-top: math.div($space, 3);
-	padding-bottom: math.div($space, 3);
+	padding-top: math.div($space, 4);
+	padding-bottom: math.div($space, 4);
 
 	width: 100%;
 	@include mq($from: tablet) {

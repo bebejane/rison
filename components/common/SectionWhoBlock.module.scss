@@ -1,4 +1,10 @@
 .who {
+  @include mq($until: tablet) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   @include mq($from: tablet) {
     width: spanGrid(5);
   }

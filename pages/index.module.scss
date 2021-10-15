@@ -6,8 +6,8 @@
   @include outerMargins();
 
   @include mq($until: tablet) {
-    padding-bottom: $space; 
-   }
+    padding-bottom: $space;
+  }
 
   .wrapper {
     display: flex;
@@ -26,14 +26,13 @@
     }
 
     h3:first-of-type {
-      @include mq($until: tablet) { 
+      @include mq($until: tablet) {
         padding-top: 1em;
       }
     }
     h3:last-of-type {
       padding-bottom: 0;
     }
-
   }
 
   h2 {
@@ -60,6 +59,12 @@
   .wrapper {
     @include verticalMarginTop();
     @include verticalMarginBottom();
+
+    @include mq($until: tablet) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
 
     @include mq($from: tablet) {
       padding-left: spanGridWithGutter(2);
