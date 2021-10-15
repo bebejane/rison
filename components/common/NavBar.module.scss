@@ -100,7 +100,7 @@
 	.logo {
 		display: flex;
 		align-items: center;
-		flex: 1 1 auto;
+		flex: 0 1 auto;
 		z-index: 10000;
 		line-height: 0;
 		a{
@@ -165,7 +165,6 @@
 			//animation: floaterSlideIn .5s cubic-bezier( 0.44, 0.5, 0.45, 1.03 ) forwards reverse;
 		}
 	}
-
 }
 
 @keyframes floaterSlideIn {
