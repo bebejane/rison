@@ -1,6 +1,6 @@
 import styles from "./About.module.scss";
 import { withGlobalProps } from "/lib/utils";
-import { Markdown, SectionManagement, SectionIntro, Button } from "/components/common";
+import { Markdown, SectionManagement, SectionCTA, SectionIntro, Button } from "/components/common";
 import { GetAbout } from "/graphql";
 
 export default function About({ page, contact, menu }) {
@@ -18,7 +18,7 @@ export default function About({ page, contact, menu }) {
           </div>
         </div>
       </section>
-
+      <SectionCTA text={page.cta} />
     </>
   );
 }
