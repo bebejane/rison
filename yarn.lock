@@ -131,6 +131,11 @@
   "resolved" "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz"
   "version" "1.2.0"
 
+"@n8tb1t/use-scroll-position@^2.0.3":
+  "integrity" "sha512-6GO4FHVJTMI4jbRHborzemuL6B319qh2cVLOLj8DApJhjyT71eLgANbQ4bNKSZ51zBm3uJ3WmqnyNF17eSsDyw=="
+  "resolved" "https://registry.npmjs.org/@n8tb1t/use-scroll-position/-/use-scroll-position-2.0.3.tgz"
+  "version" "2.0.3"
+
 "@napi-rs/triples@^1.0.3":
   "integrity" "sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA=="
   "resolved" "https://registry.npmjs.org/@napi-rs/triples/-/triples-1.0.3.tgz"
@@ -271,7 +276,7 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz"
   "version" "15.7.4"
 
-"@types/react@^17.0.0", "@types/react@>=16":
+"@types/react@*", "@types/react@^17.0.0", "@types/react@>=16":
   "integrity" "sha512-wWZrPlihslrPpcKyCSlmIlruakxr57/buQN1RjlIeaaTWDLtJkTtRW429MoQJergvVKc4IWBpRhWw7YNh/7GVA=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz"
   "version" "17.0.20"
@@ -3354,7 +3359,7 @@
   dependencies:
     "history" "^5.0.0"
 
-"react@^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0", "react@^16.8 || ^17", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>= 16.12.0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.0.0", "react@>=16.13", "react@>=16.8 || ^17.0.0", "react@17.0.2":
+"react@*", "react@^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0", "react@^16.8 || ^17", "react@^16.8.0 || ^17.0.0", "react@^17.0.2", "react@>= 16.12.0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.0.0", "react@>=16.13", "react@>=16.8 || ^17.0.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

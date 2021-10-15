@@ -115,7 +115,11 @@
 				display: none;
 			}
 			margin-right: 4px;
+			&:nth-child(4){
+				position: fixed;
+			}
 			&:nth-child(5){
+				
 				margin-left: 36px;
 			} 
 		}
@@ -156,12 +160,15 @@
 		align-items: center;
 		@include outerMargins();
 		padding-top: math.div($space, 2);
-		animation: floater .5s cubic-bezier(0.55, 0.08, 0.68, 0.53) forwards;
-		
+		//animation: floaterSlideIn .5s cubic-bezier( 0.44, 0.5, 0.45, 1.03 ) forwards;
+		&.slideOut{
+			//animation: floaterSlideIn .5s cubic-bezier( 0.44, 0.5, 0.45, 1.03 ) forwards reverse;
+		}
 	}
+
 }
 
-@keyframes floater {
+@keyframes floaterSlideIn {
 	from{
 		transform: translateY(-100%);
 	}
