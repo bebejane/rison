@@ -1,7 +1,7 @@
 .nav {
-  position: fixed;
+	position: fixed;
 	top: 0;
-	left:0;
+	left: 0;
 	z-index: 1;
 	background-color: #fff;
 	display: flex;
@@ -9,9 +9,12 @@
 	justify-content: flex-start;
 	align-items: center;
 	@include outerMargins();
-	padding-top: math.div($space, 2);
+	padding-top: math.div($space, 3);
+	padding-bottom: math.div($space, 3);
+
 	width: 100%;
 	@include mq($from: tablet) {
+		padding-top: math.div($space, 2);
 		position: relative;
 		max-height: 100px;
 		min-height: 100px;
@@ -19,12 +22,12 @@
 	&.floater {
 		position: fixed;
 	}
-	.menu {	
+	.menu {
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		
+
 		.navItems {
 			list-style: none;
 			flex: 1 1 auto;
@@ -65,26 +68,26 @@
 			}
 		}
 	}
-  .contactFooter {
-    display: none;
-    position: absolute;
-    left:0;
-    bottom:0;
-    width: 100%;
-    text-align: center;
-    margin-bottom: $space;
+	.contactFooter {
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		margin-bottom: $space;
 	}
-  &.showMobile {		
-		.navItems{
-      transform: translateX(0%);
-    }
-    .contactFooter{
+	&.showMobile {
+		.navItems {
+			transform: translateX(0%);
+		}
+		.contactFooter {
 			@include mq($until: tablet) {
-      	display: block;
+				display: block;
 			}
-    }
-  }
-	&.showFloater {	
+		}
+	}
+	&.showFloater {
 		position: fixed;
 	}
 	.navMobile {
@@ -93,9 +96,6 @@
 		@include mq($from: desktop) {
 			display: none;
 		}
-		img {
-			height: 30px;
-		}
 	}
 	.logo {
 		display: flex;
@@ -103,11 +103,11 @@
 		flex: 1 1 auto;
 		z-index: 10000;
 		line-height: 0;
-		a{
+		a {
 			position: relative;
 		}
 
-		img:not(img.logoMobile){
+		img:not(img.logoMobile) {
 			width: auto;
 			height: 35px;
 			margin-right: 4px;
@@ -115,11 +115,11 @@
 				display: none;
 			}
 			margin-right: 4px;
-			&:nth-child(5){
+			&:nth-child(5) {
 				margin-left: 36px;
-			} 
+			}
 		}
-		.logoMobile{
+		.logoMobile {
 			width: auto;
 			height: 25px;
 			@include mq($from: desktop) {
@@ -139,12 +139,11 @@
 	}
 }
 
-
-.floater{
+.floater {
 	@include mq($from: desktop) {
 		position: fixed;
 		top: 0;
-		left:0;
+		left: 0;
 		width: 100%;
 		z-index: 3;
 		max-height: 100px;
@@ -156,16 +155,15 @@
 		align-items: center;
 		@include outerMargins();
 		padding-top: math.div($space, 2);
-		animation: floater .5s cubic-bezier(0.55, 0.08, 0.68, 0.53) forwards;
-		
+		animation: floater 0.5s cubic-bezier(0.55, 0.08, 0.68, 0.53) forwards;
 	}
 }
 
 @keyframes floater {
-	from{
+	from {
 		transform: translateY(-100%);
 	}
-	to{
+	to {
 		transform: translateY(0%);
 	}
 }

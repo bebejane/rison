@@ -6,9 +6,13 @@
   @include verticalMarginBottom();
 
   .wrapper {
-    width: spanGrid(12);
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
+
+    @include mq($from: tablet) {
+      width: spanGrid(12);
+    }
 
     h2 {
       width: 100%;
@@ -17,14 +21,24 @@
     }
 
     h3 {
-      width: spanNestedGrid(12, 2);
-      padding-top: 1em;
+      width: 100%;
+
+      @include mq($until: tablet) {
+        text-align: center;
+      }
+
+      @include mq($from: tablet) {
+        width: spanNestedGrid(12, 2);
+        padding-top: 1em;
+      }
     }
 
     div.people {
-      width: spanNestedGrid(12, 10);
       display: flex;
       flex-wrap: wrap;
+      @include mq($from: tablet) {
+        width: spanNestedGrid(12, 10);
+      }
 
       div.management {
         display: flex;
