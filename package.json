@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^2.0.3",
+    "axios": "^0.23.0",
+    "campaignmonitor": "^1.0.14",
     "classnames": "^2.3.1",
+    "createsend-node": "^0.8.2",
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.3",
     "graphql-combine-query": "^1.2.3",
@@ -26,6 +29,7 @@
     "react-datocms": "^1.6.3",
     "react-dom": "17.0.2",
     "react-flippy": "^1.1.0",
+    "react-hook-form": "^7.17.4",
     "react-intersection-observer": "^8.32.1",
     "react-markdown": "^7.0.1",
     "react-use-scroll-direction": "^0.1.0",

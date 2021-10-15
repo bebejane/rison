@@ -5,11 +5,31 @@ import ReactMarkdown from "react-markdown";
 import cn from 'classnames'
 import { useUI, UIAction } from "lib/context/ui";
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import axios from "axios"
+import { useForm } from "react-hook-form";
 
 const Contact = ({ contact }) => {
 	const [{ showNewsletter, showContact }, setUI] = useUI()
+	const [error, setError] = useState();
+	const [subscribed, setSubscribed] = useState(false);
+	const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm();
 	
-	{/*<script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>*/}
+	const onSubmitSignup = async ({email}) => {
+		try{
+			let res = await axios.post('/api/signup', {email});
+			setSubscribed(true)
+		}catch(err){
+			const {message, code} = err.response.data
+			setSubscribed(false)
+			setError(message)
+		}
+	}
+	const toggleNewsletter = (e) => {
+		e.preventDefault()
+		setUI({ type: showNewsletter ? UIAction.HIDE_NEWSLETTER : UIAction.SHOW_NEWSLETTER })
+	}
+	useEffect(() => isSubmitting && setError(false) && setSubscribed(false), [isSubmitting]);
+	
 	return (
 		<div className={cn(styles.contact, showContact && styles.show)}>
 			<div className={styles.close}>
@@ -30,40 +50,30 @@ const Contact = ({ contact }) => {
 						flipOnHover={false}
 						flipOnClick={true}
 						flipDirection="vertical"
-						isFlipped={showNewsletter}
+						isFlipped={subscribed ? false : showNewsletter}
 					>
 						<FrontSide className={styles.newsletter}>
-							<p>
-								Keep yourself updated by <a href="#newsletter" onClick={() => setUI({ type: showNewsletter ? UIAction.HIDE_NEWSLETTER : UIAction.SHOW_NEWSLETTER })}> joining our newsletter</a>.
-							</p>
+							{!subscribed ? 
+								<p>Keep yourself updated by <a href onClick={toggleNewsletter}> joining our newsletter</a>.</p>
+								:
+								<p>Thanks for signing up!</p>
+							}
 						</FrontSide>
 						<BackSide className={styles.newsletterForm}>
-							<form className={cn(styles.newsletterForm, showNewsletter && styles.visible)} onClick={(e) => e.stopPropagation()}>
-								<input autoFocus={true} placeholder={'E-mail...'} type="text" />
-								<input type="submit" value={'Send'} />
-							</form>
-
 							<form 
-								className={cn(styles.newsletterForm, showNewsletter && styles.visible)} 
+								className={cn(styles.newsletterForm, )} 
+								onSubmit={handleSubmit(onSubmitSignup)}
 								onClick={(e) => e.stopPropagation()} 
-								id="subForm" 
-								action="https://www.createsend.com/t/subscribeerror?description=" 
-								method="post" data-id="191722FC90141D02184CB1B62AB3DC264DCA7763E1BE1E33C5B7BBC95E8DA72E62B338FE3636B22A6569FBD400361118038029B213A29581D7E221848812D3AB"
 							>
-								<input autoFocus={true} placeholder={'E-mail...'} autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-jllhuhu-jllhuhu" required="" type="email" />
-								<input type="submit" value={'Send'} />
+								<input autoFocus={true} placeholder={'E-mail...'} {...register("email", { required: true, pattern:/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/  })} />
+    						<button className={styles.submitButton} type="submit">
+									Send
+      						{isSubmitting && <div className={styles.spinner}><div className={styles.loader}></div></div>}
+    						</button>
+								<div className={styles.newsletterError}>{error ? `Error: ${error}` : ''}</div>
 							</form>
 						</BackSide>
 					</Flippy>
-					{/*
-					<div className={styles.newsletter}>
-						
-						<form className={cn(styles.newsletterForm, showNewsletter && styles.visible)}>
-							<input placeholder={'E-mail...'} type="text" />
-							<input type="submit" value={'Send'}/>
-						</form>
-					</div>
-					*/}
 				</div>
 			</div>
 			<Footer contact={contact} />
