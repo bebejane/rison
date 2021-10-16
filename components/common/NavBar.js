@@ -4,13 +4,14 @@ import cn from "classnames";
 import { useUI } from "/lib/context/ui";
 import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { useWindowSize } from 'rooks'
+import { useWindowSize, useDebounce } from 'rooks'
 import { Squash as Hamburger } from "hamburger-react";
 
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const [scrollStyles, setScrollStyles] = useState({ratio: 0, marker: 0});
+	
 	const menuHeight = 100;
 	const scrollBreakpoint = 980
 	const { innerWidth: windowWidth} = useWindowSize();
@@ -27,14 +28,26 @@ export default function NavBar({ menu, contact, pathname }) {
 	});
 	useEffect(()=> windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
 
-	const enableFloaterMenu = (e) => {
+	const enableFloater = (e) => {
+		/* Animate in
+		const speed = 200;
+		let ratio = 1;
+		let marker = window.scrollTop
+		const i = setInterval(()=>{
+			if(ratio < 0) return clearInterval(i)
+			ratio = ratio-=0.01
+			console.log('.')
+			setScrollStyles(generateScrollStyles(ratio, 'up', marker));
+		}, speed/100)
+		//return
+		*/
 		setScrollStyles({
 			direction: "up",
 			marker: -window.scrollTop - menuHeight,
 			floater:true
 		});
 	};
-
+	const setEnableFloater = useDebounce(enableFloater, 0);
 	return (
 		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)}>
 			<div className={styles.logo}>
@@ -43,7 +56,7 @@ export default function NavBar({ menu, contact, pathname }) {
 						<span style={scrollStyles.r} alt="R">R</span>
 						<span style={scrollStyles.i} alt="I">I</span>
 						<span style={scrollStyles.s} alt="S">S</span>
-						<span style={scrollStyles.o} alt="O" onMouseEnter={enableFloaterMenu}>O</span>
+						<span style={scrollStyles.o} alt="O" onMouseEnter={enableFloater}>O</span>
 						<span style={scrollStyles.n} alt="N">N</span>
 					</a>
 				</Link>
