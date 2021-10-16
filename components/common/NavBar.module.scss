@@ -22,11 +22,23 @@
 		justify-content: flex-start;
 		align-items: center;
 		z-index: 100;
-		@include mq($from: desktop) {
-			
+		@include mq($from: desktop) {	
 			padding-top: $space;
 			padding-bottom: math.div($space, 2);
+			&.floater{
+				position: fixed;
+				width: 100%;
+				left:0;
+				top:0; 
+				background-color: $white;
+				transition: transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+				transform: translateY(0%);
+				//margin-top: $space/2;
+				@include outerMargins();
+			}
 		}
+		
+				
 		
 		.navItems {
 			list-style: none;

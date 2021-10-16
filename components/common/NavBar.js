@@ -2,18 +2,21 @@ import styles from "./NavBar.module.scss";
 import Link from "next/link";
 import cn from "classnames";
 import { useUI } from "/lib/context/ui";
-import { useState } from "react";
-import { Squash as Hamburger } from "hamburger-react";
+import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import { useWindowSize } from 'rooks'
+import { Squash as Hamburger } from "hamburger-react";
 
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
-	const [scrollStyles, setScrollStyles] = useState({ratio: 0,marker: 0});
+	const [scrollStyles, setScrollStyles] = useState({ratio: 0, marker: 0});
 	const menuHeight = 100;
-	
+	const scrollBreakpoint = 980
+	const { innerWidth: windowWidth} = useWindowSize();
+
 	useScrollPosition(({ prevPos, currPos }) => {
-		if (window.innerWidth < 980) return setScrollStyles({}); //Skip below desktop
+		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); //Skip below desktop
 		if (currPos.y > 0) return;
 		const y = currPos.y;
 		const { y: prevY } = prevPos;
@@ -22,20 +25,13 @@ export default function NavBar({ menu, contact, pathname }) {
 		const ratio = direction === "down" ? Math.min(Math.abs(y - marker) / menuHeight, 1) : (Math.min(Math.abs(marker), 100) - Math.min(y - marker, 100)) / 100;
 		setScrollStyles(generateScrollStyles(ratio, direction, marker));
 	});
+	useEffect(()=> windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
 
 	const enableFloaterMenu = (e) => {
 		setScrollStyles({
-			menu: { 
-				position: "fixed", 
-				width: "100%",
-				left:0,
-				top:0, 
-				backgroundColor: "#fff",
-				transition:'transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53)',
-				transform: `translateY(0%)`
-			},
 			direction: "up",
 			marker: -window.scrollTop - menuHeight,
+			floater:true
 		});
 	};
 
@@ -52,7 +48,7 @@ export default function NavBar({ menu, contact, pathname }) {
 					</a>
 				</Link>
 			</div>
-			<div className={cn(styles.menu)} style={scrollStyles.menu}>
+			<div className={cn(styles.menu, scrollStyles.floater &&  styles.floater)} style={scrollStyles.menu}>
 				<ul className={styles.navItems}>
 					{menu.map((m, idx) => (
 						<li
@@ -90,14 +86,13 @@ export default function NavBar({ menu, contact, pathname }) {
 const generateScrollStyles = (ratio, direction, marker) => {
 	const opacity = 1 - ratio;
 	const scale = Math.max(1, 1 + ratio - 0.2);
-	const fontSize = `${1-ratio}em`
 	const margin = 100
 	return {
 		r: { transform: `translateX(-${ratio * margin}px)`, opacity},
 		i: { transform: `translateX(-${ratio * margin}px)`, opacity},
 		s: { transform: `translateX(-${ratio * margin}px)`, opacity},
-		o: { transform: `translateX(-${ratio * 70}px) scale(${scale})` },
-		n: { transform: `translateY(-${ratio * margin}px)`, opacity, fontSize },
+		o: { transform: `translateX(-${ratio * 75}px) scale(${scale})` },
+		n: { transform: `translateY(-${ratio * margin}px)`, opacity},
 		menu: {
 			position: "fixed",
 			width: "100%",
@@ -110,6 +105,7 @@ const generateScrollStyles = (ratio, direction, marker) => {
 		},
 		direction,
 		marker,
+		floater:false,
 		t: new Date().getTime()
 	}
 }
