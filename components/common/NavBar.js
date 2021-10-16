@@ -7,13 +7,13 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useWindowSize, useDebounce } from 'rooks'
 import { Squash as Hamburger } from "hamburger-react";
 
+const menuHeight = 100;
+const scrollBreakpoint = 980	
+
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const [scrollStyles, setScrollStyles] = useState({ratio: 0, marker: 0});
-	
-	const menuHeight = 100;
-	const scrollBreakpoint = 980
 	const { innerWidth: windowWidth} = useWindowSize();
 
 	useScrollPosition(({ prevPos, currPos }) => {
@@ -47,7 +47,6 @@ export default function NavBar({ menu, contact, pathname }) {
 			floater:true
 		});
 	};
-	const setEnableFloater = useDebounce(enableFloater, 0);
 	return (
 		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)}>
 			<div className={styles.logo}>
