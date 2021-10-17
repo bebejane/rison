@@ -9,7 +9,7 @@ $easing: cubic-bezier(.17,.67,.44,1.16);
   @keyframes fadeUp {
     to{
       opacity: 1;
-      transform: translateY(0%);
+      transform: translateY(0px);
     }
   }
 }
@@ -18,6 +18,17 @@ $easing: cubic-bezier(.17,.67,.44,1.16);
   transform: translateX(-50px);
   animation: slideInLeft $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
   @keyframes slideInLeft {
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+}
+.slideInRight {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes slideInRight {
     to{
       opacity: 1;
       transform: translateX(0%);
