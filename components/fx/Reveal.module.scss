@@ -1,0 +1,37 @@
+$duration: 1s;
+$delay : .3s;
+$easing: cubic-bezier(.17,.67,.44,1.16);
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes fadeUp {
+    to{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+.slideInLeft {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes slideInLeft {
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+}
+.slideInRight {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes slideInRight {
+    to{
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+}
