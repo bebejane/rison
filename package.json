@@ -13,6 +13,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "axios": "^0.23.0",
     "classnames": "^2.3.1",
+    "email-validator": "^2.0.4",
     "framer-motion": "^4.1.17",
     "graphql": "^15.5.3",
     "graphql-combine-query": "^1.2.3",

@@ -83,7 +83,7 @@ export default function NavBar({ menu, contact, pathname }) {
 							</li>
 						))}
 						<li className={cn(styles.navItem, styles.mobileContact)}>
-							<a href onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}>
+							<a  onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}>
 								Contact
 							</a>
 						</li>
