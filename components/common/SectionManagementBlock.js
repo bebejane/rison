@@ -6,7 +6,7 @@ import { Image } from 'react-datocms';
 const SectionManagementBlock = ({ block }) => (
   <div className={styles.people}>
     <figure>
-      {block.image && <Image data={block.image.responsiveImage} />}
+      {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
     </figure>
     <article>
       <p><strong>{block.name}</strong></p>

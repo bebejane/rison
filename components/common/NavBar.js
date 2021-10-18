@@ -4,11 +4,38 @@ import cn from "classnames";
 import { useUI } from "/lib/context/ui";
 import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { useWindowSize, useDebounce } from 'rooks'
+import { useWindowSize } from 'rooks'
 import Hamburger from "hamburger-react";
 
 const menuHeight = 100;
 const scrollBreakpoint = 980
+
+const generateScrollStyles = (ratio, direction, marker) => {
+	const opacity = 1 - ratio;
+	const scale = Math.max(1, 1 + ratio - 0.75);
+	const margin = 100
+	return {
+		r: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		i: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		s: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})` },
+		n: { transform: `translateY(-${ratio * margin}px)`, opacity },
+		menu: {
+			position: "fixed",
+			width: "100%",
+			top: 0,
+			left: 0,
+			backgroundColor: "#fff",
+			transform: `translateY(-${ratio * margin}%)`,
+			paddingRight: '3.7%',
+			paddingLeft: '3.7%',
+		},
+		direction,
+		marker,
+		floater: false,
+		t: new Date().getTime()
+	}
+}
 
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
@@ -17,10 +44,10 @@ export default function NavBar({ menu, contact, pathname }) {
 	const { innerWidth: windowWidth } = useWindowSize();
 
 	useScrollPosition(({ prevPos, currPos }) => {
-		if (windowWidth < scrollBreakpoint || currPos.y === 0) 
-			return setScrollStyles({}); //Skip below desktop
-		if (currPos.y > 0) return;
-		const y = currPos.y;
+		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); // Skip below desktop
+		if (currPos.y === 0) return setScrollStyles({}); // Reset on reload
+		if (currPos.y > 0) return; // Ignore on bounce scroll Safari
+		const {y} = currPos;
 		const { y: prevY } = prevPos;
 		const direction = prevY > y ? "down" : "up";
 		const marker = scrollStyles.direction != direction ? y : scrollStyles.marker;
@@ -28,8 +55,8 @@ export default function NavBar({ menu, contact, pathname }) {
 		setScrollStyles(generateScrollStyles(ratio, direction, marker));
 	});
 	useEffect(() => windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
-
-	const enableFloater = (e) => {
+	
+	const enableFloater = () => {
 		/* Animate in
 		const speed = 200;
 		let ratio = 1;
@@ -96,29 +123,3 @@ export default function NavBar({ menu, contact, pathname }) {
 	);
 }
 
-const generateScrollStyles = (ratio, direction, marker) => {
-	const opacity = 1 - ratio;
-	const scale = Math.max(1, 1 + ratio - 0.75);
-	const margin = 100
-	return {
-		r: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		i: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		s: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})` },
-		n: { transform: `translateY(-${ratio * margin}px)`, opacity },
-		menu: {
-			position: "fixed",
-			width: "100%",
-			top: 0,
-			left: 0,
-			backgroundColor: "#fff",
-			transform: `translateY(-${ratio * margin}%)`,
-			paddingRight: '3.7%',
-			paddingLeft: '3.7%',
-		},
-		direction,
-		marker,
-		floater: false,
-		t: new Date().getTime()
-	}
-}

@@ -10,7 +10,7 @@ const SectionFollowBlock = ({ block }) => (
       <h2>{block.bigHeadline}</h2>
     </article>
     <figure>
-      {block.image && <Image data={block.image.responsiveImage} />}
+      {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
     </figure>
   </div>
 );

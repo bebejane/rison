@@ -35,3 +35,14 @@ $easing: cubic-bezier(.17,.67,.44,1.16);
     }
   }
 }
+.zoomIn {
+  opacity: 1;
+  transform: scale(0.9);
+  animation: zoomIn $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes zoomIn {
+    to{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
