@@ -17,7 +17,8 @@ export default function NavBar({ menu, contact, pathname }) {
 	const { innerWidth: windowWidth} = useWindowSize();
 
 	useScrollPosition(({ prevPos, currPos }) => {
-		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); //Skip below desktop
+		if (windowWidth < scrollBreakpoint || currPos.y === 0) 
+			return setScrollStyles({}); //Skip below desktop
 		if (currPos.y > 0) return;
 		const y = currPos.y;
 		const { y: prevY } = prevPos;
@@ -36,7 +37,6 @@ export default function NavBar({ menu, contact, pathname }) {
 		const i = setInterval(()=>{
 			if(ratio < 0) return clearInterval(i)
 			ratio = ratio-=0.01
-			console.log('.')
 			setScrollStyles(generateScrollStyles(ratio, 'up', marker));
 		}, speed/100)
 		//return
