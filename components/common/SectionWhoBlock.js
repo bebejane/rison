@@ -8,7 +8,7 @@ const SectionWhoBlock = ({ block, odd }) => {
   return (
     <div className={styles.who} >
       <figure>
-        {block.image && <Image data={block.image.responsiveImage} />}
+        {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
       </figure>
       <article>
         <p>{block.headline}</p>
