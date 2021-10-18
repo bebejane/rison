@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 
 const Contact = ({ contact }) => {
 	const [{ showContact }, setUI] = useUI()
+	
 	return (
 		<div className={cn(styles.contact, showContact && styles.show)}>
 			<div className={styles.container}>
@@ -38,11 +39,11 @@ const Contact = ({ contact }) => {
 
 const Newsletter = () => {
 
-	const [{ showNewsletter }, setUI] = useUI()
+	const [{ showNewsletter, showContact }, setUI] = useUI()
 	const [error, setError] = useState();
 	const [subscribed, setSubscribed] = useState(false);
 	const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm();
-
+	
 	const onSubmitSignup = async ({ email }) => {
 		try {
 			const res = await axios.post('/api/signup', { email });
@@ -53,6 +54,7 @@ const Newsletter = () => {
 		}
 	}
 	useEffect(() => isSubmitting && setError(false) && setSubscribed(false), [isSubmitting]);
+	useEffect(()=> !showContact && setUI({ type: UIAction.HIDE_NEWSLETTER }), [showContact])
 
 	return (
 		<Flippy

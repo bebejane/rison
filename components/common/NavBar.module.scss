@@ -82,8 +82,7 @@
 					}
 				}
 				.mobileContact {
-					
-					@include mq($from: tablet) {
+					@include mq($from: desktop) {
 						display: none;
 					}
 				}
