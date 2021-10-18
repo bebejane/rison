@@ -50,8 +50,8 @@ const Reveal = (props) => {
   const { steps = 100, threshhold = 0} = props
   const duration = props.duration || effect.duration
   const distance = Math.abs(props.distance || effect.distance)
-  const delay = props.delay || effect.delay
-  const fade = props.fade || effect.fade
+  const delay = props.delay !== undefined ? props.delay : effect.delay
+  const fade = props.fade !== undefined ? props.fade : effect.fade
 
   const [visRef, { ratio, direction, wasVisible, wasPassed }] = useVisibility('', threshhold, steps);	
   const effectClass = ratio > 0 || wasVisible  ? styles[props.effect] : undefined
@@ -62,7 +62,7 @@ const Reveal = (props) => {
     transform : effect.transform ? `${effect.transform}(${effect.direction}${distance}${effect.unit})` : undefined,
     opacity : fade 
   }
-  
+  //console.log(style)
 	return (
     <>
       {React.Children.map(props.children, (child, idx) => {
