@@ -18,7 +18,6 @@ const SectionFollowBlock = ({ block, odd }) => {
 					<h2 className="tight">{block.headline}</h2>
 					<p><Markdown>{block.text}</Markdown></p>
 				</Reveal>
-				<div className={styles.line} ></div>
 			</article>
 			<figure>{block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}</figure>
 		</div>
