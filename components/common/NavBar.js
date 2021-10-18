@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useWindowSize } from 'rooks'
 import Hamburger from "hamburger-react";
+import { UIAction } from "lib/context/ui";
 
 const menuHeight = 100;
 const scrollBreakpoint = 980
@@ -18,21 +19,14 @@ const generateScrollStyles = (ratio, direction, marker) => {
 		r: { transform: `translateX(-${ratio * margin}px)`, opacity },
 		i: { transform: `translateX(-${ratio * margin}px)`, opacity },
 		s: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})` },
+		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})`, top:ratio*100},
 		n: { transform: `translateY(-${ratio * margin}px)`, opacity },
-		menu: {
-			position: "fixed",
-			width: "100%",
-			top: 0,
-			left: 0,
-			backgroundColor: "#fff",
-			transform: `translateY(-${ratio * margin}%)`,
-			paddingRight: '3.7%',
-			paddingLeft: '3.7%',
+		nav:{
+			transform: `translateY(-${ratio * margin}%)`
 		},
 		direction,
 		marker,
-		floater: false,
+		floater: true,
 		t: new Date().getTime()
 	}
 }
@@ -75,50 +69,53 @@ export default function NavBar({ menu, contact, pathname }) {
 		});
 	};
 	return (
-		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)}>
-			<div className={styles.logo}>
-				<Link href={`/`}>
-					<a>
-						<span style={scrollStyles.r} alt="R">R</span>
-						<span style={scrollStyles.i} alt="I">I</span>
-						<span style={scrollStyles.s} alt="S">S</span>
-						<span style={scrollStyles.o} alt="O" onMouseEnter={enableFloater}>O</span>
-						<span style={scrollStyles.n} alt="N">N</span>
-					</a>
-				</Link>
-			</div>
-			<div className={cn(styles.menu, scrollStyles.floater && styles.floater)} style={scrollStyles.menu}>
-				<ul className={styles.navItems}>
-					{menu.map((m, idx) => (
-						<li
-							key={idx}
-							className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}
-						>
-							<Link href={`/${m.slug || ""}`}>
-								<a>{m.title}</a>
-							</Link>
-						</li>
-					))}
-					<div className={styles.contactFooter}>
-						<a href="mailto:info@rison.com">info@rison.com</a>
-						<br />
-						<a href="tel://0046031223300">+46 (0) 31 223 300</a>
+		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)} style={scrollStyles.nav} >
+			<div className={cn(styles.menuWrapper, scrollStyles.floater && styles.floater)} style={scrollStyles.menu}>
+				<div className={styles.logo}>
+					<Link href={`/`}>
+						<a>
+							<span style={scrollStyles.r} alt="R">R</span>
+							<span style={scrollStyles.i} alt="I">I</span>
+							<span style={scrollStyles.s} alt="S">S</span>
+							<span style={scrollStyles.o} alt="O" onMouseEnter={enableFloater}>O</span>
+							<span style={scrollStyles.n} alt="N">N</span>
+						</a>
+					</Link>
+				</div>
+				<div className={cn(styles.menu)}>
+					<ul className={styles.navItems}>
+						{menu.map((m, idx) => (
+							<li
+								key={idx}
+								className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}
+							>
+								<Link href={`/${m.slug || ""}`}>
+									<a>{m.title}</a>
+								</Link>
+							</li>
+						))}
+						<div className={styles.contactFooter}>
+							<a href="mailto:info@rison.com">info@rison.com</a>
+							<br />
+							<a href="tel://0046031223300">+46 (0) 31 223 300</a>
+						</div>
+					</ul>
+					<button className={styles.contact} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}>
+						Contact us
+					</button>
+					<div className={styles.navMobile}>
+						<Hamburger
+							isOpen={showMobileMenu}
+							duration={0.5}
+							onToggle={(toggle) => setShowMobileMenu(toggle)}
+							color={showMobileMenu ? "#fff" : "#000"}
+							label={"Menu"}
+							size={20}
+						/>
 					</div>
-				</ul>
-				<button className={styles.contact} onClick={() => setUI({ type: "SHOW_CONTACT" })}>
-					Contact us
-				</button>
-				<div className={styles.navMobile}>
-					<Hamburger
-						isOpen={showMobileMenu}
-						duration={0.5}
-						onToggle={(toggle) => setShowMobileMenu(toggle)}
-						color={showMobileMenu ? "#fff" : "#000"}
-						label={"Menu"}
-						size={20}
-					/>
 				</div>
 			</div>
+			
 		</nav>
 	);
 }
