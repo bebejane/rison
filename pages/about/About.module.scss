@@ -22,6 +22,7 @@
 
     h3 {
       width: 100%;
+      display: none;
 
       @include mq($until: tablet) {
         text-align: center;

@@ -11,6 +11,7 @@ const SectionManagementBlock = ({ block }) => (
     <article>
       <p><strong>{block.name}</strong></p>
       <p>{block.title}</p>
+      <p><a href={'mailto:' + block.email}>{block.email}</a></p>
       <p>{block.text}</p>
     </article>
   </div>

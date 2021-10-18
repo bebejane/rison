@@ -14,16 +14,20 @@
   }
 
   strong {
-    color: $green;
+    //color: $green;
     font-weight: normal;
   }
 
   p:first-of-type {
-    margin-bottom: 0;
     margin-top: 1em;
+  }
+
+  p:nth-child(-n + 2) {
+    margin-bottom: 0;
   }
 
   p:last-of-type {
     padding-right: 2vw;
+    color: $green;
   }
 }

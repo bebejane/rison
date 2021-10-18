@@ -8,6 +8,7 @@ query GetAbout {
     people {
       name
       title
+      email
       text
       image {
         ...ImageFragment
