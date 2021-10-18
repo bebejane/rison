@@ -33,17 +33,21 @@ export default function Home({ page }) {
 				</section>
 				<SectionFollow blocks={page.blocks} ref={scrollRef} />
 				<SectionImageHeadline blocks={page.sectionWebapp} />
+				
 				<section className={styles.outro}>
-					<div className={styles.wrapper}>
-						<h2>
-							<Markdown>{page.ctaText}</Markdown>
-						</h2>
-						<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
-						<div>
-							<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+					<Reveal effect="zoomIn" distance={0.9} fade={1}>
+						<div className={styles.wrapper}>
+							<h2>
+								<Markdown>{page.ctaText}</Markdown>
+							</h2>
+							<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
+							<div>
+								<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+							</div>
 						</div>
-					</div>
+					</Reveal>
 				</section>
+				
 			</div>
 		</>
 	);
