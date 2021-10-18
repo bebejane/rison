@@ -66,6 +66,8 @@
 			}
 
 			.mobileContact {
+				margin: 10px;
+
 				@include mq($from: tablet) {
 					display: none;
 				}
