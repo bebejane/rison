@@ -55,6 +55,10 @@ h2 p {
     font-size: $headline-size;
   }
 
+  @include mq($from: wide) {
+    font-size: 48px;
+  }
+
   strong {
     font-weight: normal;
   }

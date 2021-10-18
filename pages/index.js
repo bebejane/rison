@@ -9,7 +9,7 @@ import { useUI, UIAction } from "/lib/context/ui";
 export default function Home({ page }) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
-	
+
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
 	return (
@@ -33,13 +33,16 @@ export default function Home({ page }) {
 				<SectionFollow blocks={page.blocks} ref={scrollRef} />
 				<SectionImageHeadline blocks={page.sectionWebapp} />
 				<section className={styles.outro}>
-					<div className={styles.wrapper}>
-						<h2>
-							<Markdown>{page.ctaText}</Markdown>
-						</h2>
-						<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
-						<div>
-							<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+					<div className={styles.container}>
+
+						<div className={styles.wrapper}>
+							<h2>
+								<Markdown>{page.ctaText}</Markdown>
+							</h2>
+							<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
+							<div>
+								<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+							</div>
 						</div>
 					</div>
 				</section>

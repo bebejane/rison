@@ -1,25 +1,29 @@
 .intro {
-  @include outerMargins();
-  @include verticalMarginBottom;
-  //@include verticalMarginTop;
-  @include mq($from: tablet) {
-    margin-left: spanGrid(2);
-    margin-right: spanGrid(2);
-  }
+  @include maxWidth();
 
-  h2 {
-    &:first-of-type {
-      color: $green;
-      padding-top: 0.8em;
-    }
-    p:first-of-type {
-      margin-bottom: 0;
-      padding-bottom: 0;
+  .wrapper {
+    @include outerMargins();
+    @include verticalMarginBottom;
+
+    @include mq($from: tablet) {
+      margin-left: spanGridWithGutter(2);
+      margin-right: spanGridWithGutter(2);
     }
 
-    p + p {
-      text-indent: 1.5em;
-      margin-bottom: 0;
+    h2 {
+      &:first-of-type {
+        color: $green;
+        padding-top: 0.8em;
+      }
+      p:first-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      p + p {
+        text-indent: 1.5em;
+        margin-bottom: 0;
+      }
     }
   }
 }

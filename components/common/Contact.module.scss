@@ -1,4 +1,13 @@
 .contact {
+	.container {
+		@include maxWidth();
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -14,7 +23,8 @@
 	color: $white;
 	transition: transform 0.5s cubic-bezier(0.19, 0.92, 0, 1);
 	transform: translateY(100%);
-	a, strong {
+	a,
+	strong {
 		color: $black;
 	}
 	a:hover {
@@ -147,17 +157,17 @@
 	display: inline-block;
 	max-width: 20px;
 	max-height: 20px;
-  &:after {
-    content: " ";
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin: 0px;
-    border-radius: 50%;
-    border: 1px solid $white;
-    border-color: $white transparent $white transparent;
-    animation: loader 0.5s linear infinite;
-  }
+	&:after {
+		content: " ";
+		display: block;
+		width: 16px;
+		height: 16px;
+		margin: 0px;
+		border-radius: 50%;
+		border: 1px solid $white;
+		border-color: $white transparent $white transparent;
+		animation: loader 0.5s linear infinite;
+	}
 }
 
 @keyframes loader {

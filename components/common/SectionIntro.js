@@ -6,8 +6,10 @@ import ReactMarkdown from "react-markdown";
 const SectionIntro = ({ intro, headline }) => {
   return (
     <section className={styles.intro}>
-      <h2>{headline}</h2>
-      <h2><ReactMarkdown>{intro}</ReactMarkdown></h2>
+      <div className={styles.wrapper}>
+        <h2>{headline}</h2>
+        <h2><ReactMarkdown>{intro}</ReactMarkdown></h2>
+      </div >
     </section>
   )
 }
