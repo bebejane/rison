@@ -33,6 +33,7 @@ export default function Home({ page }) {
 				</section>
 				<SectionFollow blocks={page.blocks} ref={scrollRef} />
 				<SectionImageHeadline blocks={page.sectionWebapp} />
+				
 				<section className={styles.outro}>
 					<div className={styles.container}>
 
@@ -45,8 +46,9 @@ export default function Home({ page }) {
 								<Markdown>{page.readMoreText}</Markdown> <span>→</span>
 							</div>
 						</div>
-					</div>
+					</Reveal>
 				</section>
+				
 			</div>
 		</>
 	);

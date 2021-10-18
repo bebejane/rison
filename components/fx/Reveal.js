@@ -10,7 +10,8 @@ const effects = {
     distance : 50,
     direction : '+',
     unit: 'px',
-    fade: 0.0
+    fade: 0.0,
+    delay: 0.3
   },
   slideInLeft : {
     duration : 1000,
@@ -18,7 +19,8 @@ const effects = {
     distance : 100,
     direction : '-',
     unit: 'px',
-    fade: 0.0
+    fade: 0.0,
+    delay: 0.3
   },
   slideInRight: {
     duration : 1000,
@@ -26,7 +28,8 @@ const effects = {
     distance : 100,
     direction : '+',
     unit: 'px',
-    fade: 0.0
+    fade: 0.0,
+    delay: 0.3
   },
   zoomIn: {
     duration : 1000,
@@ -34,7 +37,8 @@ const effects = {
     distance : 0.9,
     direction : '',
     unit: '',
-    fade: 1
+    fade: 1,
+    delay: 0.3
   }
 }
 
@@ -46,6 +50,7 @@ const Reveal = (props) => {
   const { steps = 100, threshhold = 0} = props
   const duration = props.duration || effect.duration
   const distance = Math.abs(props.distance || effect.distance)
+  const delay = props.delay || effect.delay
   const fade = props.fade || effect.fade
 
   const [visRef, { ratio, direction, wasVisible, wasPassed }] = useVisibility('', threshhold, steps);	
@@ -53,6 +58,7 @@ const Reveal = (props) => {
 
   const style = {
     animationDuration:`${(duration)/1000}s`,
+    animationDelay:`${(delay)/1000}s`,
     transform : effect.transform ? `${effect.transform}(${effect.direction}${distance}${effect.unit})` : undefined,
     opacity : fade 
   }
