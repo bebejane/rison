@@ -5,16 +5,16 @@ import { useUI } from "/lib/context/ui";
 import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useWindowSize, useDebounce } from 'rooks'
-import { Squash as Hamburger } from "hamburger-react";
+import Hamburger from "hamburger-react";
 
 const menuHeight = 100;
-const scrollBreakpoint = 980	
+const scrollBreakpoint = 980
 
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
-	const [scrollStyles, setScrollStyles] = useState({ratio: 0, marker: 0});
-	const { innerWidth: windowWidth} = useWindowSize();
+	const [scrollStyles, setScrollStyles] = useState({ ratio: 0, marker: 0 });
+	const { innerWidth: windowWidth } = useWindowSize();
 
 	useScrollPosition(({ prevPos, currPos }) => {
 		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); //Skip below desktop
@@ -26,7 +26,7 @@ export default function NavBar({ menu, contact, pathname }) {
 		const ratio = direction === "down" ? Math.min(Math.abs(y - marker) / menuHeight, 1) : (Math.min(Math.abs(marker), 100) - Math.min(y - marker, 100)) / 100;
 		setScrollStyles(generateScrollStyles(ratio, direction, marker));
 	});
-	useEffect(()=> windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
+	useEffect(() => windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
 
 	const enableFloater = (e) => {
 		/* Animate in
@@ -44,7 +44,7 @@ export default function NavBar({ menu, contact, pathname }) {
 		setScrollStyles({
 			direction: "up",
 			marker: -window.scrollTop - menuHeight,
-			floater:true
+			floater: true
 		});
 	};
 	return (
@@ -60,7 +60,7 @@ export default function NavBar({ menu, contact, pathname }) {
 					</a>
 				</Link>
 			</div>
-			<div className={cn(styles.menu, scrollStyles.floater &&  styles.floater)} style={scrollStyles.menu}>
+			<div className={cn(styles.menu, scrollStyles.floater && styles.floater)} style={scrollStyles.menu}>
 				<ul className={styles.navItems}>
 					{menu.map((m, idx) => (
 						<li
@@ -88,6 +88,7 @@ export default function NavBar({ menu, contact, pathname }) {
 						onToggle={(toggle) => setShowMobileMenu(toggle)}
 						color={showMobileMenu ? "#fff" : "#000"}
 						label={"Menu"}
+						size={20}
 					/>
 				</div>
 			</div>
@@ -97,27 +98,27 @@ export default function NavBar({ menu, contact, pathname }) {
 
 const generateScrollStyles = (ratio, direction, marker) => {
 	const opacity = 1 - ratio;
-	const scale = Math.max(1, 1 + ratio - 0.2);
+	const scale = Math.max(1, 1 + ratio - 0.75);
 	const margin = 100
 	return {
-		r: { transform: `translateX(-${ratio * margin}px)`, opacity},
-		i: { transform: `translateX(-${ratio * margin}px)`, opacity},
-		s: { transform: `translateX(-${ratio * margin}px)`, opacity},
-		o: { transform: `translateX(-${ratio * 75}px) scale(${scale})` },
-		n: { transform: `translateY(-${ratio * margin}px)`, opacity},
+		r: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		i: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		s: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})` },
+		n: { transform: `translateY(-${ratio * margin}px)`, opacity },
 		menu: {
 			position: "fixed",
 			width: "100%",
-			top:0,
-			left:0,
+			top: 0,
+			left: 0,
 			backgroundColor: "#fff",
 			transform: `translateY(-${ratio * margin}%)`,
-			paddingRight:'3.7%',
-			paddingLeft:'3.7%',
+			paddingRight: '3.7%',
+			paddingLeft: '3.7%',
 		},
 		direction,
 		marker,
-		floater:false,
+		floater: false,
 		t: new Date().getTime()
 	}
 }
