@@ -1,5 +1,6 @@
 import styles from "./Reveal.module.scss"
 import React from "react";
+import cn from 'classnames'
 import useVisibility from "/lib/hooks/useVisibility";
 
 const effects = {
@@ -53,9 +54,11 @@ const Reveal = (props) => {
       {React.Children.map(props.children, (child, idx) => {
           const props = {
             ref: idx === 0 ? visRef : null,
-            className:effectClass,
+            ...child.props,
+            className: cn(effectClass, child.props.className),
             style
           }
+          
           return React.cloneElement(child, props)
         })
       }
