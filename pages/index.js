@@ -10,7 +10,7 @@ import Reveal from "/components/fx/Reveal";
 export default function Home({ page }) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
-	
+
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
 	return (
@@ -35,7 +35,8 @@ export default function Home({ page }) {
 				<SectionImageHeadline blocks={page.sectionWebapp} />
 				
 				<section className={styles.outro}>
-					<Reveal effect="zoomIn" distance={0.9} fade={1}>
+					<div className={styles.container}>
+
 						<div className={styles.wrapper}>
 							<h2>
 								<Markdown>{page.ctaText}</Markdown>

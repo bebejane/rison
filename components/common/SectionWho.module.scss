@@ -1,18 +1,23 @@
 .section {
   width: 100%;
   background-color: $beige;
-  @include outerMargins();
   @include verticalMarginTop();
   @include verticalMarginBottom();
   display: flex;
   justify-content: center;
 
+  .container {
+    @include maxWidth();
+  }
+
   .wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    @include outerMargins();
     @include mq($from: tablet) {
-      width: spanGrid(14);
+      margin-left: spanGridWithGutter(1);
+      margin-right: spanGridWithGutter(1);
     }
 
     h3 {

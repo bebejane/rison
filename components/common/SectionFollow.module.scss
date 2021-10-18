@@ -1,7 +1,6 @@
 .section {
   width: 100%;
   background-color: $beige;
-  @include outerMargins();
   @include verticalMarginTop();
   @include verticalMarginBottom();
   @include mq($until: tablet) {

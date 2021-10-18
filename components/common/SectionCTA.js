@@ -10,8 +10,10 @@ const SectionCTA = ({ text }) => {
 
   return (
     <section className={styles.outro}>
-      <h2>{text}</h2>
-      <Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
+      <div className={styles.wrapper}>
+        <h2>{text}</h2>
+        <Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
+      </div>
     </section>
   )
 }

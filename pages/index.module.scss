@@ -3,13 +3,13 @@
 }
 
 .intro {
-  @include outerMargins();
-
+  @include maxWidth();
   @include mq($until: tablet) {
     padding-bottom: $space;
   }
 
   .wrapper {
+    @include outerMargins();
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -21,8 +21,8 @@
     @include mq($from: tablet) {
       min-height: calc(100vh - 100px);
 
-      padding-left: spanGridWithGutter(2);
-      padding-right: spanGridWithGutter(2);
+      margin-left: spanGridWithGutter(2);
+      margin-right: spanGridWithGutter(2);
     }
 
     h3:first-of-type {
@@ -41,7 +41,10 @@
     &:first-of-type {
       color: $black;
       padding-right: 0.5em;
-      padding-top: 1em;
+
+      @include mq($until: tablet) {
+        padding-top: 1em;
+      }
     }
   }
   .scrollArrow {
@@ -54,11 +57,15 @@
 
 .outro {
   background-color: $beige;
-  @include outerMargins();
+  @include verticalMarginTop();
+  @include verticalMarginBottom();
+
+  .container {
+    @include maxWidth();
+  }
 
   .wrapper {
-    @include verticalMarginTop();
-    @include verticalMarginBottom();
+    @include outerMargins();
 
     @include mq($until: tablet) {
       display: flex;
@@ -67,8 +74,8 @@
     }
 
     @include mq($from: tablet) {
-      padding-left: spanGridWithGutter(2);
-      padding-right: spanGridWithGutter(2);
+      margin-left: spanGridWithGutter(2);
+      margin-right: spanGridWithGutter(2);
     }
 
     div p {
@@ -98,5 +105,9 @@
     a {
       color: $green;
     }
+  }
+
+  button {
+    margin-bottom: 2em;
   }
 }
