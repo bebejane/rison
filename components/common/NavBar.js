@@ -94,6 +94,11 @@ export default function NavBar({ menu, contact, pathname }) {
 								</Link>
 							</li>
 						))}
+						<li className={cn(styles.navItem, styles.mobileContact)}>
+							<a href onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}>
+								Contact
+							</a>
+						</li>
 						<div className={styles.contactFooter}>
 							<a href="mailto:info@rison.com">info@rison.com</a>
 							<br />

@@ -73,11 +73,18 @@
 				.navItem {
 					margin: 10px;
 					a {
+						cursor: pointer;
 						transition: color 0.3s ease;
 					}
 					a:hover,
 					&.selected > a {
 						color: $green;
+					}
+				}
+				.mobileContact {
+					
+					@include mq($from: tablet) {
+						display: none;
 					}
 				}
 				@include mq($until: desktop) {
@@ -99,7 +106,7 @@
 						color: $white;
 					}
 					li {
-						margin-left: 0;
+						margin-left: 0 !important;
 					}
 				}
 			}
