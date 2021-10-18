@@ -1,7 +1,7 @@
 import styles from "./NavBar.module.scss";
 import Link from "next/link";
 import cn from "classnames";
-import { useUI } from "/lib/context/ui";
+import { useUI, UIAction } from "/lib/context/ui";
 import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useWindowSize } from 'rooks'
@@ -47,7 +47,7 @@ export default function NavBar({ menu, contact, pathname }) {
 		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); // Skip below desktop
 		if (currPos.y === 0) return setScrollStyles({}); // Reset on reload
 		if (currPos.y > 0) return; // Ignore on bounce scroll Safari
-		const {y} = currPos;
+		const { y } = currPos;
 		const { y: prevY } = prevPos;
 		const direction = prevY > y ? "down" : "up";
 		const marker = scrollStyles.direction != direction ? y : scrollStyles.marker;
@@ -55,7 +55,7 @@ export default function NavBar({ menu, contact, pathname }) {
 		setScrollStyles(generateScrollStyles(ratio, direction, marker));
 	});
 	useEffect(() => windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
-	
+
 	const enableFloater = () => {
 		/* Animate in
 		const speed = 200;
@@ -99,6 +99,7 @@ export default function NavBar({ menu, contact, pathname }) {
 							</Link>
 						</li>
 					))}
+					<li className={styles.mobileContact}><a onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}> Contact</a></li>
 					<div className={styles.contactFooter}>
 						<a href="mailto:info@rison.com">info@rison.com</a>
 						<br />
@@ -119,7 +120,7 @@ export default function NavBar({ menu, contact, pathname }) {
 					/>
 				</div>
 			</div>
-		</nav>
+		</nav >
 	);
 }
 
