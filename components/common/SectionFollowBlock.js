@@ -3,7 +3,7 @@ import styles from "./SectionFollowBlock.module.scss";
 import cn from 'classnames'
 import { Image } from "react-datocms";
 import Markdown from "/components/common/Markdown";
-import Reveal from "components/fx/Reveal";
+import Reveal from "/components/fx/Reveal";
 import useVisibility from "/lib/hooks/useVisibility";
 
 const SectionFollowBlock = ({ block, odd }) => {

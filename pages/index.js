@@ -5,6 +5,7 @@ import { withGlobalProps } from "/lib/utils";
 import { GetHome } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
+import Reveal from "/components/fx/Reveal";
 
 export default function Home({ page }) {
 	const [ui, setUI] = useUI();

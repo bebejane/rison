@@ -27,13 +27,20 @@ const effects = {
     direction : '+',
     unit: 'px',
     fade:true
+  },
+  zoomIn: {
+    duration : 1000,
+    transform: 'scale',
+    distance : 0.9,
+    direction : '',
+    unit: '',
+    fade:false
   }
 }
 
 const Reveal = (props) => {
   const effect = effects[props.effect] && styles[props.effect] ? effects[props.effect] : undefined
-  if(!effect) 
-    return <div>{`Effect "${props.effect}" doesn't exist!`}</div>
+  if(!effect) return <div>{`Effect "${props.effect}" doesn't exist!`}</div>
 
   const { steps = 100, threshhold = 0} = props
   const duration = props.duration || effect.duration
@@ -52,14 +59,13 @@ const Reveal = (props) => {
 	return (
     <>
       {React.Children.map(props.children, (child, idx) => {
-          const props = {
+          const p = {
             ref: idx === 0 ? visRef : null,
             ...child.props,
             className: cn(effectClass, child.props.className),
             style
           }
-          
-          return React.cloneElement(child, props)
+          return React.cloneElement(child, p)
         })
       }
     </>
