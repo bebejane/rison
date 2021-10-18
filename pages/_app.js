@@ -20,9 +20,12 @@ const MyApp = ({ Component, pageProps, router }) => {
 	const { page, menu, contact, seo, site } = pageProps;
 	const { pathname, route } = router
 	
+	const pageMenu = menu.filter(m => pathname.includes(m.slug))[0]
+	const pageTitle = 'Rison' + (pageMenu ? ` -- ${pageMenu.title}` : '')
+	
 	return (
 		<>
-			<DatoSEO seo={seo} site={site} pathname={pathname} key={pathname}/>
+			<DatoSEO seo={seo} site={site} pathname={pathname} title={pageTitle} key={pathname}/>
 			<UIProvider>
 				<Layout>
 					<AnimatePresence exitBeforeEnter initial={false}>
