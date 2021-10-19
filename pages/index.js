@@ -42,7 +42,7 @@ export default function Home({ page }) {
 								</h2>
 							</Reveal>
 							<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
-							<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+							<Markdown>{page.readMoreText}</Markdown><span>→</span>
 						</div>
 					</div>
 				</section>
