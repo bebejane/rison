@@ -9,9 +9,7 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding-top: math.div($space, 4);
-	padding-bottom: math.div($space, 4);
-	@include outerMargins();
+	
 	@include mq($from: desktop) {
 		max-height: 100px;
 		min-height: 100px;
@@ -46,6 +44,7 @@
 		width:100%;
 		top:0;
 		left:0;
+		@include outerMargins();
 		@include maxWidth();
 		@include mq($from: desktop) {
 			padding-top: $space * 0.85;

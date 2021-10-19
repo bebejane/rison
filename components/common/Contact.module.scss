@@ -1,6 +1,7 @@
 .contact {
 	.container {
 		@include maxWidth();
+		@include outerMargins();
 		position: relative;
 		height: 100%;
 		display: flex;
@@ -36,7 +37,7 @@
 		color: $black;
 	}
 	.close {
-		@include outerMargins();
+		
 		opacity: 0;
 		top: 0;
 		right: 0;
@@ -45,7 +46,7 @@
 		margin-top: $space * 0.7;
 
 		@include mq($from: tablet) {
-			position: absolute;
+			//position: absolute;
 			margin-top: $space * 0.85;
 		}
 		.closeButton {
@@ -71,7 +72,6 @@
 		width: 100%;
 		flex: 1 1 auto;
 		height: 100%;
-		@include outerMargins();
 		.innerWrapper {
 			@include mq($from: tablet) {
 				width: spanGrid(12);
