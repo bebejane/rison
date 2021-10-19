@@ -23,9 +23,9 @@ export default function Home({ page }) {
 							<h2 className={styles["intro-header"]}>{page.header}</h2>
 							<h2>{page.intro}</h2>
 						</div>
-						<div>
+						<div className={styles.howItWorks} onClick={handleScrollDown}>
 							<h3>This is how it works</h3>
-							<h3 className={styles.scrollArrow} onClick={handleScrollDown}>
+							<h3 className={styles.scrollArrow} >
 								↓
 							</h3>
 						</div>

@@ -25,13 +25,18 @@
       margin-right: spanGridWithGutter(2);
     }
 
-    h3:first-of-type {
-      @include mq($until: tablet) {
-        padding-top: 1em;
+    .howItWorks{
+      cursor: pointer;
+      h3 {
+        &:first-of-type{
+          @include mq($until: tablet) {
+            padding-top: 1em;
+          }
+        }
+        &:last-of-type {
+          padding-bottom: 0;
+        }
       }
-    }
-    h3:last-of-type {
-      padding-bottom: 0;
     }
   }
 
