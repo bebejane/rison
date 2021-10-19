@@ -11,8 +11,8 @@
 	width: 100%;
 
 	@include mq($until: tablet) {
-		padding-bottom: 0.2em;
-		padding-top: 0.2em;
+		padding-bottom: 0.25em;
+		padding-top: 0.25em;
 	}
 
 	@include mq($from: desktop) {
