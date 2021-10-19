@@ -11,16 +11,17 @@ const menuHeight = 100;
 const scrollBreakpoint = 980
 
 const generateScrollStyles = (ratio, direction, marker) => {
-	const opacity = 1 - ratio;
+	const opacity = Math.max(1 - (ratio*1.8), 0);
 	const scale = Math.max(1, 1 + ratio - 0.75);
 	const margin = 100
 	return {
-		r: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		i: { transform: `translateX(-${ratio * margin}px)`, opacity },
-		s: { transform: `translateX(-${ratio * margin}px)`, opacity },
+		r: { transform: `translateX(-${ratio * margin}px) translateY(${ratio * margin}px)`, opacity },
+		i: { transform: `translateX(-${ratio * margin}px) translateY(${ratio * margin}px)`, opacity },
+		s: { transform: `translateX(-${ratio * margin}px) translateY(${ratio * margin}px)`, opacity },
 		o: { transform: `translateX(-${ratio * 95}px) scale(${scale})`, top:ratio*100},
-		n: { transform: `translateY(-${ratio * margin}px)`, opacity },
+		n: { transform: `translateY(-${ratio * margin}px)`, opacity:opacity },
 		nav: { transform: `translateY(-${ratio * margin}%)` },
+		ratio,
 		direction,
 		marker,
 		floater: ratio >= 1
@@ -30,32 +31,35 @@ const generateScrollStyles = (ratio, direction, marker) => {
 export default function NavBar({ menu, contact, pathname }) {
 	const [ui, setUI] = useUI();
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
-	const [scrollStyles, setScrollStyles] = useState({ ratio: 0, marker: 0 });
+	const [scrollStyles, setScrollStyles] = useState({ ratio: 0, marker: 0, direction:undefined});
 	const { innerWidth: windowWidth } = useWindowSize();
 
 	const enableFloater = () => {
 		if(!scrollStyles.floater) return // Dont trigger until scrolled down
+
 		const speed = 200;
+		const marker = -window.scrollY
 		let ratio = 1;
-		const marker = window.scrollTop
 		const i = setInterval(()=>{
-			if(ratio < 0) return clearInterval(i)
-			ratio = ratio-=0.02
+			if(ratio <= 0) return clearInterval(i)
+			ratio = Math.max(ratio-=0.02, 0)
 			setScrollStyles(generateScrollStyles(ratio, 'up', marker));
 		}, speed/100)
 	};
 
 	useScrollPosition(({ prevPos, currPos }) => {
-		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); // Skip below desktop
+		
+		if (windowWidth < scrollBreakpoint) return setScrollStyles({}); // Skip and reset below desktop
 		if (currPos.y === 0) return setScrollStyles({}); // Reset on reload
-		if (currPos.y > 0) return; // Ignore on bounce scroll Safari
-
+		if (currPos.y > 0) return console.log('bounce'); // Ignore on bounce scroll Safari
+		
 		const { y } = currPos;
-		const { y: prevY } = prevPos;
-		const direction = prevY > y ? 'down' : 'up';
-		const marker = scrollStyles.direction != direction ? y : scrollStyles.marker;
+		const { ratio: prevRatio, direction : prevDirection, marker: prevMarker } = scrollStyles
+		const direction = prevPos.y > y ? 'down' : 'up';
+		const marker = prevDirection != direction ? y - (direction === 'up' ?  ((1-prevRatio)*menuHeight) : 0) : prevMarker;
 		const ratio = direction === 'down' ? Math.min(Math.abs(y - marker) / menuHeight, 1) : (Math.min(Math.abs(marker), 100) - Math.min(y - marker, 100)) / 100;
 		setScrollStyles(generateScrollStyles(ratio, direction, marker));
+		
 	});
 	useEffect(() => windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
 
