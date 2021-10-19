@@ -9,7 +9,12 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	
+
+	@include mq($until: tablet) {
+		padding-bottom: 0.2em;
+		padding-top: 0.2em;
+	}
+
 	@include mq($from: desktop) {
 		max-height: 100px;
 		min-height: 100px;
@@ -28,6 +33,8 @@
 	.navMobile {
 		flex: 0 0 auto;
 		z-index: 10000;
+		margin-right: -6px;
+
 		@include mq($from: desktop) {
 			display: none;
 		}
@@ -41,9 +48,9 @@
 		justify-content: flex-end;
 		align-items: center;
 		z-index: 100;
-		width:100%;
-		top:0;
-		left:0;
+		width: 100%;
+		top: 0;
+		left: 0;
 		@include outerMargins();
 		@include maxWidth();
 		@include mq($from: desktop) {
@@ -52,10 +59,10 @@
 			&.floater {
 				top: 0;
 				transition: transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53);
-				transform: translateY(0%);				
+				transform: translateY(0%);
 			}
 		}
-		.menu{
+		.menu {
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-end;
@@ -123,7 +130,7 @@
 		text-align: center;
 		margin-bottom: $space;
 	}
-	
+
 	.logo {
 		position: relative;
 		display: flex;
