@@ -43,6 +43,7 @@
     justify-content: flex-end;
     a {
       line-height: 1;
+      max-height: 20px;
       &:not(:last-of-type) {
         padding-right: math.div($space, 2);
       }
