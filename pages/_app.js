@@ -21,7 +21,7 @@ const MyApp = ({ Component, pageProps, router }) => {
 	const { pathname, route } = router
 	
 	const pageMenu = menu.filter(m => pathname.includes(m.slug))[0]
-	const pageTitle = 'Rison' + (pageMenu ? ` -- ${pageMenu.title}` : '')
+	const pageTitle = `Rison${pageMenu ? ` – ${pageMenu.title}` : ' '}`
 	
 	return (
 		<>
