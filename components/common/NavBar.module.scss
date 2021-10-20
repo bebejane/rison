@@ -11,8 +11,8 @@
 	width: 100%;
 
 	@include mq($until: tablet) {
-		padding-bottom: 0.25em;
-		padding-top: 0.25em;
+		padding-bottom: 0.3em;
+		padding-top: 0.3em;
 	}
 
 	@include mq($from: desktop) {
@@ -96,7 +96,7 @@
 					display: flex;
 					position: fixed;
 					@include outerMargins();
-					padding-top: 20vh;
+					padding-top: 15vh;
 					top: 0;
 					right: 0;
 					background: $black;
@@ -128,7 +128,7 @@
 		bottom: 0;
 		width: 100%;
 		text-align: center;
-		margin-bottom: $space;
+		margin-bottom: 10vh;
 	}
 
 	.logo {
