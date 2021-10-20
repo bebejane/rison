@@ -25,5 +25,12 @@
         margin-bottom: 0;
       }
     }
+
+    p.longer {
+      @include mq($from: tablet) {
+        column-count: 2;
+      }
+      padding-top: 1em;
+    }
   }
 }

@@ -8,11 +8,11 @@ export default function Invest({ page, contact, menu }) {
 
   return (
     <>
-      <SectionIntro intro={page.intro} headline={page.headline} />
+      <SectionIntro intro={page.intro} headline={page.headline} longerText={page.longerText} />
       <SectionWho blocks={page.whoAreYou} />
       <SectionCTA text={page.cta} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps({query: GetInvest, model: "invest"});
+export const getStaticProps = withGlobalProps({ query: GetInvest, model: "invest" });
