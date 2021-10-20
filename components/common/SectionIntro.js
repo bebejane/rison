@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './SectionIntro.module.scss'
-import Markdown from '/components/common';
+import {Markdown} from '/components/common';
 
 const SectionIntro = ({ intro, headline, longerText, arrow }) => {
   return (
