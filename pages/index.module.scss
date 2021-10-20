@@ -25,10 +25,10 @@
       margin-right: spanGridWithGutter(2);
     }
 
-    .howItWorks{
+    .howItWorks {
       cursor: pointer;
       h3 {
-        &:first-of-type{
+        &:first-of-type {
           @include mq($until: tablet) {
             padding-top: 1em;
           }

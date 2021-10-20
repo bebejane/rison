@@ -10,7 +10,7 @@ export default function OurOffer({ page, contact, menu }) {
 
 	return (
 		<>
-			<SectionIntro intro={page.intro} headline={page.headline} />
+			<SectionIntro intro={page.intro} headline={page.headline} arrow={true} />
 			<SectionFollow blocks={page.blocks} />
 			<SectionCTA text={page.cta} />
 		</>

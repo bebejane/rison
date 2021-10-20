@@ -32,5 +32,32 @@
       }
       padding-top: 1em;
     }
+
+    h2 + div {
+      padding-top: 3em;
+    }
+
+    .howItWorks {
+      cursor: pointer;
+      text-align: center;
+
+      h3 {
+        &:first-of-type {
+          @include mq($until: tablet) {
+            padding-top: 1em;
+          }
+        }
+        &:last-of-type {
+          padding-bottom: 0;
+        }
+      }
+
+      .scrollArrow {
+        font-family: $icon-font;
+        text-align: center;
+        cursor: pointer;
+        color: $green;
+      }
+    }
   }
 }
