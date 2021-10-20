@@ -1,5 +1,5 @@
 .content{
-  @include mq($until: tablet) {
+  @include mq($until: desktop) {
     margin-top: $space * 2;
   }
 }

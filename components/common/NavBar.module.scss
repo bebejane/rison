@@ -10,7 +10,7 @@
 	align-items: center;
 	width: 100%;
 
-	@include mq($until: tablet) {
+	@include mq($until: desktop) {
 		padding-bottom: 0.3em;
 		padding-top: 0.3em;
 	}
