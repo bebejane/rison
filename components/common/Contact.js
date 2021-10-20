@@ -7,11 +7,11 @@ import { useUI, UIAction } from "lib/context/ui";
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import axios from "axios"
 import { useForm } from "react-hook-form";
-import EmailValidator  from 'email-validator';
+import EmailValidator from 'email-validator';
 
 const Contact = ({ contact }) => {
 	const [{ showContact }, setUI] = useUI()
-	
+
 	return (
 		<div className={cn(styles.contact, showContact && styles.show)}>
 			<div className={styles.container}>
@@ -43,8 +43,8 @@ const Newsletter = () => {
 	const [{ showNewsletter, showContact }, setUI] = useUI()
 	const [error, setError] = useState();
 	const [subscribed, setSubscribed] = useState(false);
-	const { register, handleSubmit, formState: { isSubmitting }} = useForm();
-	
+	const { register, handleSubmit, formState: { isSubmitting } } = useForm();
+
 	const onSubmitSignup = async ({ email }) => {
 		try {
 			const res = await axios.post('/api/signup', { email });
@@ -55,7 +55,7 @@ const Newsletter = () => {
 		}
 	}
 	useEffect(() => isSubmitting && setError(false) && setSubscribed(false), [isSubmitting]);
-	useEffect(()=> !showContact && setUI({ type: UIAction.HIDE_NEWSLETTER }), [showContact]); // Reset 
+	useEffect(() => !showContact && setUI({ type: UIAction.HIDE_NEWSLETTER }), [showContact]); // Reset 
 
 	return (
 		<Flippy
@@ -66,7 +66,7 @@ const Newsletter = () => {
 		>
 			<FrontSide className={styles.newsletter}>
 				{!subscribed ?
-					<p>Keep yourself updated by <a onClick={(e) => setUI({ type: UIAction.TOGGLE_NEWSLETTER })}> joining our newsletter</a>.</p>
+					<p>Stay updated by <a onClick={(e) => setUI({ type: UIAction.TOGGLE_NEWSLETTER })}> joining our newsletter</a>.</p>
 					:
 					<p>Thanks for signing up!</p>
 				}
@@ -78,7 +78,7 @@ const Newsletter = () => {
 					onClick={(e) => e.stopPropagation()}
 				>
 					<input
-						{...register("email", { validate: val => EmailValidator.validate(val), required: true})}
+						{...register("email", { validate: val => EmailValidator.validate(val), required: true })}
 						placeholder={'E-mail...'}
 					/>
 					<button type="submit">Send
