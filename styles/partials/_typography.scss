@@ -55,6 +55,10 @@ h2 p {
     font-size: $headline-size;
   }
 
+  @include mq($from: wide) {
+    font-size: 48px;
+  }
+
   strong {
     font-weight: normal;
   }
@@ -110,7 +114,6 @@ nav {
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
-    padding-bottom: 0.2em;
     font-family: $headline-font-mobile;
   }
 }

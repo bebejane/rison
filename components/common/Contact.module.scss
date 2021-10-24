@@ -1,4 +1,13 @@
 .contact {
+	.container {
+		@include maxWidth();
+		@include outerMargins();
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -7,14 +16,15 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 1;
+	z-index: 101;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
 	color: $white;
 	transition: transform 0.5s cubic-bezier(0.19, 0.92, 0, 1);
 	transform: translateY(100%);
-	a, strong {
+	a,
+	strong {
 		color: $black;
 	}
 	a:hover {
@@ -27,16 +37,17 @@
 		color: $black;
 	}
 	.close {
-		@include outerMargins();
+		
 		opacity: 0;
 		top: 0;
 		right: 0;
 		z-index: 2;
 		transform: scale(0.95);
 		margin-top: $space * 0.7;
+
 		@include mq($from: tablet) {
-			position: absolute;
-			margin-top: 34px;
+			//position: absolute;
+			margin-top: $space * 0.85;
 		}
 		.closeButton {
 			display: block;
@@ -45,7 +56,7 @@
 			border-color: $white;
 			background: $green;
 			@include mq($from: tablet) {
-				width: 137px;
+				width: 145px;
 			}
 			&:hover {
 				min-height: unset;
@@ -61,7 +72,6 @@
 		width: 100%;
 		flex: 1 1 auto;
 		height: 100%;
-		@include outerMargins();
 		.innerWrapper {
 			@include mq($from: tablet) {
 				width: spanGrid(12);
@@ -106,33 +116,17 @@
 				color: $dark-green;
 			}
 		}
-		input[type="submit"] {
-			margin-left: 0.5em;
-			padding-left: 0.6em;
-			padding-right: 0.6em;
-			border: none;
-
-			&:hover {
-				background: white;
-			}
-		}
-		.submitButton {
+		button {
 			position: relative;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			margin-left: math.div($space, 2);
-			.spinner {
-				position: absolute;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: $white;
-				background-color: $green;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+			margin-left: 0.5em;
+			padding-left: 0.6em;
+			padding-right: 0.6em;
+			border: none;
+			&:hover {
+				background: white;
 			}
 		}
 		.newsletterError {
@@ -143,28 +137,34 @@
 		}
 	}
 }
-.loader {
-	display: inline-block;
-	max-width: 20px;
-	max-height: 20px;
-  &:after {
-    content: " ";
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin: 0px;
-    border-radius: 50%;
-    border: 1px solid $white;
-    border-color: $white transparent $white transparent;
-    animation: loader 0.5s linear infinite;
-  }
-}
-
-@keyframes loader {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
+.spinner {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	background-color: $green;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	&:after{
+		content: " ";
+		display: block;
+		width: 16px;
+		height: 16px;
+		margin: 0px;
+		border-radius: 50%;
+		border: 1px solid $white;
+		border-color: $white transparent $white transparent;
+		animation: loader 0.5s linear infinite;
+		@keyframes loader {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
 	}
 }

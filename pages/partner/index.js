@@ -3,7 +3,7 @@ import { withGlobalProps } from "/lib/utils";
 import { Markdown, SectionIntroSplit, SectionIntro, SectionWho, SectionCTA } from "/components/common";
 import { GetPartner } from "/graphql";
 
-export default function Partner({ page, contact, menu }) {
+export default function Partner({ seo, site, page, contact, menu }) {
   const { intro, headline } = page;
 
   return (

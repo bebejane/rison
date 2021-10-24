@@ -1,18 +1,14 @@
 .team {
   width: 100%;
   background-color: $beige;
-  @include outerMargins();
   @include verticalMarginTop();
   @include verticalMarginBottom();
 
   .wrapper {
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
-
-    @include mq($from: tablet) {
-      width: spanGrid(12);
-    }
+    @include maxWidth();
+    justify-content: center;
 
     h2 {
       width: 100%;
@@ -22,23 +18,22 @@
 
     h3 {
       width: 100%;
+      display: none;
 
       @include mq($until: tablet) {
         text-align: center;
       }
-
-      @include mq($from: tablet) {
-        width: spanNestedGrid(12, 2);
-        padding-top: 1em;
-      }
     }
 
     div.people {
+      @include outerMargins();
+
+      @include mq($from: tablet) {
+        margin-left: spanGridWithGutter(2);
+        margin-right: spanGridWithGutter(2);
+      }
       display: flex;
       flex-wrap: wrap;
-      @include mq($from: tablet) {
-        width: spanNestedGrid(12, 10);
-      }
 
       div.management {
         display: flex;

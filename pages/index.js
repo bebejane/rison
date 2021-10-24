@@ -5,11 +5,12 @@ import { withGlobalProps } from "/lib/utils";
 import { GetHome } from "/graphql";
 import { useRef } from "react";
 import { useUI, UIAction } from "/lib/context/ui";
+import Reveal from "/components/fx/Reveal";
 
 export default function Home({ page }) {
 	const [ui, setUI] = useUI();
 	const scrollRef = useRef();
-	
+
 	const handleScrollDown = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
 	return (
@@ -22,9 +23,9 @@ export default function Home({ page }) {
 							<h2 className={styles["intro-header"]}>{page.header}</h2>
 							<h2>{page.intro}</h2>
 						</div>
-						<div>
+						<div className={styles.howItWorks} onClick={handleScrollDown}>
 							<h3>This is how it works</h3>
-							<h3 className={styles.scrollArrow} onClick={handleScrollDown}>
+							<h3 className={styles.scrollArrow} >
 								↓
 							</h3>
 						</div>
@@ -33,13 +34,17 @@ export default function Home({ page }) {
 				<SectionFollow blocks={page.blocks} ref={scrollRef} />
 				<SectionImageHeadline blocks={page.sectionWebapp} />
 				<section className={styles.outro}>
-					<div className={styles.wrapper}>
-						<h2>
-							<Markdown>{page.ctaText}</Markdown>
-						</h2>
-						<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
-						<div>
-							<Markdown>{page.readMoreText}</Markdown> <span>→</span>
+					<div className={styles.container}>
+						<div className={styles.wrapper}>
+							<Reveal effect="zoomIn" distance={0.95} delay={100}>
+								<h2>
+									<Markdown>{page.ctaText}</Markdown>
+								</h2>
+							</Reveal>
+							<Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
+							<div>
+								<Markdown>{page.readMoreText}</Markdown><span>→</span>
+							</div>
 						</div>
 					</div>
 				</section>

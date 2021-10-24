@@ -1,6 +1,8 @@
 .wrapper {
   display: flex;
-  
+  @include maxWidth();
+  @include outerMargins();
+
   @include mq($until: tablet) {
     flex-direction: column-reverse;
   }
@@ -20,7 +22,7 @@
       align-items: center;
       justify-content: center;
       padding-bottom: 1px;
-      
+      z-index: 2;
     }
 
     &:nth-child(2):before {
@@ -47,12 +49,9 @@
 
     &:nth-child(even) {
       article {
-        .line{
-          right:0;
-          left:unset;
-        }
-        //border-right: 1px solid $green;
-        //border-left: 0px solid $green;
+        
+        border-right: 1px solid $green;
+        border-left: 0px solid $green;
       }
     }
   }
@@ -62,13 +61,12 @@
   }
 
   article {
-    
     position: relative;
     @include mq($from: tablet) {
       width: 50%;
       padding-left: spanGrid(1);
       padding-right: spanGrid(1);
-      //border-left: 1px solid $green;
+      border-left: 1px solid $green;
     }
 
     h2 {
@@ -79,20 +77,7 @@
     h3 {
       padding-top: 0.2em;
     }
-    .line{
-      position: absolute;
-      margin-top:30px;
-		  top: 0;
-		  left: 0;
-		  width: 1px;
-		  height: 100%;
-      z-index: 0;
-      transition: height 0.5s linear;
-		  background-color: $green;
-      @include mq($until: tablet) {
-        display: none;
-      }
-    }
+    
   }
 
   figure {
@@ -109,10 +94,10 @@
 .fadeUp {
   opacity: 0;
   transform: translateY(50px);
-  animation: fadeUp 1s cubic-bezier(.17,.67,.44,1.16) 0.3s forwards;
+  animation: fadeUp 1s cubic-bezier(0.17, 0.67, 0.44, 1.16) 0.3s forwards;
 }
 @keyframes fadeUp {
-  to{
+  to {
     opacity: 1;
     transform: translateY(0%);
   }

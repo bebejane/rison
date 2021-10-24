@@ -12,7 +12,6 @@ export { default as SectionImageHeadlineBlock } from "./SectionImageHeadlineBloc
 export { default as SectionManagement } from "./SectionManagement";
 export { default as SectionManagementBlock } from "./SectionManagementBlock";
 export { default as SectionIntro } from "./SectionIntro";
-export { default as SectionIntroSplit } from "./SectionIntroSplit";
 export { default as SectionWho } from "./SectionWho";
 export { default as SectionWhoBlock } from "./SectionWhoBlock";
 export { default as SectionCTA } from "./SectionCTA";

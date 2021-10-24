@@ -1,50 +1,56 @@
-.footer{
-  @include outerMargins();
-  padding-top: $space * 0.7;
-  padding-bottom: $space  * 0.7;
-  color: $white;
+.footer {
   background-color: $green;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
-  @include mq($from: tablet) {
-    padding-top: $space;
-    padding-bottom: $space;
-   }
+  .wrapper {
+    @include maxWidth();
+    @include outerMargins();
+    padding-top: $space * 0.7;
+    padding-bottom: $space * 0.7;
+    color: $white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-  .title{
+    @include mq($from: tablet) {
+      padding-top: $space;
+      padding-bottom: $space;
+    }
+  }
+
+  .title {
     color: $black;
     display: flex;
     align-items: center;
     @include mq($from: tablet) {
       width: spanGridWithGutter(2);
-     }
+    }
   }
 
-  .address{
+  .address {
     display: flex;
     align-items: center;
     @include mq($until: tablet) {
       display: none;
-     }
+    }
     flex: 1 1 auto;
   }
 
-  .social{
+  .social {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     a {
+      line-height: 1;
+      max-height: 20px;
       &:not(:last-of-type) {
         padding-right: math.div($space, 2);
       }
-      img{
-        height:20px;
-        width:auto;
-      }      
+      img {
+        height: 20px;
+        width: auto;
+      }
     }
-  
   }
 }

@@ -1,26 +1,20 @@
 .outro {
-  width: 100%;
-  background-color: $white;
-  @include outerMargins();
-  @include verticalMarginTop();
-  @include verticalMarginBottom();
+  @include maxWidth();
+
+  .wrapper {
+    @include outerMargins();
+    @include verticalMarginTop();
+    @include verticalMarginBottom();
+
+    @include mq($from: tablet) {
+      margin-left: spanGridWithGutter(2);
+      margin-right: spanGridWithGutter(2);
+    }
+  }
 
   @include mq($until: tablet) {
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-
-  h2 {
-    @include mq($from: tablet) {
-      padding-left: spanGridWithGutter(2);
-      padding-right: spanGridWithGutter(2);
-    }
-  }
-
-  button {
-    @include mq($from: tablet) {
-      margin-left: spanGridWithGutter(2);
-    }
   }
 }

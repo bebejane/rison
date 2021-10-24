@@ -2,97 +2,25 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 100;
 	background-color: #fff;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
 	width: 100%;
-	@include outerMargins();
-	padding-top: math.div($space, 2);
+
+	@include mq($until: desktop) {
+		padding-bottom: 0.3em;
+		padding-top: 0.3em;
+	}
+
 	@include mq($from: desktop) {
-		position: relative;
-		max-height: 100px;
-		min-height: 100px;
-	}
-	.menu {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-		z-index: 100;
-		@include mq($from: desktop) {	
-			padding-top: $space;
-			padding-bottom: math.div($space, 2);
-			&.floater{
-				position: fixed;
-				width: 100%;
-				left:0;
-				top:0; 
-				background-color: $white;
-				transition: transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53);
-				transform: translateY(0%);
-				//margin-top: $space/2;
-				@include outerMargins();
-			}
-		}
-		
-				
-		
-		.navItems {
-			list-style: none;
-			flex: 1 1 auto;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-end;
-			.navItem {
-				margin: 10px;
-				a {
-					transition: color 0.3s ease;
-				}
-				a:hover, &.selected > a {
-					color: $green;
-				}
-			}
-			@include mq($until: desktop) {
-				display: flex;
-				position: fixed;
-				@include outerMargins();
-				padding-top: 20vh;
-				top: 0;
-				right: 0;
-				background: $black;
-				height: 100vh;
-				z-index: 1000;
-				flex-direction: column;
-				width: 100%;
-				justify-content: flex-start;
-				transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
-				transform: translateX(100%);
-				a {
-					color: $white;
-				}
-				li {
-					margin-left: 0;
-				}
-			}
-		}
-		@include mq($until: desktop) {
-			transform: none !important;
-		}
-	}
-	.contactFooter {
-		display: none;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		text-align: center;
-		margin-bottom: $space;
+		max-height: 104px;
+		min-height: 104px;
 	}
 	&.showMobile {
-		.navItems {
+		.menuWrapper > .menu > .navItems {
 			transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
 			transform: translateX(0%);
 		}
@@ -102,12 +30,11 @@
 			}
 		}
 	}
-	&.showFloater {
-		position: fixed;
-	}
 	.navMobile {
 		flex: 0 0 auto;
 		z-index: 10000;
+		margin-right: -6px;
+
 		@include mq($from: desktop) {
 			display: none;
 		}
@@ -115,6 +42,95 @@
 			height: 30px;
 		}
 	}
+	.menuWrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		z-index: 100;
+		width: 100%;
+		top: 0;
+		left: 0;
+		@include outerMargins();
+		@include maxWidth();
+		@include mq($from: desktop) {
+			padding-top: $space * 0.85;
+			padding-bottom: $space * 0.85;
+			&.floater {
+				top: 0;
+				transition: transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+				transform: translateY(0%);
+			}
+		}
+		.menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			@include mq($until: tablet) {
+				margin-right: -7px;
+			}
+			.navItems {
+				list-style: none;
+				flex: 1 1 auto;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				.navItem {
+					margin: 10px;
+					a {
+						cursor: pointer;
+						transition: color 0.3s ease;
+					}
+					a:hover,
+					&.selected > a {
+						color: $green;
+					}
+				}
+				.mobileContact {
+					@include mq($from: desktop) {
+						display: none;
+					}
+				}
+				@include mq($until: desktop) {
+					display: flex;
+					position: fixed;
+					@include outerMargins();
+					padding-top: 15vh;
+					top: 0;
+					right: 0;
+					background: $black;
+					height: 100vh;
+					z-index: 1000;
+					flex-direction: column;
+					width: 100%;
+					justify-content: flex-start;
+					transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+					transform: translateX(100%);
+					a {
+						color: $white;
+					}
+					li {
+						margin-left: 1em !important;
+					}
+				}
+			}
+			@include mq($until: desktop) {
+				transform: none !important;
+			}
+		}
+	}
+
+	.contactFooter {
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10vh;
+	}
+
 	.logo {
 		position: relative;
 		display: flex;
@@ -123,12 +139,11 @@
 		z-index: 10000;
 		line-height: 0;
 		font-family: Rison;
-		font-size: 25px;
+		font-size: 30px;
 		@include mq($from: desktop) {
-			font-size: 35px;
+			font-size: 48px;
 		}
 		a {
-			position: fixed;
 			color: $green;
 			padding: 0;
 			margin: 0;
@@ -136,17 +151,17 @@
 				@include mq($from: desktop) {
 					position: absolute;
 					&:nth-child(2) {
-						margin-left: 1.8rem;
+						margin-left: 0.8em;
 					}
 					&:nth-child(3) {
-						margin-left: 2.8rem;
+						margin-left: 1.23em;
 					}
 					&:nth-child(4) {
-						margin-left: 4rem;
-						position: fixed;
+						margin-left: 1.78em;
+						position: absolute;
 					}
 					&:nth-child(5) {
-						margin-left: 5.8rem;
+						margin-left: 2.61em;
 					}
 				}
 			}
@@ -162,11 +177,11 @@
 			text-decoration: none !important;
 		}
 	}
-
 	.contact {
 		@include mq($until: desktop) {
 			display: none;
 		}
 		margin-left: 1em;
+		background-color: transparent;
 	}
 }

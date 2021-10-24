@@ -5,6 +5,7 @@ query GetInvest {
     headline
     intro
     cta
+    longerText
     whoAreYou {
       headline
       text

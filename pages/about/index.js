@@ -8,10 +8,9 @@ export default function About({ page, contact, menu }) {
 
   return (
     <>
-      <SectionIntro intro={page.intro} headline={page.headline} />
+      <SectionIntro intro={page.intro} headline={page.headline} longerText={page.longerText} />
       <section className={styles.team}>
         <div className={styles.wrapper}>
-          <h3>Team</h3>
           <div className={styles.people}>
             <h2>{page.aboutManagement}</h2>
             <SectionManagement blocks={page.people} />

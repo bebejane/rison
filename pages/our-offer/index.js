@@ -4,6 +4,7 @@ import { Markdown, SectionFollow, SectionIntro, SectionCTA, Button, SectionImage
 import { GetOurOffer } from "/graphql";
 import { Image } from 'react-datocms';
 
+
 export default function OurOffer({ page, contact, menu }) {
 	const { intro, blocks } = page;
 
