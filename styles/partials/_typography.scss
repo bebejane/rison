@@ -107,7 +107,7 @@ button {
   }
 }
 
-nav {
+nav li {
   @include mq($until: tablet) {
     font-size: $headline-size-mobile;
     line-height: $line-height-headline;
