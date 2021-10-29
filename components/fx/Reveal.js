@@ -12,9 +12,9 @@ const effects = {
   fadeUp : {
     duration : 2500,
     transform: 'translateY',
-    distance : 100,
+    distance : 10,
     direction : '+',
-    unit: 'px',
+    unit: 'vh',
     fade: 0.0,
     delay: 0.3
   },

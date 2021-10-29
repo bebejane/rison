@@ -28,7 +28,15 @@ const MyApp = ({ Component, pageProps, router }) => {
 			<DatoSEO seo={seo} site={site} pathname={pathname} title={pageTitle} key={pathname}/>
 			<UIProvider>
 				<Layout>
-					<AnimatePresence exitBeforeEnter initial={false}>
+					<AnimatePresence 
+						exitBeforeEnter 
+						initial={false}
+						onExitComplete={() => {
+							if (typeof window !== 'undefined') {
+								window.scrollTo({ top: 0 })
+							}
+						}}
+					>
 						<Content 
 							key={route} 
 							page={page} 

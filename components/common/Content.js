@@ -2,20 +2,20 @@ import styles from "./Content.module.scss";
 import {Footer, NavBar, Contact} from "./";
 import { motion } from "framer-motion";
 
-const duration = 0.3;
+const duration = 0.35;
 
 const pageAnimation = {
 	initial: {
-		opacity: 1,
-		transition: { duration},
+		opacity: 0,
+		transition: { duration },
 	},
 	animate: {
 		opacity: 1,
-		transition: { duration},
+		transition: { duration },
 	},
 	exit: {
 		opacity: 0,
-		transition: { duration},
+		transition: { duration },
 	},
 };
 
@@ -32,7 +32,6 @@ export default function Content({ page = {}, contact, menu, pathname, children }
 					pathname={pathname}
 				/>
 				<motion.main 
-					
 					className={styles.main}
 					initial="initial" 
 					animate="animate" 
