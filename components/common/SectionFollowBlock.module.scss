@@ -81,10 +81,12 @@
   figure {
     padding-top: 1em;
     padding-bottom: 1em;
-    padding-left: spanGrid(1);
-    padding-right: spanGrid(1);
+    padding-left: spanGrid(2);
+    padding-right: spanGrid(2);
 
     @include mq($from: tablet) {
+      padding-left: spanGrid(1);
+      padding-right: spanGrid(1);
       padding-top: 1em;
       width: 50%;
     }
