@@ -4,7 +4,7 @@ query GetAbout {
   page: about {
     headline
     intro
-    longerText
+    longerText(markdown: false)
     aboutManagement
     people {
       name

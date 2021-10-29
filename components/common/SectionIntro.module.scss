@@ -26,9 +26,14 @@
       }
     }
 
-    p.longer {
+    div.longer {
       @include mq($from: tablet) {
         column-count: 2;
+        column-gap: 1.5em;
+
+        p:last-of-type {
+          margin-bottom: 0;
+        }
       }
       padding-top: 1em;
     }

@@ -8,7 +8,7 @@ const SectionIntro = ({ intro, headline, longerText }) => {
       <div className={styles.wrapper}>
         <h2>{headline}</h2>
         <h2><Markdown>{intro}</Markdown></h2>
-        {longerText && <p className={styles.longer}>{longerText}</p>}
+        {longerText && <div className={styles.longer}><Markdown>{longerText}</Markdown></div>}
       </div >
     </section>
   )
