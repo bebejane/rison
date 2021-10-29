@@ -36,7 +36,7 @@ export default function Home({ page }) {
 				<section className={styles.outro}>
 					<div className={styles.container}>
 						<div className={styles.wrapper}>
-							<Reveal effect="zoomIn" distance={0.95} delay={100}>
+							<Reveal effect="fade">
 								<h2>
 									<Markdown>{page.ctaText}</Markdown>
 								</h2>

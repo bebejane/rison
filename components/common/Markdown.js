@@ -9,7 +9,7 @@ const Markdown = ({ children }) => {
       remarkPlugins={[gfm]} 
       children={children}
       components={{
-        a: ({ node, ...props }) => <Link href={props.href}><a>{props.children[0]}</a></Link>
+        a: ({ node, ...props }) => <Link href={props.href} scroll={false}><a>{props.children[0]}</a></Link>
       }}
     />
   )
