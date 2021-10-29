@@ -7,7 +7,7 @@ import Reveal from "components/fx/Reveal";
 const SectionWhoBlock = ({ block, odd }) => {
   return (    
       <div className={styles.who} >
-        <Reveal effect="fadeUp" distance={20} duration={1000} fade={0.1}>
+        <Reveal effect="fadeUp">
           <figure>
             {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
           </figure>

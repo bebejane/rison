@@ -9,7 +9,7 @@ const SectionManagementBlock = ({ block }) => (
       <figure>
         {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
       </figure>
-      <Reveal effect="fadeUp" distance={20} duration={1000} fade={0.1}>
+      <Reveal effect="fadeUp">
         <article>
           <p><strong>{block.name}</strong></p>
           <p>{block.title}</p>
