@@ -10,11 +10,11 @@
       margin-left: spanGridWithGutter(2);
       margin-right: spanGridWithGutter(2);
     }
-  }
 
-  @include mq($until: tablet) {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include mq($until: tablet) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
   }
 }
