@@ -58,7 +58,7 @@
 			padding-bottom: $space * 0.85;
 			&.floater {
 				top: 0;
-				transition: transform 0.3s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+				transition: transform 0.3s cubic-bezier(0.19, 0.92, 0, 1);
 				transform: translateY(0%);
 			}
 		}
@@ -105,7 +105,7 @@
 					flex-direction: column;
 					width: 100%;
 					justify-content: flex-start;
-					transition: transform 0.2s cubic-bezier(0.55, 0.08, 0.68, 0.53);
+					transition: transform 0.3s cubic-bezier(0.19, 0.92, 0, 1);
 					transform: translateX(100%);
 					a {
 						color: $white;
@@ -129,6 +129,13 @@
 		width: 100%;
 		text-align: center;
 		margin-bottom: 10vh;
+
+		a {
+			@include mq($until: tablet) {
+				color: $beige !important;
+				line-height: 1.5;
+			}
+		}
 	}
 
 	.logo {

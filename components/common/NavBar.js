@@ -61,11 +61,15 @@ export default function NavBar({ menu, contact, pathname }) {
 	});
 	useEffect(() => windowWidth < scrollBreakpoint && setScrollStyles({}), [windowWidth]) // Fix resize bug
 
+	const handleClick = (e) => {
+		setShowMobileMenu(false);
+	}
+
 	return (
 		<nav className={cn(styles.nav, showMobileMenu ? styles.showMobile : styles.hideMobile)} style={scrollStyles.nav} >
 			<div className={styles.menuWrapper}>
 				<div className={styles.logo}>
-					<Link href={`/`}>
+					<Link href={`/`} >
 						<a>
 							<span style={scrollStyles.r} alt='R'>R</span>
 							<span style={scrollStyles.i} alt='I'>I</span>
@@ -79,8 +83,8 @@ export default function NavBar({ menu, contact, pathname }) {
 					<ul className={styles.navItems}>
 						{menu.map((m, idx) => (
 							<li key={idx} className={cn(styles.navItem, `/${m.slug}` === pathname && styles.selected)}>
-								<Link href={`/${m.slug || ''}`}>
-									<a>{m.title}</a>
+								<Link href={`/${m.slug || ''}`} scroll={false}>
+									<a onClick={handleClick}>{m.title}</a>
 								</Link>
 							</li>
 						))}
@@ -89,11 +93,6 @@ export default function NavBar({ menu, contact, pathname }) {
 								Contact
 							</a>
 						</li>
-						<div className={styles.contactFooter}>
-							<a href="mailto:info@rison.com">info@rison.com</a>
-							<br />
-							<a href="tel://0046031223300">+46 (0) 31 223 300</a>
-						</div>
 					</ul>
 					<button className={styles.contact} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })}>
 						Contact us

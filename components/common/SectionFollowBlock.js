@@ -13,7 +13,7 @@ const SectionFollowBlock = ({ block, odd }) => {
 	return (
 		<div className={cn(styles.wrapper)} ref={ref}>
 			<article>
-				<Reveal effect="fadeUp" distance={20} duration={1000} fade={0.1}>
+				<Reveal effect="fadeUp">
 					<h3 className="tight">{block.shortHeadline}</h3>
 					<h2 className="tight">{block.headline}</h2>
 					<p><Markdown>{block.text}</Markdown></p>

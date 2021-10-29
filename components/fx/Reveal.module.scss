@@ -2,6 +2,15 @@ $duration: 1s;
 $delay : .3s;
 $easing: cubic-bezier(.17,.67,.44,1.16);
 
+.fade {
+  opacity: 0;
+  animation: fade $duration cubic-bezier(.17,.67,.44,1.16) $delay forwards;
+  @keyframes fade {
+    to{
+      opacity: 1;
+    }
+  }
+}
 .fadeUp {
   opacity: 0;
   transform: translateY(50px);

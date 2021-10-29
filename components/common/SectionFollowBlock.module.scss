@@ -49,7 +49,6 @@
 
     &:nth-child(even) {
       article {
-        
         border-right: 1px solid $green;
         border-left: 0px solid $green;
       }
@@ -77,15 +76,18 @@
     h3 {
       padding-top: 0.2em;
     }
-    
   }
 
   figure {
-    mix-blend-mode: multiply;
-    padding-left: spanGrid(1);
-    padding-right: spanGrid(1);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: spanGrid(2);
+    padding-right: spanGrid(2);
 
     @include mq($from: tablet) {
+      padding-left: spanGrid(1);
+      padding-right: spanGrid(1);
+      padding-top: 1em;
       width: 50%;
     }
   }

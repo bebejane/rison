@@ -7,11 +7,10 @@ const SectionWho = React.forwardRef(({ blocks }, ref) => (
 
   <section className={styles.section} ref={ref}>
     <div className={styles.container}>
-
       <div className={styles.wrapper}>
         <h3>Who are you?</h3>
         {blocks.map((block, idx) =>
-          <SectionWhoBlock block={block} key={idx} odd={idx % 2 == 0} />
+          <SectionWhoBlock block={block} key={idx} index={idx} />
         )}
       </div>
     </div>

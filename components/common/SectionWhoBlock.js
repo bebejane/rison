@@ -4,10 +4,10 @@ import { Image } from 'react-datocms';
 import Markdown from "/components/common/Markdown";
 import Reveal from "components/fx/Reveal";
 
-const SectionWhoBlock = ({ block, odd }) => {
+const SectionWhoBlock = ({ block, index }) => {
   return (    
       <div className={styles.who} >
-        <Reveal effect="fadeUp" distance={20} duration={1000} fade={0.1}>
+        <Reveal effect="fadeUp" delay={index*200}>
           <figure>
             {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
           </figure>

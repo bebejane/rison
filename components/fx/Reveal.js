@@ -4,12 +4,17 @@ import cn from 'classnames'
 import useVisibility from "/lib/hooks/useVisibility";
 
 const effects = {
+  fade : {
+    duration : 2500,
+    fade: 0.0,
+    delay: 2.3
+  },
   fadeUp : {
-    duration : 1000,
+    duration : 1500,
     transform: 'translateY',
-    distance : 50,
+    distance : 5,
     direction : '+',
-    unit: 'px',
+    unit: 'vh',
     fade: 0.0,
     delay: 0.3
   },

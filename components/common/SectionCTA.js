@@ -10,7 +10,7 @@ const SectionCTA = ({ text }) => {
   return (
     <section className={styles.outro}>
       <div className={styles.wrapper} >
-        <Reveal effect="fadeUp" distance={20} duration={1000} fade={0.1}>
+        <Reveal effect="fade" duration={4000}>
           <h2>{text}</h2>
         </Reveal>
         <Button label={"Contact us"} onClick={() => setUI({ type: UIAction.SHOW_CONTACT })} />
