@@ -8,7 +8,7 @@ const SectionManagementBlock = ({ block, odd }) => (
       <figure>
         {block.image && <Image lazyLoad={false} data={block.image.responsiveImage} />}
       </figure>
-      <Reveal effect="fadeUp" delay={!odd ? 200 : 0}>
+      <Reveal effect="fadeUp" delay={!odd ? 300 : 0}>
         <article>
           <p><strong>{block.name}</strong></p>
           <p>{block.title}</p>
