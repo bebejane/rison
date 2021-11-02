@@ -4,7 +4,6 @@ import SectionWhoBlock from "/components/common/SectionWhoBlock";
 import { Image } from 'react-datocms';
 
 const SectionWho = React.forwardRef(({ blocks }, ref) => (
-
   <section className={styles.section} ref={ref}>
     <div className={styles.container}>
       <div className={styles.wrapper}>
