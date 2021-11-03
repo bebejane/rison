@@ -2,7 +2,6 @@ import React from "react";
 import styles from './SectionImageHeadlineBlock.module.scss'
 import { Image } from 'react-datocms';
 
-
 const SectionFollowBlock = ({ block }) => (
   <div className={styles.myDiv}>
     <article>
